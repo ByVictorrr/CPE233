@@ -1,0 +1,248 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Jan 11 09:01:59 2019
+# Process ID: 13753
+# Current directory: /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.runs/synth_1
+# Command line: vivado -log ProgRom.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ProgRom.tcl
+# Log file: /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.runs/synth_1/ProgRom.vds
+# Journal file: /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source ProgRom.tcl -notrace
+Command: synth_design -top ProgRom -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13759 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1232.102 ; gain = 78.793 ; free physical = 11966 ; free virtual = 17649
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ProgRom' [/home/victor/CPE233/RAT/RAT1/RAT1_Lab1/ProgRom.sv:21]
+INFO: [Synth 8-5534] Detected attribute (* rom_style = "{distributed | block}" *) [/home/victor/CPE233/RAT/RAT1/RAT1_Lab1/ProgRom.sv:28]
+INFO: [Synth 8-3876] $readmem data file 'part1.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/RAT1_Lab1/ProgRom.sv:32]
+INFO: [Synth 8-6155] done synthesizing module 'ProgRom' (1#1) [/home/victor/CPE233/RAT/RAT1/RAT1_Lab1/ProgRom.sv:21]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1276.727 ; gain = 123.418 ; free physical = 11976 ; free virtual = 17661
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1276.727 ; gain = 123.418 ; free physical = 11976 ; free virtual = 17661
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1284.730 ; gain = 131.422 ; free physical = 11975 ; free virtual = 17660
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "rom" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1292.738 ; gain = 139.430 ; free physical = 11966 ; free virtual = 17652
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               18 Bit    Registers := 1     
++---Muxes : 
+	   9 Input     18 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module ProgRom 
+Detailed RTL Component Info : 
++---Registers : 
+	               18 Bit    Registers := 1     
++---Muxes : 
+	   9 Input     18 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[9]
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[8]
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[7]
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[6]
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[5]
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[4]
+WARNING: [Synth 8-3331] design ProgRom has unconnected port PROG_ADDR[3]
+INFO: [Synth 8-3886] merging instance 'PROG_IR_reg[1]' (FD) to 'PROG_IR_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PROG_IR_reg[5]' (FD) to 'PROG_IR_reg[8]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PROG_IR_reg[7] )
+INFO: [Synth 8-3886] merging instance 'PROG_IR_reg[9]' (FD) to 'PROG_IR_reg[11]'
+INFO: [Synth 8-3886] merging instance 'PROG_IR_reg[10]' (FD) to 'PROG_IR_reg[12]'
+WARNING: [Synth 8-3332] Sequential element (PROG_IR_reg[7]) is unused and will be removed from module ProgRom.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11796 ; free virtual = 17502
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11796 ; free virtual = 17502
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT1 |     3|
+|3     |LUT2 |     4|
+|4     |LUT3 |     5|
+|5     |FDRE |    13|
+|6     |IBUF |     4|
+|7     |OBUF |    18|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    48|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11795 ; free virtual = 17501
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.082 ; gain = 247.773 ; free physical = 11797 ; free virtual = 17503
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1401.090 ; gain = 247.773 ; free physical = 11797 ; free virtual = 17503
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+19 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 1508.117 ; gain = 355.016 ; free physical = 11756 ; free virtual = 17475
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.runs/synth_1/ProgRom.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ProgRom_utilization_synth.rpt -pb ProgRom_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1532.129 ; gain = 0.000 ; free physical = 11757 ; free virtual = 17477
+INFO: [Common 17-206] Exiting Vivado at Fri Jan 11 09:02:25 2019...
