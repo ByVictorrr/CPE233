@@ -2,11 +2,11 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Jan 11 22:09:18 2019
-# Process ID: 376
+# Start of session at: Fri Jan 11 09:03:24 2019
+# Process ID: 14156
 # Current directory: /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim/xsim.dir/ProgRom_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv -mode batch -source /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim/xsim.dir/ProgRom_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim/xsim.dir/ProgRom_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+source /home/victor/CPE233/RAT/RAT1/RAT1_Lab1/RAT1_Lab1.sim/sim_1/behav/xsim/xsim.dir/ProgRom_behav/webtalk/xsim_webtalk.tcl -notrace

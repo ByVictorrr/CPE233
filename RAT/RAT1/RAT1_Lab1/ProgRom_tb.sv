@@ -33,14 +33,13 @@ module ProgRom_tb();
       );
   
  initial begin
-  PROG_CLK = 0;
+  PROG_CLK = 1;
   forever #5 PROG_CLK = ~PROG_CLK; //every 5ns clock changes period of 10ns
   end 
   
   initial begin
   // Initialize Inputs
   PROG_ADDR = 'h000;
-  PROG_IR = 'h00000;
   // Wait 100 ns for global reset to finish
    #10;
    PROG_ADDR = 'h001;
@@ -56,7 +55,7 @@ module ProgRom_tb();
    PROG_ADDR = 'h006;
    #10
    PROG_ADDR = 'h007;
-   #10
-
+   
+  end
 
 endmodule
