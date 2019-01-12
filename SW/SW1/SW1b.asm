@@ -17,8 +17,7 @@
 .ORG 0x01 
 
 main:		IN R0, IN_PORT
-		MOV R1, R0 ; R1 <-- R0 (res = X)
-		ADD R3, R2 ; R3 <-- R3 + R1 (res = res + Z)
-		OUT R3, OUT_PORT 
+		SUB R1, R0 ; R1 <-- R1 - R0 (res = 0 - X)
+		OUT R1, OUT_PORT 
 		
 
