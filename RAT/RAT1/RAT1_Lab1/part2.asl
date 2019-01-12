@@ -14,18 +14,28 @@ C5:  Raw line from source code.
 ----------------------------------------------------------------------
 
 
-(0001)                       016  || .EQU LED_PORT = 0x10               ; port for output
+(0001)                            || ;-----------------------------
 (0002)                            || .CSEG
-(0003)                       004  || .ORG         0x04                  ; code starts here
-(0004)                            ||         
-(0005)                            || 
-(0006)  CS-0x004  0x36A05  0x004  || main_loop:   MOV     R10,0x05
-(0007)  CS-0x005  0x36B64         ||              MOV     R11,0x64
-(0008)  CS-0x006  0x02A58         ||              ADD     R10,R11
-(0009)  CS-0x007  0x28A14         ||              ADD     R10,0x14
-(0010)  CS-0x008  0x05451         ||              MOV     R20,R10
-(0011)  CS-0x009  0x35410         ||              OUT     R20,LED_PORT
-(0012)  CS-0x00A  0x08020         ||              BRN     main_loop      ; endless loop
+(0003)                       064  || .ORG         0x040                  ; code starts here
+(0004)                            || 
+(0005)  CS-0x040  0x37DFC  0x040  || main_loop:   MOV     R29,  0xFC
+(0006)                            || 
+(0007)  CS-0x041  0x29D01         || 			ADD     R29, 0x01
+(0008)                            || 
+(0009)  CS-0x042  0x37EFA         ||              MOV     R30, 0xFA
+(0010)                            || 
+(0011)  CS-0x043  0x37F05         ||              MOV     R31, 0x05
+(0012)                            || 
+(0013)  CS-0x044  0x01EFA         ||              EXOR    R30, R31
+(0014)                            || 
+(0015)  CS-0x045  0x03EEA         || 			 SUB     R30, R29
+(0016)                            || 
+(0017)  CS-0x046  0x0820B         || 			 BRNE    0x41
+(0018)                            || 
+(0019)  CS-0x047  0x00000         || 			 AND     R0, R0
+(0020)                            || 
+(0021)  CS-0x048  0x08200         ||              BRN     main_loop      ; endless loop 
+(0022)                            || 
 
 
 
@@ -44,7 +54,7 @@ C4+: source code line number of where symbol is referenced
 
 -- Labels
 ------------------------------------------------------------ 
-MAIN_LOOP      0x004   (0006)  ||  0012 
+MAIN_LOOP      0x040   (0005)  ||  0021 
 
 
 -- Directives: .BYTE
@@ -54,7 +64,7 @@ MAIN_LOOP      0x004   (0006)  ||  0012
 
 -- Directives: .EQU
 ------------------------------------------------------------ 
-LED_PORT       0x010   (0001)  ||  0011 
+--> No ".EQU" directives used
 
 
 -- Directives: .DEF
