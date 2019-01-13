@@ -39,23 +39,24 @@ module ProgRom_tb();
   
   initial begin
   // Initialize Inputs
-  PROG_ADDR = 'h000;
+  PROG_ADDR = 'h040;
   // Wait 100 ns for global reset to finish
    #10;
-   PROG_ADDR = 'h001;
+   PROG_ADDR = 'h041;
    #10
-   PROG_ADDR = 'h002;
+   PROG_ADDR = 'h042;
    #10
-   PROG_ADDR = 'h003;
+   PROG_ADDR = 'h043;
    #10
-   PROG_ADDR = 'h004;
+   PROG_ADDR = 'h044;
    #10
-   PROG_ADDR = 'h005;
+   PROG_ADDR = 'h045;
    #10
-   PROG_ADDR = 'h006;
+   PROG_ADDR = 'h046;
    #10
-   PROG_ADDR = 'h007;
+   PROG_ADDR = 'h047;
    
+  
   end
 
 endmodule
