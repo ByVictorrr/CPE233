@@ -9,7 +9,7 @@ module main(
 	input [1:0] PC_MUX_SEL, 
 	input [9:0] FROM_IMMED, 
 	input [9:0] FROM_STACK,
-	output PC_COUNT [9:0]);
+	output reg PC_COUNT [9:0]);
 
 wire [9:0] DIN;
 
@@ -21,7 +21,7 @@ mux_4t1_nb #(.n(10)) MUX(
 	.D3(0),
 	.D_OUT(DIN));
 
-ProgCounter #(.(10))COUNTER(
+ProgCounter #(.n(10)) COUNTER(
 	.DIN(DIN),
 	.PC_LD(PC_LD),
 	.PC_INC(PC_INC),

@@ -29,13 +29,16 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module ProgCounter COUNTER(.DIN(),.PC_LD(),.PC_INC(),.RST(),.CLK(),.PC_COUNT());
-    input  CLK, RST, PC_INC, PC_LD; 
-    input  [n-1:0] DIN; 
-    output   reg [n-1:0] PC_COUNT; 
-
+module ProgCounter (DIN,PC_LD,PC_INC,RST,CLK,PC_COUNT);
+    
     //- default data-width 
     parameter n = 8; 
+    
+    input  CLK, RST, PC_INC, PC_LD; 
+    input  [n-1:0] DIN; 
+    output  reg [n-1:0] PC_COUNT; 
+
+    
     
     always @(posedge CLK)
     begin 
@@ -48,7 +51,7 @@ module ProgCounter COUNTER(.DIN(),.PC_LD(),.PC_INC(),.RST(),.CLK(),.PC_COUNT());
     end 
        
     
-    always @(count, up)
+    /*always @(count, up)
     begin 
        if ( up == 1 && &count == 1'b1)
           rco = 1'b1;
@@ -57,5 +60,5 @@ module ProgCounter COUNTER(.DIN(),.PC_LD(),.PC_INC(),.RST(),.CLK(),.PC_COUNT());
        else 
           rco <= 1'b0; 
     end
-    
+    */
 endmodule

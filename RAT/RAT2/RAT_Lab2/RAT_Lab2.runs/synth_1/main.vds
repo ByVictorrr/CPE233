@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Jan 15 00:54:01 2019
+# Process ID: 7811
+# Current directory: /home/victor/CPE233/RAT/RAT2/RAT_Lab2/RAT_Lab2.runs/synth_1
+# Command line: vivado -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file: /home/victor/CPE233/RAT/RAT2/RAT_Lab2/RAT_Lab2.runs/synth_1/main.vds
+# Journal file: /home/victor/CPE233/RAT/RAT2/RAT_Lab2/RAT_Lab2.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source main.tcl -notrace
+Command: synth_design -top main -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 7817 
+WARNING: [Synth 8-2490] overwriting previous definition of module mux_4t1_nb [/home/victor/CPE233/RAT/RAT2/./mux_4t1_nb.sv:35]
+WARNING: [Synth 8-2490] overwriting previous definition of module ProgCounter [/home/victor/CPE233/RAT/RAT2/./ProgCounter.sv:32]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1242.484 ; gain = 89.137 ; free physical = 846 ; free virtual = 14030
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'main' [/home/victor/CPE233/RAT/RAT2/main.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'mux_4t1_nb' [/home/victor/CPE233/RAT/RAT2/mux_4t1_nb.sv:35]
+	Parameter n bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_4t1_nb' (1#1) [/home/victor/CPE233/RAT/RAT2/mux_4t1_nb.sv:35]
+INFO: [Synth 8-6157] synthesizing module 'ProgCounter' [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:32]
+	Parameter n bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'ProgCounter' (2#1) [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:32]
+ERROR: [Synth 8-659] type mismatch in output port connection: bit A[9:0] vs. bit [9:0]B [/home/victor/CPE233/RAT/RAT2/main.sv:30]
+ERROR: [Synth 8-6156] failed synthesizing module 'main' [/home/victor/CPE233/RAT/RAT2/main.sv:4]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1269.734 ; gain = 116.387 ; free physical = 864 ; free virtual = 14048
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+7 Infos, 2 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Tue Jan 15 00:54:11 2019...
