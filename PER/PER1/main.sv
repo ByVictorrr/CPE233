@@ -1,18 +1,31 @@
 `include "./ClockDivider.sv"
 `include "./SW_DCDR_SCLK.sv"
-`include "/home/victor/CPE233/Modules/mux_4t1_nb.v"
+
+//////////////////////////////////////////////////////////////////////////////////
+//// Company: VAC
+//// Engineer: Victor Delaplaine, Crystal PrimaLang
+//// 
+//// Create Date: 1/14/2019 12:31:47 PM
+//// Design Name: 
+//// Module Name: main
+//// Project Name: PER 1
+//// Target Devices: Basy3
+//// Tool Versions: 
+/// Description: Takes an input that are 8 switches and ouputs the corresponding clock frequencies need to produce a given note. 
+//               This slower clock frequency is then set to a PMOD connection inputed to a speaker on a breadboard shown.
+//// Dependencies:  ClockDivider.sv, SW_DCDR_SCLK.sv
+//// 
+//// Revision:
+//// Revision 0.01 - File Created
+//// Additional Comments:
+//// 
+////////////////////////////////////////////////////////////////////////////////////
+//
+
 
 
 module main(input CLK, input [7:0]SW, output SCLK);
 
-//f_CLK_input = 100 MHz
-//
-// SW = {}
-//
-// frequency output should change if SWithes change
-
-//USE MUX that selects for differnt values of SW's to choose the frequency wanted.
-// Coming out of p-mod of basys3 board will go into breadboard
 
 wire [16:0] maxcount;
 
@@ -27,12 +40,7 @@ ClockDivider CLK_DIV(
     .maxcount(maxcount),
     .sclk(SCLK)  
     );
-    
-    
- 
-
-
-
+   
 
 
 endmodule
