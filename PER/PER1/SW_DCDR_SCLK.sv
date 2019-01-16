@@ -1,5 +1,51 @@
-module SW_DCDR_SCLK(input [7:0] SW, output reg [15:0] maxcount); //real means 64-bit floating number
+//////////////////////////////////////////////////////////////////////////////////
+//// Company: VAC
+//// Engineer: Victor Delaplaine, Crystal PrimaLang
+//// 
+//// Create Date: 1/14/2019 12:31:47 PM
+//// Design Name: 
+//// Module Name: SW_DCDR_SCLK
+//// Project Name: PER 1
+//// Target Devices: Basy3
+//// Tool Versions: 
+/// Description: Takes an input that are 8 switches and ouputs the corresponding signal maxcount that gives. 
+///               f_out = 50HMz/ maxcount, this maxcount corresponds to each number inputed on the switches.
+//// Dependencies: N/a
+//// 
+//// Revision:
+//// Revision 0.01 - File Created
+//// Additional Comments:
+//// 
+////////////////////////////////////////////////////////////////////////////////////
+//
 
+
+
+module main(input CLK, input [7:0]SW, output SCLK);
+
+
+wire [16:0] maxcount;
+
+SW_DCDR_SCLK mapper(// maps switches to output clk
+    .SW(SW), 
+    .maxcount(maxcount)
+    ); 
+    
+
+ClockDivider CLK_DIV(
+    .clk(CLK), 
+    .maxcount(maxcount),
+    .sclk(SCLK)  
+    );
+   
+
+
+endmodule
+
+
+
+
+module SW_DCDR_SCLK(input [7:0] SW, output reg [15:0] maxcount);
 
  always @(SW)
 
