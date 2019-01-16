@@ -3,7 +3,7 @@
 `include "/home/victor/CPE233/Modules/mux_4t1_nb.v"
 
 
-module tones(input CLK, input [7:0]SW, output SCLK);
+module main(input CLK, input [7:0]SW, output SCLK);
 
 //f_CLK_input = 100 MHz
 //

@@ -1,7 +1,7 @@
-module SW_DCDR_SCLK(input [7:0] SW, output real[15:0] maxcount); //real means 64-bit floating number
+module SW_DCDR_SCLK(input [7:0] SW, output reg [15:0] maxcount); //real means 64-bit floating number
 
 
- always @(x)
+ always @(SW)
 
     begin
     //cases for x
@@ -9,7 +9,7 @@ module SW_DCDR_SCLK(input [7:0] SW, output real[15:0] maxcount); //real means 64
         case(SW)
             //if no inputs
 	8'b00000000:
-		maxcount = 
+		maxcount = 0;
 	8'b00000001:
 		maxcount = 'hBAA2;
 	8'b00000010:
