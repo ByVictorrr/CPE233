@@ -1,5 +1,7 @@
 `include "./ClockDivider.sv"
+`include "./SW_DCDR_SCLK.sv"
 `include "/home/victor/CPE233/Modules/mux_4t1_nb.v"
+
 
 module tones(input CLK, input [7:0]SW, output SCLK);
 
@@ -14,7 +16,7 @@ module tones(input CLK, input [7:0]SW, output SCLK);
 
 wire [16:0] maxcount;
 
-SW_DCDR_SCLK(// maps switches to output clk
+SW_DCDR_SCLK mapper(// maps switches to output clk
     .SW(SW), 
     .maxcount(maxcount)
     ); 

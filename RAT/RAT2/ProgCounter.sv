@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:   Ratner Surf Designs
-// Engineer:  James Ratner
+// Company:   VANC
+// Engineer:  Victor Delaplaine and Crystal PrimaLang
 // 
 // Create Date: 07/04/2018 02:46:31 PM
 // Design Name: 
@@ -9,17 +9,8 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: Generic n-bit up/down counter with asynchronous reset. 
-//     This counter also has RCO that works for both up & down counting. 
-// 
-//      cntr_udclr_nb #(16) MY_CNTR (
-//          .clk   (my_clk), 
-//          .clr   (my_clr), 
-//          .up    (my_up), 
-//          .ld    (my_ld), 
-//          .D     (my_D), 
-//          .count (my_count), 
-//          .rco   (my_rco)   ); 
+// Description: Generic n-bit up Program counter with synchronous reset. 
+//  
 //
 // Dependencies: 
 // 
