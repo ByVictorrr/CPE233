@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Wed Jan 16 10:37:14 2019
-# Process ID: 17505
+# Start of session at: Thu Jan 17 00:05:18 2019
+# Process ID: 21506
 # Current directory: /home/victor/CPE233/PER/PER1/PER1/PER1.runs/synth_1
 # Command line: vivado -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: /home/victor/CPE233/PER/PER1/PER1/PER1.runs/synth_1/main.vds
