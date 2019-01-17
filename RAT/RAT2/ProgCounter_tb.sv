@@ -45,35 +45,55 @@ main UUT (
 );
   
 //emulate a clock pulse
-always
-    begin
-       #5
-       CLK = 0;
-       #5 
-       CLK = 1 
+
+    initial begin
+       forever #5 CLK = ~CLK;
      end
     
      
   
  initial begin
-  for (int i = 0; i< 1024; i++)
-    begin
-        if(PC_MUX_SEL == 3)
-            begin
-            end
-            else
-            begin
-            end
-            
-        	logic PC_LD;
-	logic PC_INC;
-	logic RST;
-	logic [1:0] PC_MUX_SEL;
-	logic [9:0] FROM_IMMED; 
-	logic [9:0] FROM_STACK;
-  end 
  
-   
+ PC_LD = 0;
+ CLK = 0;
+ RST = 1;
+ PC_MUX_SEL = 0;
+ PC_INC = 0;
+ FROM_IMMED = 1; //input 
+ FROM_STACK = 2; //input
+#10
+
+
+
+ 
+ //test 1 - test increment (# 10 PC_INC =1, #10 PC_INC = 0)
+ PC_INC = 1; 
+ #10 
+ PC_INC = 0;   
+ #10 
+    
+    
+ //test 2 - load = 1 (changing MUX_SEL)
+ PC_LD = 1;
+ 
+ 
+ 
+ PC_MUX_SEL = PC_MUX_SEL + 1; //SEL = 1
+ #10
+  PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 2
+ #10
+  PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
+ #10
+ 
+
+ 
+ 
+ //test 3 - RST = 1 (PC_LD = 1, PC_INC = 1)
+    PC_LD = 1;
+    PC_INC = 1;
+    RST = 1;
+    
+    
   
   end
 
