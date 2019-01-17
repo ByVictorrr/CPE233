@@ -1,11 +1,12 @@
 `timescale 1ns / 1ps
+`include "./main.sv"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
 // Create Date: 01/10/2019 02:51:47 PM
 // Design Name: 
-// Module Name: ProgRom_tb
+// Module Name: ProgCounter_tb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -22,39 +23,56 @@
 
 module ProgRom_tb();
 
- logic PROG_CLK;
- logic [9:0] PROG_ADDR;
- logic [17:0] PROG_IR;
- 
-  ProgRom UUT (
-      .PROG_CLK(PROG_CLK),
-      .PROG_ADDR(PROG_ADDR),
-      .PROG_IR(PROG_IR)
-      );
+ 	logic CLK;
+	logic PC_LD;
+	logic PC_INC;
+	logic RST;
+	logic [1:0] PC_MUX_SEL;
+	logic [9:0] FROM_IMMED; 
+	logic [9:0] FROM_STACK;
+	logic [9:0] PC_COUNT;
+	
+	
+main UUT (
+   	.CLK(CLK),
+	.PC_LD(PC_LD),
+	.PC_INC(PC_INC),
+	.RST(RST),
+	.PC_MUX_SEL(PC_MUX_SEL),
+	.FROM_IMMED(FROM_IMMED),
+	.FROM_STACK(FROM_STACK),
+	.PC_COUNT(PC_COUNT)
+);
+  
+//emulate a clock pulse
+always
+    begin
+       #5
+       CLK = 0;
+       #5 
+       CLK = 1 
+     end
+    
+     
   
  initial begin
-  PROG_CLK = 1;
-  forever #5 PROG_CLK = ~PROG_CLK; //every 5ns clock changes period of 10ns
+  for (int i = 0; i< 1024; i++)
+    begin
+        if(PC_MUX_SEL == 3)
+            begin
+            end
+            else
+            begin
+            end
+            
+        	logic PC_LD;
+	logic PC_INC;
+	logic RST;
+	logic [1:0] PC_MUX_SEL;
+	logic [9:0] FROM_IMMED; 
+	logic [9:0] FROM_STACK;
   end 
-  
-  initial begin
-  // Initialize Inputs
-  PROG_ADDR = 'h040;
-  // Wait 100 ns for global reset to finish
-   #10;
-   PROG_ADDR = 'h041;
-   #10
-   PROG_ADDR = 'h042;
-   #10
-   PROG_ADDR = 'h043;
-   #10
-   PROG_ADDR = 'h044;
-   #10
-   PROG_ADDR = 'h045;
-   #10
-   PROG_ADDR = 'h046;
-   #10
-   PROG_ADDR = 'h047;
+ 
    
   
   end

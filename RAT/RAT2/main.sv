@@ -9,7 +9,7 @@ module main(
 	input [1:0] PC_MUX_SEL, 
 	input [9:0] FROM_IMMED, 
 	input [9:0] FROM_STACK,
-	output reg PC_COUNT [9:0]);
+	output reg [9:0] PC_COUNT );
 
 wire [9:0] DIN;
 
