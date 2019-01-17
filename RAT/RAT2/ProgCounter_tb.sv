@@ -51,7 +51,6 @@ main UUT (
      end
     
      
-  
  initial begin
  
  PC_LD = 0;
@@ -59,7 +58,7 @@ main UUT (
  RST = 1;
  PC_MUX_SEL = 0;
  PC_INC = 0;
- FROM_IMMED = 1; //input 
+ FROM_IMMED = 3; //input 
  FROM_STACK = 2; //input
 #10
 
@@ -67,6 +66,7 @@ main UUT (
 
  
  //test 1 - test increment (# 10 PC_INC =1, #10 PC_INC = 0)
+ RST = 0;
  PC_INC = 1; 
  #10 
  PC_INC = 0;   
@@ -75,16 +75,15 @@ main UUT (
     
  //test 2 - load = 1 (changing MUX_SEL)
  PC_LD = 1;
- 
- 
- 
+  
  PC_MUX_SEL = PC_MUX_SEL + 1; //SEL = 1
  #10
   PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 2
  #10
   PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
  #10
- 
+ PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
+#10
 
  
  
