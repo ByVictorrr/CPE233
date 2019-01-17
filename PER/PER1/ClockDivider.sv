@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Bridget Benson 
+//Edited by Victor and Crystal
 // 
 // Create Date: 10/01/2018 10:22:13 AM
 // Description: Generic Clock Divider.  Divides the input clock by MAXCOUNT*2
@@ -20,7 +21,12 @@ module ClockDivider (
     always_ff @ (posedge clk)
     begin
         count = count + 1;
-        if (count == maxcount)
+        if (maxcount == 0)
+        begin
+                    
+                    sclk = 0;
+         end
+        else if (count == maxcount)
         begin
             count = 0;
             sclk = ~sclk;
