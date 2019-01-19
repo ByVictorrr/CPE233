@@ -33,7 +33,11 @@ module ProgRom_tb();
 	logic [9:0] PC_COUNT;
 	
 	
-main UUT (
+main UUT (dfj
+if dfdfddfdf
+
+
+dfj 
    	.CLK(CLK),
 	.PC_LD(PC_LD),
 	.PC_INC(PC_INC),
@@ -45,54 +49,35 @@ main UUT (
 );
   
 //emulate a clock pulse
-
-    initial begin
-       forever #5 CLK = ~CLK;
+always
+    begin
+       #5
+       CLK = 0;
+       #5 
+       CLK = 1 
      end
     
      
- initial begin
- 
- PC_LD = 0;
- CLK = 0;
- RST = 1;
- PC_MUX_SEL = 0;
- PC_INC = 0;
- FROM_IMMED = 3; //input 
- FROM_STACK = 2; //input
-#10
-
-
-
- 
- //test 1 - test increment (# 10 PC_INC =1, #10 PC_INC = 0)
- RST = 0;
- PC_INC = 1; 
- #10 
- PC_INC = 0;   
- #10 
-    
-    
- //test 2 - load = 1 (changing MUX_SEL)
- PC_LD = 1;
   
- PC_MUX_SEL = PC_MUX_SEL + 1; //SEL = 1
- #10
-  PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 2
- #10
-  PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
- #10
- PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
-#10
-
+ initial begin
+  for (int i = 0; i< 1024; i++)
+    begin
+        if(PC_MUX_SEL == 3)
+            begin
+            end
+            else
+            begin
+            end
+            
+        	logic PC_LD;
+	logic PC_INC;
+	logic RST;
+	logic [1:0] PC_MUX_SEL;
+	logic [9:0] FROM_IMMED; 
+	logic [9:0] FROM_STACK;
+  end 
  
- 
- //test 3 - RST = 1 (PC_LD = 1, PC_INC = 1)
-    PC_LD = 1;
-    PC_INC = 1;
-    RST = 1;
-    
-    
+   
   
   end
 
