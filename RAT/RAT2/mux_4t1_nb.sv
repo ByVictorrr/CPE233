@@ -23,10 +23,13 @@
 
 
    
- module mux_4t1_nb(SEL, D0, D1, D2, D3, D_OUT); 
-       input  [1:0] SEL; 
-       input  [n-1:0] D0, D1, D2, D3; 
-       output reg [n-1:0] D_OUT;  
+ module mux_4t1_nb(
+	 	input [3:0] SEL ,
+		input [n-1:0] D0, 
+		input [n-1:0] D1 , 
+		input [n-1:0] D2 , 
+		input [n-1:0] D3 , 
+		output reg [n-1:0] D_OUT); 
        
        parameter n = 8; 
         
