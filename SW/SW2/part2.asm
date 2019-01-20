@@ -33,6 +33,8 @@
 .ORG 0x01 
 
 main:		IN R0, IN_PORT
+
+
 		MOV R1, R0 ; make copy of X
 		AND R1, 0x03 ; masking (temp = temp &n 0x03 picking out 1's)
 		CMP R1, 0x00 ;( if R1 = 0000000..0 then div by 4)
@@ -45,20 +47,20 @@ main:		IN R0, IN_PORT
 		CLC
 		CMP R1, 0x01;
 		BREQ odd ; (z = 1)
-		XOR R1, 0xFF
-		BRNE output ;
+		SUB R0, 0x01 ; X=X-1
+		BRNE output 
 
-odd: 		ADD R0, 0x12 ; (X = X + 17)
+odd: 	ADD R0, 0x12 ; (X = X + 17)
 		CLC ; (clear carry flag)
 		LSR R0; 
 		BRNE output
 
 
 div4:		EXOR R0, 0xFF ;flip bits by using 111111111
-		BRNE output	
+			BRNE output	
 	
 
-output: 	OUT R0 ; output
+output: 	OUT R0, OUT_PORT ; output
 
 
 		
