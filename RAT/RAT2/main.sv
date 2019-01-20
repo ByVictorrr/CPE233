@@ -1,6 +1,29 @@
 `include "./mux_4t1_nb.sv"
 `include "./ProgCounter.sv"
 
+
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company:   VANC
+// Engineer:  Victor Delaplaine and Crystal PrimaLang
+// 
+// Create Date: 01/18/2019 02:46:31 PM
+// Design Name: 
+// Module Name: main
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: A program counter that has a selection of 3 inputs to load. 
+//  
+//
+// Dependencies:  mux_4t1_nb.sv, ProgCounter.sv
+// 
+// Revision:
+// Revision 1.00 - File Created (01-18-2019)
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 module main(
 	input CLK,
 	input PC_LD, 
