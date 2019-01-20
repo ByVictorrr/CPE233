@@ -1,35 +1,26 @@
+
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Ratner Surf Designs
-// Engineer: James Ratner
+// Company:   VANC
+// Engineer:  Victor Delaplaine and Crystal PrimaLang
 // 
-// Create Date: 10/23/2018 07:39:17 PM
+// Create Date: 01/18/2019 02:46:31 PM
 // Design Name: 
-// Module Name: mux_4t1_nb
+// Module Name: mux_4t_nb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: 4:1 MUX with parametized data widths
+// Description: A generic n-bit 4 to 1 mux. 
+//  
 //
-//  USEAGE: (for 4-bit data instantion)
-//
-//  mux_4t1_nb  #(.n(4)) my_4t1_mux  (
-//       .SEL   (my_sel), 
-//       .D0    (my_d0), 
-//       .D1    (my_d1), 
-//       .D2    (my_d2), 
-//       .D3    (my_d3),
-//       .D_OUT (my_d_out) );  
+// Dependencies:  n/a
 // 
-// Dependencies: 
-// 
-// Revision History:
-// Revision 0.01 - File Created: 10-23-2018
-//          1.01 - fixed default width error (10-28-2018)
-//
+// Revision:
+// Revision 1.00 - File Created (01-18-2019)
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+
 
    
  module mux_4t1_nb(SEL, D0, D1, D2, D3, D_OUT); 
