@@ -21,79 +21,45 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ProgRom_tb();
+module PC_W_MUX_Sim(    );
 
- 	logic CLK;
-	logic PC_LD;
-	logic PC_INC;
-	logic RST;
-	logic [1:0] PC_MUX_SEL;
-	logic [9:0] FROM_IMMED; 
-	logic [9:0] FROM_STACK;
-	logic [9:0] PC_COUNT;
-	
-	
-main UUT ( //unit under test
-   	.CLK(CLK),
-	.PC_LD(PC_LD),
-	.PC_INC(PC_INC),
-	.RST(RST),
-	.PC_MUX_SEL(PC_MUX_SEL),
-	.FROM_IMMED(FROM_IMMED),
-	.FROM_STACK(FROM_STACK),
-	.PC_COUNT(PC_COUNT)
-);
-  
-//emulate a clock pulse
+logic [9:0] FROM_IMMED, FROM_STACK,PC_COUNT;
+logic [1:0] SEL;
+logic  RST, LD, INC, CLK;
+int i;
 
-    initial begin
-       forever #5 CLK = ~CLK;
-     end
+PC_W_MUX PC_W_MUX_init(.*);
+
+always
+begin
+ CLK = 0; #5;
+ CLK = 1; #5;
+end
+
+initial 
+begin
+    FROM_IMMED = 0; FROM_STACK = 0;  SEL = 0;  RST = 0; LD = 0;  INC = 1;
+//Test if LD = 0 it increments
+    #10
+//Test if LD = 0 and inc = 0 it holds
+
+    INC = 0;
+    #10
+ //Test if LD = 1 it loads selector values
+    FROM_IMMED = 4; FROM_STACK = 5;  LD = 1;
     
-     
- initial begin
- 
- PC_LD = 0;
- CLK = 0;
- RST = 1;
- PC_MUX_SEL = 0;
- PC_INC = 0;
- FROM_IMMED = 3; //input 
- FROM_STACK = 2; //input
-#10
-
-
-
- 
- //test 1 - test increment (# 10 PC_INC =1, #10 PC_INC = 0)
- RST = 0;
- PC_INC = 1; 
- #10 
- PC_INC = 0;   
- #10 
-    
-    
- //test 2 - load = 1 (changing MUX_SEL)
- PC_LD = 1;
-  
- PC_MUX_SEL = PC_MUX_SEL + 1; //SEL = 1
- #10
-  PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 2
- #10
-  PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
- #10
- PC_MUX_SEL = PC_MUX_SEL + 1; // SEL = 3
-#10
-
- 
- 
- //test 3 - RST = 1 (PC_LD = 1, PC_INC = 1)
-    PC_LD = 1;
-    PC_INC = 1;
+    SEL = 0; 
+        #10
+    SEL = 1; 
+        #10
+    SEL = 2;
+        #10
+    SEL = 3;
+        #10
+    SEL = 2;
+        #10
+ //test the reset and make sure it takes president 
     RST = 1;
-    
-    
-  
-  end
+    end
 
 endmodule
