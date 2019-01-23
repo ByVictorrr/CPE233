@@ -7,14 +7,28 @@ module REG_FILE(
 	output [7:0] DX_OUT,
 	output [7:0] DY_OUT,
 		);
+//only x to write to 
 
+logic [7:0] memory [0:255];
 
-
-if(RF_WR == 0) //asynch read
+initial //runs one
 begin
-	DX_OUT = DIN;
-	DY_OUT = DIN;
+	for(int i = 0; i < 256; i++)
+	begin
+	memory[i] =0; //initalize all to zero
+	end
 end
-always(CLK)
+always_ff @ (posedge CLK)
+begin
+	if(RF_WR==1) //write to Address given
+	begin
+		memory[ADRX]=DIN;
+	end
+end
+
+//else if not RF_WR == 1 read file asynchronously
+	assign DX_OUT[ADRX] = memory[ADRX];
+	assign DY_OUT[ADRY] = memory[ADRY];
 
 endmodule
+
