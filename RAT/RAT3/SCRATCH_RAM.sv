@@ -7,7 +7,7 @@ module SCRATCH_RAM(
 		);
 //only x to write to 
 
-logic [9:0] memory [0:255];
+logic [9:0] memory [0:1023];
 
 initial //runs one
 begin
@@ -16,7 +16,6 @@ begin
 	memory[i] =0; //initalize all to zero
 	end
 end
-
 
 always_ff @ (posedge CLK)
 begin
