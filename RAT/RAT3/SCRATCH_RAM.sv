@@ -23,10 +23,10 @@ begin
 
 	if(SCR_WE == 1)
 		begin
-		memory[SCR_ADDR] = DIN;
+		memory[SCR_ADDR] <= DATA_IN;
 		end
 end
 
-assign DATA_OUT[SCR_ADDR] = memory[SCR_ADDR];
+assign DATA_OUT = memory[SCR_ADDR];
 
 endmodule
