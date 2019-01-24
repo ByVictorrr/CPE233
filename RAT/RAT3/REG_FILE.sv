@@ -10,11 +10,11 @@ module REG_FILE(
 		
 //only x to write to 
 
-logic [7:0] memory [0:255];
+logic [7:0] memory [0:32];
 
 initial //runs one
 begin
-	for(int i = 0; i < 256; i++)
+	for(int i = 0; i < 32; i++)
 	begin
 	memory[i] =0; //initalize all to zero
 	end
