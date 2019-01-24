@@ -48,6 +48,7 @@ begin
  //Test if LD = 1 it loads selector values
     FROM_IMMED = 4; FROM_STACK = 5;  LD = 1;
     
+<<<<<<< Updated upstream
     SEL = 0; 
         #10
     SEL = 1; 
@@ -61,5 +62,54 @@ begin
  //test the reset and make sure it takes president 
     RST = 1;
     end
+||||||| merged common ancestors
+     
+  
+ initial begin
+  for (int i = 0; i< 1024; i++)
+    begin
+        if(PC_MUX_SEL == 3)
+            begin
+            end
+            else
+            begin
+            end
+            
+        	logic PC_LD;
+	logic PC_INC;
+	logic RST;
+	logic [1:0] PC_MUX_SEL;
+	logic [9:0] FROM_IMMED; 
+	logic [9:0] FROM_STACK;
+  end 
+ 
+   
+  
+  end
+=======
+     
+  
+ initial begin
+ /* for (int i = 0; i< 1024; i++)
+    begin
+        if(PC_MUX_SEL == 3)
+            begin
+            end
+            else
+            begin
+            end
+            
+        	logic PC_LD;
+	logic PC_INC;
+	logic RST;
+	logic [1:0] PC_MUX_SEL;
+	logic [9:0] FROM_IMMED; 
+	logic [9:0] FROM_STACK;
+  end 
+ 
+   */
+  
+  end
+>>>>>>> Stashed changes
 
 endmodule

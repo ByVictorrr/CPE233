@@ -38,6 +38,7 @@ main:		IN R0, IN_PORT
 		MOV R1, R0 ; make copy of X
 		AND R1, 0x03 ; masking (temp = temp &n 0x03 picking out 1's)
 		CMP R1, 0x00 ;( if R1 = 0000000..0 then div by 4)
+		
 		BREQ div4 ; if(div by four) => jump to div4
 		
 		MOV R1, R0 ; R1=R0
