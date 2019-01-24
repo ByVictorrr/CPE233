@@ -50,7 +50,7 @@ initial begin
 //===============================================
 #5 //CLK = 1
 
-	for(int i = 0; i<1023; i++) begin
+	for(int i = 0; i<256; i++) begin
 		DATA_IN = i;
 		SCR_WE = 1;
 		SCR_ADDR = i;
@@ -59,7 +59,7 @@ initial begin
 	
 // make sure each reg[i] = i	
 #5 //CLK = 0
-	for(int i = 0; i<1023; i++) begin
+	for(int i = 0; i<256; i++) begin
         SCR_WE = 0;
         SCR_ADDR = i;
         #5; //read at times of 5ns
