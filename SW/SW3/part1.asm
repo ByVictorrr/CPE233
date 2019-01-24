@@ -39,6 +39,7 @@ main:		IN R0, IN_PORT ; X = IN_PORT
 
 loop1:		SUB R5, 1 ; count = count -1
 		CLC ; c = 0
+		
 		LSR R4 ; R4/2
 		BRNE loop1 ; if(z = 0){PC = loop1}else {PC = PC +1}
 		
