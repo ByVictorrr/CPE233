@@ -18,6 +18,7 @@ begin
 	memory[i] =0; //initalize all to zero
 	end
 end
+
 always_ff @ (posedge CLK)
 begin
 	if(RF_WR==1) //write to Address given
