@@ -18,60 +18,60 @@ initial begin
   end 
 
 initial begin
+//test 1 - check if each reg stores a zero
+//==============================================
+//CLK = 1
+    DIN=0;
+    RF_WR=0;
+	ADRX = 2; //arbitary
+	ADRY = 10; // aysnc read
 
-//test 1 - check if the aysnc read work - should read zero for ADRX, ADRY
-#5 //CLK = 0
+//==============================================
 
-	ADRY = 255; //arbitrary
-	ADRX = 100; //arbitary
-	RF_WR = 0; // aysnc read
 
-///////////DX_OUT and DY_OUT should equal zero //////////////////////////
-
-#5 
-
-// CLK=1
 
 //test 2 - check if the synch write works
+//==============================================
 #10	//CLK = 1
 
-	ADRX = 3;
-	ADRX = 5;
-	DIN = 255;
+	ADRX = 0'hFF;
+	DIN = 0'hFF;
 	RF_WR = 1; // test write control signal
 	
 #5 //CLK = 0
 
-//check if ADRX was written to
-	
+//check if SCR_ADDR was written to
+	ADRX = 0'hFF;
+	ADRY = 0'hFF;
 	RF_WR = 0;
+//=================================================
 
-///////////DX_OUT shoudl equal 255 and DY_OUT should equal zero //////////////////////////
 
 //test 3 - write to all the memory address
-
+//===============================================
 #5 //CLK = 1
 
-
-	for(int i = 0; i<256; i++) begin
+	for(int i = 0; i<32; i++) begin
 		DIN = i;
 		RF_WR = 1;
 		ADRX = i;
-
+		#10; //write to next spot i
 	end
-
-
-//print out written values	
-#5  //CLK = 0
-    
-for(int i = 0; i<256; i++) begin
-		ADRX = i;
-		ADRY = i;
-		RF_WR = 0;
-	end
-
+	
+// make sure each reg[i] = i	
+#5 //CLK = 0
+	for(int i = 0; i<32; i++) begin
+        RF_WR = 0;
+        ADRX = i;
+        ADRY = 32-i;
+        #5; //read at times of 5ns
+        end
+//=================================================    
 
 end
+
+
+
 
 
 
