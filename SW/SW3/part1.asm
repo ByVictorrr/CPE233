@@ -1,6 +1,6 @@
 j;--------------------------------------------------------------------
 ; Software Assignment 3.1
-; Author: Victor Delaplaine
+; Author: Victor Delaplaine and Crystal PrimaLang
 ; Date: 1/23/19
 ; Description : Reads a value from port 0x9a, this value is an 8 bit number (X).
 ;		X, is two 4-bit unsigned number X1(4MSB) and X2(4LSB).
@@ -20,12 +20,12 @@ j;--------------------------------------------------------------------
 
 .EQU IN_PORT = 0x9A
 .EQU OUT_PORT = 0x42
-.EQ COUNT = 4
+.EQU COUNT = 4
 
 .CSEG
 .ORG 0x01 
 
-main:		IN R0, IN_PORT ; X = IN_PORT
+main:	IN R0, IN_PORT ; X = IN_PORT
 		MOV R4, R0 ; temp = X
 		AND R4, 15 ; temp = temp & 0000 1111   
 		MOV R2, R4 ; X2 = temp = X & 0000 1111
@@ -33,27 +33,18 @@ main:		IN R0, IN_PORT ; X = IN_PORT
 		;get X1 - Higher bits
 		MOV R4, R0 ; temp = x	
 		AND R4, 240 ; temp = temp & 1111 0000
-   
-		;Shift right four times to get to LSB
-		MOV R5, COUNT
+		MOV R5, COUNT 	;Shift right four times to get to LSB
 
-loop1:		SUB R5, 1 ; count = count -1
-		CLC ; c = 0
-		
+loop1:  CLC ; c = 0
 		LSR R4 ; R4/2
+		SUB R5, 1 ; count = count -1
 		BRNE loop1 ; if(z = 0){PC = loop1}else {PC = PC +1}
-		
 		MOV R1, R4 ; X1= (X & 1111 0000)/8
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		BRN loop2
 		
-		;Step 3 - multiply X1*X2 = res
-		MOV R3, R1 ; res = X1
-		SUB R2, 1 ; X2 = X2 -1		
-
-loop2: 		SUB R2, 1 ; X2 = X2 - 1
-		ADD R3, R1; res = res + X1
+loop2: 	ADD R3, R1; res = res + X1
+		SUB R2, 1 ; X2 = X2 - 1
  		BRNE loop2 ;
 
 		
-output:		OUT R3, OUT_PORT ; (OUT_PORT = res)
-
+output:	OUT R3, OUT_PORT ; (OUT_PORT = res)
