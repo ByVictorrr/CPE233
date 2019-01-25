@@ -1,58 +1,50 @@
-j;--------------------------------------------------------------------
-; Software Assignment 3.1
+;--------------------------------------------------------------------
+; Software Assignment 3.2
 ; Author: Victor Delaplaine
 ; Date: 1/23/19
-; Description : Reads a value from port 0x9a, this value is an 8 bit number (X).
-;		X, is two 4-bit unsigned number X1(4MSB) and X2(4LSB).
-;		X1=X[7:4]
-;		X2=X[3:0]
-;		res = X1*X2
-;		Output res 
+; Description : Reads a value from port 0x9a, delays for .5s,
+;		Then outputs to the port 0x42
+;
 ;
 ; Register uses:
 ; R0 - reads in value X: (X)
-; R1 - holds higher 4 -bits of X: (X1)
-; R2 - holds lower 4 -bits of X: (X2)
-; R3 - holds the result (res)
-; R4 - temp value for masking: (temp)
-; R5 - loop counter: (count)
+; R1 - inner count variable  (C1)
+; R2 - middle count variable  (C2)
+; R3 - count variable  (C3)
+
 ;--------------------------------------------------------------------
 
 .EQU IN_PORT = 0x9A
 .EQU OUT_PORT = 0x42
-.EQ COUNT = 4
+
+.EQU COUNT_INNER = 108
+.EQU COUNT_MIDDLE = 232
+.EQU COUNT_OUTER = 246
+;N_inner = 5
+;N_middle = 3
+;N_outer = 2
+
 
 .CSEG
 .ORG 0x01 
 
 main:		IN R0, IN_PORT ; X = IN_PORT
-		MOV R4, R0 ; temp = X
-		AND R4, 15 ; temp = temp & 0000 1111   
-		MOV R2, R4 ; X2 = temp = X & 0000 1111
-		
-		;get X1 - Higher bits
-		MOV R4, R0 ; temp = x	
-		AND R4, 240 ; temp = temp & 1111 0000
-   
-		;Shift right four times to get to LSB
-		MOV R5, COUNT
+		MOV R1, COUNT_OUTER ; R1 = OUTER_COUNT
 
-loop1:		SUB R5, 1 ; count = count -1
-		CLC ; c = 0
-		LSR R4 ; R4/2
-		BRNE loop1 ; if(z = 0){PC = loop1}else {PC = PC +1}
+outer_loop:	MOV R2, COUNT_MIDDLE
+				
+ 	
+middle_loop:	MOV R3, COUNT_INNER
 		
-		MOV R1, R4 ; X1= (X & 1111 0000)/8
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+inner_loop:	SUB R3, 1 
+		CLC
+		CLC
+		CLC
+		BRNE inner_loop
 		
-		;Step 3 - multiply X1*X2 = res
-		MOV R3, R1 ; res = X1
-		SUB R2, 1 ; X2 = X2 -1		
-
-loop2: 		SUB R2, 1 ; X2 = X2 - 1
-		ADD R3, R1; res = res + X1
- 		BRNE loop2 ;
-
+		CLC
+		BRNE middle_loop
+		BRNE outer_loop
 		
-output:		OUT R3, OUT_PORT ; (OUT_PORT = res)
+output:		OUT R0, OUT_PORT ; (OUT_PORT = res)
 
