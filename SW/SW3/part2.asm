@@ -8,9 +8,9 @@
 ;
 ; Register uses:
 ; R0 - reads in value X: (X)
-; R1 - inner count variable  (C1)
+; R1 - outer count variable  (C1)
 ; R2 - middle count variable  (C2)
-; R3 - count variable  (C3)
+; R3 - inner count variable  (C3)
 
 ;--------------------------------------------------------------------
 
