@@ -17,7 +17,7 @@ C5:  Raw line from source code.
 (0001)                            || ; Software Assignment 3.1
             syntax error
 
-(0002)                            || ; Author: Victor Delaplaine
+(0002)                            || ; Author: Victor Delaplaine and Crystal PrimaLang
 (0003)                            || ; Date: 1/23/19
 (0004)                            || ; Description : Reads a value from port 0x9a, this value is an 8 bit number (X).
 (0005)                            || ;		X, is two 4-bit unsigned number X1(4MSB) and X2(4LSB).
@@ -57,14 +57,20 @@ C5:  Raw line from source code.
 (0039)  CS-0x00A  0x2C501         || 		SUB R5, 1 ; count = count -1
 (0040)  CS-0x00B  0x08043         || 		BRNE loop1 ; if(z = 0){PC = loop1}else {PC = PC +1}
 (0041)  CS-0x00C  0x04121         || 		MOV R1, R4 ; X1= (X & 1111 0000)/8
-(0042)  CS-0x00D  0x08070         || 		BRN loop2
-(0043)                            || 		
-(0044)  CS-0x00E  0x02308  0x00E  || loop2: 	ADD R3, R1; res = res + X1
-(0045)  CS-0x00F  0x2C201         || 		SUB R2, 1 ; X2 = X2 - 1
-(0046)  CS-0x010  0x08073         ||  		BRNE loop2 ;
-(0047)                            || 
-(0048)                            || 		
-(0049)  CS-0x011  0x34342  0x011  || output:	OUT R3, OUT_PORT ; (OUT_PORT = res)
+(0042)                            || 		
+(0043)                            || 		; check if X2 = 0
+(0044)  CS-0x00D  0x30200         || 		CMP R2, 0x00
+(0045)  CS-0x00E  0x08083         || 		BRNE loop2
+(0046)  CS-0x00F  0x08098         || 		BRN output
+(0047)                            || 		
+(0048)                            || 
+(0049)                            || 		
+(0050)  CS-0x010  0x02308  0x010  || loop2: 	ADD R3, R1; res = res + X1
+(0051)  CS-0x011  0x2C201         || 		SUB R2, 1 ; X2 = X2 - 1
+(0052)  CS-0x012  0x08083         ||  		BRNE loop2 ;
+(0053)                            || 
+(0054)                            || 		
+(0055)  CS-0x013  0x34342  0x013  || output:	OUT R3, OUT_PORT ; (OUT_PORT = res)
  = PC +1}
 
 
@@ -85,9 +91,9 @@ C4+: source code line number of where symbol is referenced
 -- Labels
 ------------------------------------------------------------ 
 LOOP1          0x008   (0037)  ||  0040 
-LOOP2          0x00E   (0044)  ||  0042 0046 
+LOOP2          0x010   (0050)  ||  0045 0052 
 MAIN           0x001   (0027)  ||  
-OUTPUT         0x011   (0049)  ||  
+OUTPUT         0x013   (0055)  ||  0046 
 
 
 -- Directives: .BYTE
@@ -99,7 +105,7 @@ OUTPUT         0x011   (0049)  ||
 ------------------------------------------------------------ 
 COUNT          0x004   (0022)  ||  0035 
 IN_PORT        0x09A   (0020)  ||  0027 
-OUT_PORT       0x042   (0021)  ||  0049 
+OUT_PORT       0x042   (0021)  ||  0055 
 
 
 -- Directives: .DEF

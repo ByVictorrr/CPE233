@@ -40,7 +40,13 @@ loop1:  CLC ; c = 0
 		SUB R5, 1 ; count = count -1
 		BRNE loop1 ; if(z = 0){PC = loop1}else {PC = PC +1}
 		MOV R1, R4 ; X1= (X & 1111 0000)/8
-		BRN loop2
+		
+		; check if X2 = 0
+		CMP R2, 0x00
+		BRNE loop2
+		BRN output
+		
+
 		
 loop2: 	ADD R3, R1; res = res + X1
 		SUB R2, 1 ; X2 = X2 - 1

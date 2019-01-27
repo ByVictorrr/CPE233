@@ -28,7 +28,7 @@
 .CSEG
 .ORG 0x01 
 
-main:		IN R0, IN_PORT ; X = IN_PORT
+main:	IN R0, IN_PORT ; X = IN_PORT
 		MOV R1, COUNT_OUTER ; R1 = OUTER_COUNT
 
 outer_loop:	MOV R2, COUNT_MIDDLE
