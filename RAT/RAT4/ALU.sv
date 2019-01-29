@@ -12,4 +12,8 @@ module ALU(
 );
 
 
+
+
+mux_16t1_nb MUX(.*);
+
 endmodule
