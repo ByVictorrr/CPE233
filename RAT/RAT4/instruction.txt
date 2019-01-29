@@ -1,0 +1,12 @@
+SW 4- division
+
+Learning Objectives: 
+To understand how to flowchart binary division operations.
+To understand how to perform binary division in assembly language programming.
+To gain experience using an assembly language simulator to analyze an assembly language program.
+
+Assignment:  
+1.)First create a flowchart that will perform the following behavior. Then implement the flowchart with RAT MCU assembly language. Make sure your code is in proper form including comments. Use the RAT MCU Simulator to ensure you program performs as desired.
+
+2.)Read a value from port_id 0x9A. Assume the input  is an 8-bit unsigned value. Divide the input by 3 and output the quotient (result) to port_id 0x42 and the remainder to port_id 0x43.
+Read two 8-bit unsigned values from port_id 0x9A. Divide the first value by the 2nd and output the quotient (result) to port_id 0x42 and the remainder to port_id 0x43.
