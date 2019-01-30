@@ -12,7 +12,10 @@ module ALU(
 
 logic [8:0] D_OUT; //for {CIN, RESULT}
 
-	//Mux 1
+
+
+
+//Mux 1
        always @(SEL, A, B, CIN)
        begin 
         if      (SEL == 0)  D_OUT = {1'b0, A}+{1'b0, B}; //ADD
@@ -31,16 +34,15 @@ logic [8:0] D_OUT; //for {CIN, RESULT}
 	else if (SEL == 13)  D_OUT = {A[0], CIN, CIN, A[7:2]}; //ASR
 	else if (SEL == 14)  D_OUT = {CIN, A}; //MOV
 	else if (SEL == 15)  D_OUT = 0; //unused
-        else                D_OUT = 0; 
+    else                D_OUT = 0; 
        
 	end
-	
+
 	
 	assign C = D_OUT[8];
 	assign RESULT = D_OUT[7:0]; // lower 7 bits
 
 	//Mux 2
-	
     always @(SEL, A, B, CIN)
     begin
 	if(D_OUT[7:0] == 8'b0000_0000) Z = 1;
