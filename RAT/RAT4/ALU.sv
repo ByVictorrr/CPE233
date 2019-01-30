@@ -6,7 +6,7 @@ module ALU(
 	input CIN,
 	output [7:0] RESULT,
 	output C,
-	output Z,
+	output reg Z
 	
 );
 
@@ -27,7 +27,7 @@ logic [8:0] D_OUT; //for {CIN, RESULT}
 	else if (SEL == 9)  D_OUT = {A[7], A[6:0], CIN}; //LSL
 	else if (SEL == 10)  D_OUT = {A[0],CIN, A[7:1]}; //LSR C = A[0] 
 	else if (SEL == 11)  D_OUT = {A[7],A[6:0],CIN}; //ROL
-	else if (SEL == 12)  D_OUT = {A[0],CIN,A[7:0]]}; // ROR
+	else if (SEL == 12)  D_OUT = {A[0],CIN, A[7:0]}; // ROR
 	else if (SEL == 13)  D_OUT = {A[0], CIN, CIN, A[7:2]}; //ASR
 	else if (SEL == 14)  D_OUT = {CIN, A}; //MOV
 	else if (SEL == 15)  D_OUT = 0; //unused
@@ -41,10 +41,10 @@ logic [8:0] D_OUT; //for {CIN, RESULT}
 
 	//Mux 2
 	
-       always @(SEL, A, B, CIN)
-       begin
+    always @(SEL, A, B, CIN)
+    begin
 	if(D_OUT[7:0] == 8'b0000_0000) Z = 1;
-	else Z=0
+	else Z=0;
 	end
 
 endmodule
