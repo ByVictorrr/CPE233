@@ -26,9 +26,9 @@ module ALU_tb();
 		A = 0;
 		B = 0;
 		CIN = 0;
-		RESULT = 0;
-		C = 0;
-		Z = 0;
+		//RESULT = 0;
+		//C = 0;
+		//Z = 0;
 	#10 //delay for 10ns after initalizing test vectors
 	
 	//Test 1:  ALL SEL values for A = 0x09
