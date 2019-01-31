@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Wed Jan 30 21:38:41 2019
+| Date         : Wed Jan 30 22:18:08 2019
 | Host         : TheShell running 64-bit unknown
 | Command      : report_utilization -file main_utilization_placed.rpt -pb main_utilization_placed.pb
 | Design       : main
@@ -67,9 +67,9 @@ Table of Contents
 +-------------------------------------------+------+-------+-----------+-------+
 |                 Site Type                 | Used | Fixed | Available | Util% |
 +-------------------------------------------+------+-------+-----------+-------+
-| Slice                                     |    8 |     0 |      8150 |  0.10 |
+| Slice                                     |    7 |     0 |      8150 |  0.09 |
 |   SLICEL                                  |    5 |     0 |           |       |
-|   SLICEM                                  |    3 |     0 |           |       |
+|   SLICEM                                  |    2 |     0 |           |       |
 | LUT as Logic                              |   27 |     0 |     20800 |  0.13 |
 |   using O5 output only                    |    0 |       |           |       |
 |   using O6 output only                    |   20 |       |           |       |
@@ -115,7 +115,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   10 |     9 |       106 |  9.43 |
+| Bonded IOB                  |   10 |    10 |       106 |  9.43 |
 |   IOB Master Pads           |    5 |       |           |       |
 |   IOB Slave Pads            |    5 |       |           |       |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
