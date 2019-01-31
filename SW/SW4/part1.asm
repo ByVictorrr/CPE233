@@ -18,7 +18,7 @@ j;--------------------------------------------------------------------
 .CSEG
 .ORG 0x01 
 
-main:		IN R0, IN_PORT ; X = IN_PORT
+main:	IN R0, IN_PORT ; X = IN_PORT
 		MOV R1, R0 ; R = X
 
 loop:		CMP R1, 0x03 ; R-3, if (C = 0 ){R >= 3}

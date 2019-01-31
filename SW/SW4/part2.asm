@@ -1,4 +1,4 @@
-j;--------------------------------------------------------------------
+;--------------------------------------------------------------------
 ; Software Assignment 4.2
 ; Author: Victor Delaplaine 
 ; Date: 1/23/19
@@ -19,18 +19,18 @@ j;--------------------------------------------------------------------
 .CSEG
 .ORG 0x01 
 
-main:		IN R0, IN_PORT ; X = IN_PORT
+main:   IN R0, IN_PORT ; X = IN_PORT
 		IN R1, IN_PORT ; y = IN_PORT
 		MOV R3, R0 ; R = X
 
 
-loop:		CMP R3,  ; R-Y, if (C = 0 ){R >= 3}
-		BRCC div3 ; if(C==0){PC=div}else{PC=PC+1}
+loop:	CMP R3,R1  ; R-Y, if (C = 0 ){R >= 3}
+		BRCC div ; if(C==0){PC=div}else{PC=PC+1}
 		BRN output		
 
-div:		SUB R3, R1 ; R=R-Y
+div:	SUB R3, R1 ; R=R-Y
 		ADD R2, 0x01 ; res=res+1	
-		BRN loop;
+		BRN loop 
 
 		
 output:		
