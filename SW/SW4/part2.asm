@@ -19,12 +19,15 @@
 .CSEG
 .ORG 0x01 
 
-main:   IN R0, IN_PORT ; X = IN_PORT
+main:   	IN R0, IN_PORT ; X = IN_PORT
 		IN R1, IN_PORT ; y = IN_PORT
 		MOV R3, R0 ; R = X
+		;is Y ==0 ?
+		CMP R1, 0x00 ; R1-0, if(R1-0 == 0){z ==1, implying R1 = 0}
+		BREQ output ;
 
 
-loop:	CMP R3,R1  ; R-Y, if (C = 0 ){R >= 3}
+loop:   	CMP R3,R1  ; R-Y, if (C = 0 ){R >= 3}
 		BRCC div ; if(C==0){PC=div}else{PC=PC+1}
 		BRN output		
 
