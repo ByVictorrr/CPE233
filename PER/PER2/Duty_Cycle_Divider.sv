@@ -31,7 +31,6 @@ module Duty_Cycle_Divider (
 	else if (SW < count) 
 	begin	
 	oCLK <=0;
-		//counter =0;
      end
              
     end
