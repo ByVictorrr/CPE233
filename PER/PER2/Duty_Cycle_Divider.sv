@@ -9,27 +9,30 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ClockDivider (
+module Duty_Cycle_Divider (
     input clk, 
-    input [15:0] maxcount,
-    output logic sclk = 0
+    input [7:0] SW,
+    output logic oCLK = 0
     
     );     
    
-    logic [15:0] count = 0;    
+    logic [7:0] count = 0;    
     
+
+
     always_ff @ (posedge clk)
     begin
         count = count + 1;
-        if (maxcount == 0)
-        begin       
-            sclk = 0;
-         end
-        else if (count == maxcount)
-        begin
-            count = 0;
-            sclk = ~sclk;
-        end
+        
+	//Test 1 - See if SW = 0 has been inputed -> if so oclk is zero
+    if (SW == 0) oCLK <= 0; 
+	//TEST 3 - when count is less than SW we turn oCLK high
+	else if (SW > count || SW == count ) oCLK <= 1;
+	else if (SW < count) 
+	begin	
+	oCLK <=0;
+		//counter =0;
+     end
              
     end
     

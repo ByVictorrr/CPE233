@@ -1,6 +1,4 @@
-`include "./ClockDivider.sv"
-`include "./SW_DCDR_SCLK.sv"
-
+`include "./Duty_Cycle_Divider.sv"
 //////////////////////////////////////////////////////////////////////////////////
 //// Company: VAC
 //// Engineer: Victor Delaplaine, Crystal PrimaLang
@@ -24,21 +22,14 @@
 
 
 
-module main(input CLK, input [7:0]SW, output SCLK);
+module main(input CLK, input [7:0]SW, output oCLK);
 
+ 
 
-wire [16:0] maxcount;
-
-SW_DCDR_SCLK mapper(// maps switches to output clk
-    .SW(), 
-    .maxcount(maxcount)
-    ); 
-    
-
-ClockDivider CLK_DIV(
+Duty_Cycle_Divider ins(
     .clk(CLK), 
-    .maxcount(maxcount),
-    .sclk(SCLK)  
+    .SW(SW),
+    .oCLK(oCLK)  
     );
    
 

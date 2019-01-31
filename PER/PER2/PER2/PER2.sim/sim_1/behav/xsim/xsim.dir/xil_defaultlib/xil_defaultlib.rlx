@@ -1,0 +1,8 @@
+0.6
+2018.2
+Jun 14 2018
+20:07:38
+/home/victor/CPE233/PER/PER2/Duty_Cycle_Divider.sv,1548911001,systemVerilog,,/home/victor/CPE233/PER/PER2/main.sv,,Duty_Cycle_Divider,,,,,,,,
+/home/victor/CPE233/PER/PER2/PER2/PER2.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
+/home/victor/CPE233/PER/PER2/main.sv,1548908246,systemVerilog,,/home/victor/CPE233/PER/PER2/main_tb.sv,/home/victor/CPE233/PER/PER2/Duty_Cycle_Divider.sv,main,,,,,,,,
+/home/victor/CPE233/PER/PER2/main_tb.sv,1548911081,systemVerilog,,,,main_tb,,,,,,,,
