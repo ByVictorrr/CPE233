@@ -9,7 +9,8 @@ module ALU_tb();
 	logic Z;
 
 //values for A
-logic [7:0] X [31:0] = {
+logic [7:0] X [33:0] = {
+
 'hAA,
 'h0A,
 'hFF,
@@ -24,6 +25,7 @@ logic [7:0] X [31:0] = {
 'h64,
 'hAA,
 'hFF,
+'hAA,
 'hAA,
 'h03,
 'hAA,
@@ -46,7 +48,8 @@ logic [7:0] X [31:0] = {
 };
 
 //Array for B values
-logic [7:0] Y [31:0] = {
+logic [7:0] Y [33:0] = {
+
 'hAA,
 'hA0,
 'h01,
@@ -69,6 +72,7 @@ logic [7:0] Y [31:0] = {
 'hAA,
 'hAA,
 'hAA,
+'hAA,
 'h12,
 'h33,
 'h43,
@@ -82,7 +86,8 @@ logic [7:0] Y [31:0] = {
 'h00
 };
 //For Cin
-logic W [31:0]={
+logic W [33:0]={
+
 0,
 1,
 0,
@@ -116,12 +121,13 @@ logic W [31:0]={
 0,
 0,
 0,
-1};
+1
+};
 
             ALU UUT(
                 .SEL(i),
-                .A(X[i]),
-                .B(B[i]),
+                .A(A),
+                .B(B),
                 .CIN(CIN),
                 .RESULT(RESULT),
                 .C(C),
@@ -141,41 +147,59 @@ logic W [31:0]={
 		//Z = 0;
 	#10 //delay for 10ns after initalizing test vectors
 	
-//================Test 1: ADD================================\\
+//================Test cases - all in one loop================================\\
 SEL = 0;
 
 
-		for(int i =0; i < 33 ; i++)
+		for(int i =0; i < 34 ; i++)
 		begin
 		case(i)
-		  //switch to ADD C
-		  0: SEL =0
-		  
-		 
+			0: SEL =0; //ADD
+			1: SEL =0; //ADD
+			2: SEL=0;  //ADD/
+			3: SEL =1; //ADDC
+			4: SEL =1; //ADDC
+			5: SEL=2; //SUB
+			6: SEL =2; //SUB
+			7: SEL =2; //SUB
+			8: SEL=3; //SUBC
+			9: SEL =3; //SUBC
+			10: SEL =3; //SUBC
+			11: SEL=3; //SUBC	
+			12: SEL =4; //CMP
+			13: SEL =4; //CMP
+			14: SEL = 4; //CMP
+			15: SEL =5; //AND
+			16: SEL = 5; //AND
+			17: SEL =6; //OR
+			18: SEL = 6; //OR
+			19: SEL= 7; //exor	
+			20: SEL =7; //exor
+			21: SEL =8; //TEST
+			22: SEL =8; //TEST
+			23: SEL =9; //LSL
+			24: SEL =10; //LSR
+			25: SEL = 10; //LSR 
+			26: SEL = 11; //ROL 
+			27: SEL = 11;  //ROL
+			28: SEL = 12; //ROR
+			29: SEL = 12; //ROR
+			30: SEL = 13; //ASR
+			31: SEL = 13; //ASR
+			32: SEL = 14; //MOV
+			33: SEL = 14; //MOV
+            default: SEL =0; //ADD
+		endcase
+
+
+		//new vars
 		  A = X[i];
 		  B = Y[i];
-		  Cin = W[i];
-
-
+		  CIN = W[i];
 		
-			
-			#10; //after
+		#10; //after
 		end
-
 end
-	//Test 2:  ALL SEL values for A = 0x09
-		A = 0'h9A;
-		B = 0'h02;
-		CIN = 1;
-
-		for(int i =0; i < 16 ; i++)
-		begin
-			SEL = i; //0(ADD),....15(NOTHING)
-			#10; //after
-		end
-
-
-	end
 
 
 endmodule
