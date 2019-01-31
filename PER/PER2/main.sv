@@ -30,7 +30,7 @@ module main(input CLK, input [7:0]SW, output SCLK);
 wire [16:0] maxcount;
 
 SW_DCDR_SCLK mapper(// maps switches to output clk
-    .SW(SW), 
+    .SW(), 
     .maxcount(maxcount)
     ); 
     
