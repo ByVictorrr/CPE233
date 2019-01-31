@@ -21,30 +21,6 @@
 
 
 
-module main(input CLK, input [7:0]SW, output SCLK);
-
-
-wire [16:0] maxcount;
-
-SW_DCDR_SCLK mapper(// maps switches to output clk
-    .SW(SW), 
-    .maxcount(maxcount)
-    ); 
-    
-
-ClockDivider CLK_DIV(
-    .clk(CLK), 
-    .maxcount(maxcount),
-    .sclk(SCLK)  
-    );
-   
-
-
-endmodule
-
-
-
-
 module SW_DCDR_SCLK(input [7:0] SW, output reg [15:0] maxcount);
 
  always @(SW)
