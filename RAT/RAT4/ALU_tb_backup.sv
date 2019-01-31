@@ -118,15 +118,17 @@ logic W [31:0]={
 0,
 1};
 
-            ALU UUT(
-                .SEL(i),
-                .A(X[i]),
-                .B(B[i]),
-                .CIN(CIN),
-                .RESULT(RESULT),
-                .C(C),
-                .Z(Z)
-            );
+
+
+	ALU UUT(
+		.SEL(SEL),
+		.A(A),
+		.B(B),
+		.CIN(CIN),
+		.RESULT(RESULT),
+		.C(C),
+		.Z(Z)
+	);
 
 
 	initial 
@@ -144,25 +146,12 @@ logic W [31:0]={
 //================Test 1: ADD================================\\
 SEL = 0;
 
-
-		for(int i =0; i < 33 ; i++)
+		for(int i =0; i <  ; i++)
 		begin
-		case(i)
-		  //switch to ADD C
-		  0: SEL =0
-		  
-		 
-		  A = X[i];
-		  B = Y[i];
-		  Cin = W[i];
-
-
-		
-			
+			; //0(ADD),....15(NOTHING)
 			#10; //after
 		end
 
-end
 	//Test 2:  ALL SEL values for A = 0x09
 		A = 0'h9A;
 		B = 0'h02;
