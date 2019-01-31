@@ -10,7 +10,6 @@ module ALU_tb();
 
 //values for A
 logic [7:0] X [33:0] = {
-
 'hAA,
 'h0A,
 'hFF,
@@ -49,7 +48,6 @@ logic [7:0] X [33:0] = {
 
 //Array for B values
 logic [7:0] Y [33:0] = {
-
 'hAA,
 'hA0,
 'h01,
@@ -125,7 +123,7 @@ logic W [33:0]={
 };
 
             ALU UUT(
-                .SEL(i),
+                .SEL(SEL),
                 .A(A),
                 .B(B),
                 .CIN(CIN),
@@ -137,22 +135,19 @@ logic W [33:0]={
 
 	initial 
 	begin
-	//Initalize test vectors
-		SEL = 0;
-		A = 0;
-		B = 0;
-		CIN = 0;
-		//RESULT = 0;
-		//C = 0;
-		//Z = 0;
-	#10 //delay for 10ns after initalizing test vectors
+	
 	
 //================Test cases - all in one loop================================\\
-SEL = 0;
 
 
 		for(int i =0; i < 34 ; i++)
 		begin
+		
+                //new vars
+                  A = X[33-i];
+                  B = Y[33-i];
+                  CIN = W[33-i];
+		
 		case(i)
 			0: SEL =0; //ADD
 			1: SEL =0; //ADD
@@ -191,14 +186,9 @@ SEL = 0;
             default: SEL =0; //ADD
 		endcase
 
+#10;
 
-		//new vars
-		  A = X[i];
-		  B = Y[i];
-		  CIN = W[i];
-		
-		#10; //after
-		end
+	end
 end
 
 

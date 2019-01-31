@@ -4,19 +4,16 @@ module ALU(
 	input [7:0] A,
 	input [7:0] B,
 	input CIN,
-	output reg [7:0] RESULT,
-	output reg C,
-	output reg Z
+	output logic [7:0] RESULT,
+	output logic C,
+	output logic Z
 	
 );
 
 logic [8:0] D_OUT; //for {CIN, RESULT}
 
-
-
-
 //Mux 1
-       always @(SEL, A, B, CIN)
+       always_comb
        begin 
         if      (SEL == 0)  D_OUT = {1'b0, A}+{1'b0, B}; //ADD
         else if (SEL == 1)  D_OUT = {1'b0, A}+{1'b0, B}+{8'b0000_0000,CIN}; //ADDC
@@ -39,10 +36,10 @@ logic [8:0] D_OUT; //for {CIN, RESULT}
 
 	
 	//Mux 2
-    always @(SEL, A, B, CIN)
+    always_comb
     begin
-         C = D_OUT[8];
-        RESULT = D_OUT[7:0]; // lower 7 bits
+     C = D_OUT[8];
+     RESULT = D_OUT[7:0]; // lower 7 bits
 	if(D_OUT[7:0] == 8'b0000_0000) Z = 1;
 	else Z=0;
 	end
