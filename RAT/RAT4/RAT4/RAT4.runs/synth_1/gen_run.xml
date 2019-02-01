@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1548830620">
-  <File Type="RDS-UTIL-PB" Name="ALU_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="ALU_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="ALU_utilization_synth.pb"/>
   <File Type="RDS-RDS" Name="ALU.vds"/>
   <File Type="RDS-DCP" Name="ALU.dcp"/>
   <File Type="PA-TCL" Name="ALU.tcl"/>

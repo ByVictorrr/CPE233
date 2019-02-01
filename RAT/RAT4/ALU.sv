@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Engineer: Victor Delaplaine
+//
+// Create Date: 12/29/18 10:00:00 PM
+// Description: Varys the duty cycle of an input waveform for a given input SW. Also
+//                slows down the frequency of the input by 100Mhz/255 = 392.15kHz 
+//
+//////////////////////////////////////////////////////////////////////////////////
 
 module ALU(
 	input [3:0] SEL,
@@ -13,12 +21,12 @@ module ALU(
 logic [8:0] D_OUT; //for {CIN, RESULT}
 
 //Mux 1
-       always_comb
-       begin 
-        if      (SEL == 0)  D_OUT = {1'b0, A}+{1'b0, B}; //ADD
-        else if (SEL == 1)  D_OUT = {1'b0, A}+{1'b0, B}+{8'b0000_0000,CIN}; //ADDC
-        else if (SEL == 2)  D_OUT = {1'b0, A}-{1'b0, B}; //SUB
-        else if (SEL == 3)  D_OUT = {1'b0, A}-{1'b0, B}-{8'b0000_0000,CIN}; //SUBC
+    always_comb
+    begin 
+    if      (SEL == 0)  D_OUT = {1'b0, A}+{1'b0, B}; //ADD
+    else if (SEL == 1)  D_OUT = {1'b0, A}+{1'b0, B}+{8'b0000_0000,CIN}; //ADDC
+    else if (SEL == 2)  D_OUT = {1'b0, A}-{1'b0, B}; //SUB
+    else if (SEL == 3)  D_OUT = {1'b0, A}-{1'b0, B}-{8'b0000_0000,CIN}; //SUBC
 	else if (SEL == 4)  D_OUT = {1'b0, A}-{1'b0, B}; //CMP
 	else if (SEL == 5)  D_OUT = {1'b0, A}&{1'b0, B}; // AND
 	else if (SEL == 6)  D_OUT = {1'b0, A}|{1'b0, B}; // OR
