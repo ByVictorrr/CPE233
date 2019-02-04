@@ -34,15 +34,16 @@ module RAT_MCU(
 	output [7:0] PORT_ID;
 	output IO_STRB);
 
-	.
-ALU.sv
-CONTROL_UNIT.sv
-ProgCounter.sv
-ProgRom.sv
-RAT_MCU.sv
-REG_FILE.sv
-SCRATCH_RAM.sv
-	ALU alu(
-	);
+
+CONTROL_UNIT
+
+	
+	ProgCounter PC(.DIN(),.PC_LD(),.PC_INC(),.RST(),.CLK(),PC_COUNT());
+	ProgRom PROM();
+
+
+	REG_FILE
+SCRATCH_RAM
+ALU alu();
 endmodule
 
