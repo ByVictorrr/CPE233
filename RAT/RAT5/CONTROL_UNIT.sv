@@ -25,35 +25,46 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
+
 module CONTROL_UNIT(
-		input [4:0] OPCODE_HI_5,
-		input [1:0] OPCODE_LOW_2,
-		input INT,
-		input C_FLAG,
-		input Z_FLAG,
-		input RESET,
-		input CLK,
-		input I_SET,
-		input I_CLR,
-		
-		output I_SET,
-		output I_CLR,
-		output PC_LD,
-		output PC_INC,
-		output [1:0] PC_MUX_SEL,
+                input [4:0] OPCODE_HI_5,
+                input [1:0] OPCODE_LOW_2,
+                input INT,
+                input C_FLAG,
+                input Z_FLAG,
+                input RESET,
+                input CLK,
+                input I_SET,
+                input I_CLR,
+
+                output I_SET,
+                output I_CLR,
+                output PC_LD,
+                output PC_INC,
+                output [1:0] PC_MUX_SEL,
 
 
+                output [3:0] ALU_SEL,
+                output ALU_OPY_SEL,
+                output RF_WR,
+                output [1:0] RF_WR_SEL,
+                output SP_LD,
+                output SP_INCR,
+                output SP_DECR,
 
-		output PC_CTRL,
-		output [2:0] STACK_CTRL,
-		output [2:0] REG_FILE_CTRL,
-		output [4:0] ALU_CTRL,
-		output [3:0] SCR_CTRL,
-		output [5:0] FLAG_CTRL,
-		output RST
-	
-	);
-	
+                output SCR_WE,
+                output [1:0] SCR_ADDR_SEL,
+                output SCR_DATA_SEL,
+                output FLG_C_SET,
+                output FLG_C_LD,
+                output FLG_C_CLR,
+                output FLG_Z_LD,
+                output FLG_LD_SEL,
+                output FLG_SHAD_LD,
+                output RST
+
+        );
 
 	parameter n = 8; 
 	
