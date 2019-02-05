@@ -26,20 +26,33 @@
 
 
 module CONTROL_UNIT(
-		input [6:0] OPCODE,
+		input [4:0] OPCODE_HI_5,
+		input [1:0] OPCODE_LOW_2,
 		input INT,
-		input [1:0] FLAGS,
+		input C_FLAG,
+		input Z_FLAG,
 		input RESET,
-		input CLk,
-		output [1:0] INT_CTRL,
-		output [3:0] PC_CTRL,
+		input CLK,
+		input I_SET,
+		input I_CLR,
+		
+		output I_SET,
+		output I_CLR,
+		output PC_LD,
+		output PC_INC,
+		output [1:0] PC_MUX_SEL,
+
+
+
+		output PC_CTRL,
 		output [2:0] STACK_CTRL,
 		output [2:0] REG_FILE_CTRL,
 		output [4:0] ALU_CTRL,
 		output [3:0] SCR_CTRL,
 		output [5:0] FLAG_CTRL,
 		output RST
-		);
+	
+	);
 	
 
 	parameter n = 8; 
@@ -72,7 +85,7 @@ module CONTROL_UNIT(
           begin
              moore = 1;        
              if (x_in == 1)
-             begin
+            begin
                 mealy = 0;   
                 NS = st_A; 
              end  
