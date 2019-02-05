@@ -1,10 +1,5 @@
 /*
  * CONTROL_UNIT
- * Copyright (C) 2019 victor <victor@TheShell>
- *
- * Distributed under terms of the MIT license.
- */
-
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Victor Delaplaine
 // 
@@ -25,53 +20,46 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-
-
 module CONTROL_UNIT(
-                input [4:0] OPCODE_HI_5,
-                input [1:0] OPCODE_LOW_2,
-                input INT,
-                input C_FLAG,
-                input Z_FLAG,
-                input RESET,
-                input CLK,
-                input I_SET,
-                input I_CLR,
+		input [4:0] OPCODE_HI_5,
+		input [1:0] OPCODE_LOW_2,
+		input INT,
+		input C_FLAG,
+		input Z_FLAG,
+		input RESET,
+		input CLK,
+		input I_SET,
+		input I_CLR,
+		
+		output I_SET,
+		output I_CLR,
+		output PC_LD,
+		output PC_INC,
+		output [1:0] PC_MUX_SEL,
 
-                output I_SET,
-                output I_CLR,
-                output PC_LD,
-                output PC_INC,
-                output [1:0] PC_MUX_SEL,
 
 
-                output [3:0] ALU_SEL,
-                output ALU_OPY_SEL,
-                output RF_WR,
-                output [1:0] RF_WR_SEL,
-                output SP_LD,
-                output SP_INCR,
-                output SP_DECR,
-
-                output SCR_WE,
-                output [1:0] SCR_ADDR_SEL,
-                output SCR_DATA_SEL,
-                output FLG_C_SET,
-                output FLG_C_LD,
-                output FLG_C_CLR,
-                output FLG_Z_LD,
-                output FLG_LD_SEL,
-                output FLG_SHAD_LD,
-                output RST
-
-        );
-
-	parameter n = 8; 
+		output PC_CTRL,
+		output [2:0] STACK_CTRL,
+		output [2:0] REG_FILE_CTRL,
+		output [4:0] ALU_CTRL,
+		output [3:0] SCR_CTRL,
+		output [5:0] FLAG_CTRL,
+		output RST
 	
-	//state variables
-	logic [n-1:0] PS, NS;
-	//bit level state rep
-	parameter [n-1:0] st_A = 00, st_B = 00;
+	);
+	
+
+	logic [6:0] opcode;
+	assign opcode = {OPCODE_HI_5, OPCODE_LOW_2};
+	
+	typedef enum{ST_INIT, ST_FETCH, ST_EXEC}
+	STATE;
+	
+	STATE NS, PS = ST_INIT;
+	
+	 
+	
 
 
 
@@ -80,7 +68,7 @@ module CONTROL_UNIT(
 	always_ff @(posedge CLK)
 	begin
 		if(RESET == 1)	
-			PS <= st_A;
+			PS <= ST_INIT;
 		else
 			PS <= NS;
 			
@@ -88,50 +76,49 @@ module CONTROL_UNIT(
 
 	
 	//- model the next-state and output decoders
-    always @ (x_in,PS)
+    always_comb
     begin
-       mealy = 0; moore = 0; // assign all outputs
+       
+       
+       I_SET = 0;
+       I_CLR = 0;
+       PC_LD = 0;
+       PC_INC = 0;
+       PC_MUX_SEL = 0;
+       PC_CTRL = 0;
+       STACK_CTRL = 0;
+       REG_FILE_CTRL = 0;
+       ALU_CTRL = 0;
+       SCR_CTRL = 0;
+       FLAG_CTRL = 0;
+       RST = 0;
        case(PS)
-          st_A:
+          ST_INIT:
           begin
-             moore = 1;        
-             if (x_in == 1)
-            begin
-                mealy = 0;   
-                NS = st_A; 
-             end  
-             else
-             begin
-                mealy = 1; 
-                NS = st_B; 
-             end  
-          end
-          
-          st_B:
-             begin
-                moore = 0;
-                mealy = 1;
-                NS = st_C;
-             end   
-             
-          st_C:
-             begin
-                 moore = 1; 
-                 if (x_in == 1)
-                 begin
-                    mealy = 1; 
-                    NS = st_B; 
-                 end  
-                 else
-                 begin
-                    mealy = 0; 
-                    NS = st_A; 
-                 end  
-             end
-             
-          default: NS = st_A; 
+          RST = 1;
+          NS = ST_FETCH;
             
-          endcase
-      end  	
+      end
+        	
+      ST_FETCH: 
+      begin
+      PC_INC = 1;
+      NS = ST_EXEC;
+      end
+      ST_EXEC: 
+      begin
+      case(opcode)
+      //IN
+      7'b1100100, 7'b1100101, 7'b1100110, 7'b1100111:
+      begin
+      RF_WR_SEL = 3;
+      RF_WR = 1;
+      end
+      //MOV
+      
+      
+      default :
+      RST = 1; //never gets here
+      
+     endcase  
 endmodule
-
