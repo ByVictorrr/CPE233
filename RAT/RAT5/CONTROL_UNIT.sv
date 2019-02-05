@@ -1,23 +1,4 @@
-/*
- * CONTROL_UNIT
-//////////////////////////////////////////////////////////////////////////////////
-// Engineer: Victor Delaplaine
-// 
-// Create Date: 02/02/2019 22:45
-// Design Name: 
-// Module Name: CONTROL_UNIT
-// Project Name: 
-// Target Devices: Basy3 
-// Tool Versions: 
-// Description: 
-// 		
-// Dependencies: 
-// 
-// Revision:
-// Revision 1.00 - File Created (02-02-2019) 
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 
 
 module CONTROL_UNIT(
@@ -31,21 +12,31 @@ module CONTROL_UNIT(
 		input I_SET,
 		input I_CLR,
 		
-		output I_SET,
-		output I_CLR,
-		output PC_LD,
-		output PC_INC,
-		output [1:0] PC_MUX_SEL,
-
-
-
-		output PC_CTRL,
-		output [2:0] STACK_CTRL,
-		output [2:0] REG_FILE_CTRL,
-		output [4:0] ALU_CTRL,
-		output [3:0] SCR_CTRL,
-		output [5:0] FLAG_CTRL,
-		output RST
+	        output logic I_SET,                                                                                                                
+                output logic I_CLR,                                                                                                                
+                output logic PC_LD,                                                                                                                
+                output logic PC_INC,                                                                                                               
+                output logic [1:0] PC_MUX_SEL,                                                                                                     
+                                                                                                                                                   
+                                                                                                                                                   
+                output logic [3:0] ALU_SEL,                                                                                                        
+                output logic ALU_OPY_SEL,                                                                                                          
+                output logic RF_WR,                                                                                                                
+                output logic [1:0] RF_WR_SEL,                                                                                                      
+                output logic SP_LD,                                                                                                                
+                output logic SP_INCR,                                                                                                              
+                output logic SP_DECR,                                                                                                              
+                                                                                                                                                   
+                output logic SCR_WE,                                                                                                               
+                output logic [1:0] SCR_ADDR_SEL,                                                                                                   
+                output logic SCR_DATA_SEL,                                                                                                         
+                output logic FLG_C_SET,                                                                                                            
+                output logic FLG_C_LD,                                                                                                             
+                output logic FLG_C_CLR,                                                                                                            
+                output logic FLG_Z_LD,                                                                                                             
+                output logic FLG_LD_SEL,                                                                                                           
+                output logic FLG_SHAD_LD,                                                                                                          
+                output logic RST       
 	
 	);
 	
@@ -92,6 +83,8 @@ module CONTROL_UNIT(
        SCR_CTRL = 0;
        FLAG_CTRL = 0;
        RST = 0;
+	    
+	    
        case(PS)
           ST_INIT:
           begin
