@@ -10,23 +10,20 @@
 ;
 ;
 ; Register uses:
-; R0 - 
-; R1 - 
-; R2 - 
+; R0 - for incrementing (count) 
+; R1 - for lower number in the array (Lower)
+; R2 - for higher number in the array (Higher)
+; R3 - for lower numbers address in the array (Higher_ADDR)
+; R4 - for higher numbers address in the array (Lower_ADDR)
+; R5 - for the difference between higher and lower value (DIFF = Higher - Lower)
 ;--------------------------------------------------------------------
 .EQU OUT_PORT = 0x42  
 .EQU INC_ARR = 10 
 ;-----------------Data Segment-------------------------------------
 .DSEG
 .ORG 0x01;
-.DEF R_INC = R0
-.DEF R_LOWER = R1 
-.DEF R_HIGER = R2
-.DEF R_LOWER_ADDR = R3
-.DEF R_HIGER_ADDR = R4
-.DEF R_DIFF = R5
 
-fib_seq: .DB 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233 
+fib_seq: .DB 0x00, 0x001, 0x01, 0x02, 0x03, 0x05, 0x08, 0x0d, 0x15, 0x22, 0x37, 0x59, 0x90, 0xe9 
 ;-------------------------------------------------------------------
 
 
@@ -34,26 +31,26 @@ fib_seq: .DB 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233
 .CSEG
 .ORG 0x1D
 
-main: 	MOV R_INC, INC_ARR ; initalizing R_INC = 10
+main: 	MOV R0, INC_ARR ; initalizing R0 = 10
 	
    ;address initalization of arary
-	MOV R_LOWER_ADDR, fib_seq ; R_LOWER = address array[0]
-	MOV R_HIGHER_ADDR, R_LOWER_ADDR ; 
-	ADD R_HIGHER_ADDR, 3 ; R= 
+	MOV R4, fib_seq ; R1 = address array[0]
+	MOV R3, R4 ; 
+	ADD R3, 3 ; R= 
 	
 	;Values at the location of address
-	LD R_LOWER, R_LOWER_ADDR ; from sctach mem to reg
-	LD R_HIGHER, R_HIGHER_ADDR ; from sctach mem to reg
+	LD R1, R4 ; from sctach mem to reg
+	LD R2, R3 ; from sctach mem to reg
 
-diff:   SUB R_HIGHER, R_LOWER ; differnce
-	MOV R_DIFF, R_HIGHER
-	SUB R_INC, 1 ; decremen	
+diff:   SUB R2, R1 ; differnce
+	MOV R_DIFF, R2
+	SUB R0, 1 ; decremen	
 	BRNE output  ; branch only if z != 0	
 	BRN main  
 	
 output: OUT R_DIFF
-	ADD R_LOWER_ADDR, 1 ; incrment array address
-	ADD R_HIGHER_ADDR, 1 ; incrment array adres
+	ADD R4, 1 ; incrment array address
+	ADD R3, 1 ; incrment array adres
 	BRN diff
 
  
