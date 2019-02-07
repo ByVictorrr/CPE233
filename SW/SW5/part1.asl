@@ -26,34 +26,27 @@ C5:  Raw line from source code.
 (0010)                            || ;
 (0011)                            || ;
 (0012)                            || ; Register uses:
-(0013)                            || ; R0 - 
-(0014)                            || ; R1 - 
-(0015)                            || ; R2 - 
-(0016)                            || ;--------------------------------------------------------------------
-(0017)                       066  || .EQU OUT_PORT = 0x42  
-(0018)                       007  || .EQU INC_ARR = 7 
-(0019)                            || 
-(0020)                            || ;--------------REG DEF--------------------------------------------
-(0021)                       r0   || .DEF R_INC = R0
-(0022)                       r1   || .DEF R_LOWER = R1 
-(0023)                       r2   || .DEF R_HIGHER = R2
-(0024)                       r3   || .DEF R_LOWER_ADDR = R3
-(0025)                       r4   || .DEF R_HIGHER_ADDR = R4
-(0026)                       r5   || .DEF R_DIFF = R5
-(0027)                            || ;-----------------Data Segment-------------------------------------
-(0028)                            || .DSEG
-(0029)                       001  || .ORG 0x01;
-(0030)                            || 
-(0031)                            || 
-(0032)                            || 
-(0033)  DS-0x001             00E  || fib_seq: .DB 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233 
-(0034)                            || ;-------------------------------------------------------------------
-(0035)                            || 
-(0036)                            || 
-(0037)                            || ;--------------------Code Segment --------------------------------
-(0038)                            || .CSEG
-(0039)                       029  || .ORG 0x1D
-(0040)                            || 
+(0013)                            || ; R0 - for incrementing (count) 
+(0014)                            || ; R1 - for lower number in the array (Lower)
+(0015)                            || ; R2 - for higher number in the array (Higher)
+(0016)                            || ; R3 - for lower numbers address in the array (Higher_ADDR)
+(0017)                            || ; R4 - for higher numbers address in the array (Lower_ADDR)
+(0018)                            || ; R5 - for the difference between higher and lower value (DIFF = Higher - Lower)
+(0019)                            || ;--------------------------------------------------------------------
+(0020)                       066  || .EQU OUT_PORT = 0x42  
+(0021)                       011  || .EQU INC_ARR = 11 
+(0022)                            || ;-----------------Data Segment-------------------------------------
+(0023)                            || .DSEG
+(0024)                       001  || .ORG 0x01;
+(0025)                            || 
+(0026)  DS-0x001             00E  || fib_seq: .DB 0x00, 0x01, 0x01, 0x02, 0x03, 0x05, 0x08, 0x0d, 0x15, 0x22, 0x37, 0x59, 0x90, 0xe9 
+(0027)                            || ;-------------------------------------------------------------------
+(0028)                            || 
+(0029)                            || 
+(0030)                            || ;--------------------Code Segment --------------------------------
+(0031)                            || .CSEG
+(0032)                       029  || .ORG 0x1D
+(0033)                            || 
 -------------------------------------------------------------------------------------------
 -STUP-  CS-0x000  0x36000  0x000  ||              MOV     r0,0x00     ; write dseg data to reg
 -STUP-  CS-0x001  0x3A001  0x001  ||              LD      r0,0x01     ; place reg data in mem 
@@ -85,37 +78,31 @@ C5:  Raw line from source code.
 -STUP-  CS-0x01B  0x3A00E  0x00E  ||              LD      r0,0x0E     ; place reg data in mem 
 -STUP-  CS-0x01C  0x080E8  0x100  ||              BRN     0x1D        ; jump to start of .cseg in program mem 
 -------------------------------------------------------------------------------------------
-(0041)  CS-0x01D  0x36007  0x01D  || main: 	MOV R_INC, INC_ARR ; initalizing R_INC = 10
-(0042)                            || 	
-(0043)                            ||    ;address initalization of arary
-(0044)  CS-0x01E  0x3630F         || 	MOV R3, fib_seq ; R_LOWER = address array[0]
-(0045)  CS-0x01F  0x04419         || 	MOV R4, R3 ; get same value then add 3 
-(0046)  CS-0x020  0x28403         || 	ADD R4, 3 ; R= 
-(0047)                            || 
-(0048)                     0x021  || diff:	
-(0049)                            || 		LD R_LOWER, R3; from sctach mem to reg
-            syntax error
-
-(0050)                            || 		LD R_HIGHER, R4; from sctach mem to reg
-            syntax error
-
-(0051)  CS-0x021  0x0220A         || 		SUB R_HIGHER, R_LOWER ; differnce
+(0034)  CS-0x01D  0x3600B  0x01D  || main: 	MOV R0, INC_ARR ; initalizing R0 = 10
+(0035)                            || 	
+(0036)                            ||    ;address initalization of arary
+(0037)  CS-0x01E  0x36401         || 	MOV R4, 1 ; R1 = address array[0]
+(0038)  CS-0x01F  0x04321         || 	MOV R3, R4 ; 
+(0039)  CS-0x020  0x28303         || 	ADD R3, 3 ; R= 
+(0040)                            || 	
+(0041)                            || 	
+(0042)                     0x021  || diff:	
+(0043)                            || 	;Values at the location of address
+(0044)  CS-0x021  0x04122         || 	LD R1, (R4) ; from sctach mem to reg
+(0045)  CS-0x022  0x0421A         || 	LD R2, (R3) ; from sctach mem to reg
+(0046)                            || 
+(0047)  CS-0x023  0x0220A         ||     SUB R2, R1 ; differnce
+(0048)  CS-0x024  0x04511         || 	MOV R5, R2
+(0049)  CS-0x025  0x2C001         || 	SUB R0, 1 ; decremen	
+(0050)  CS-0x026  0x08143         || 	BRNE output  ; branch only if z != 0	
+(0051)  CS-0x027  0x08160         || 	BRN done  
 (0052)                            || 	
-(0053)  CS-0x022  0x04511         || 	MOV R_DIFF, R_HIGHER
-(0054)                            || 	
-(0055)  CS-0x023  0x2C001         || 	SUB R_INC, 1 ; decremen	
-(0056)  CS-0x024  0x08133         || 	BRNE output  ; branch only if z != 0	
-(0057)  CS-0x025  0x080E8         || 	BRN main  
-(0058)                            || 	
-(0059)                     0x026  || output: 
-(0060)                            || 	OUT R_DIFF, OUT_PORT
-            syntax error
-
-(0061)  CS-0x026  0x28301         || 	ADD R3, 1 ; incrment array address
-(0062)  CS-0x027  0x28401         || 	ADD R4, 1 ; incrment array adres
-(0063)  CS-0x028  0x08108         || 	BRN diff
-(0064)                            || 
-(0065)                            ||  
+(0053)  CS-0x028  0x34542  0x028  || output: OUT R5, OUT_PORT
+(0054)  CS-0x029  0x28401         || 	ADD R4, 1 ; incrment array address
+(0055)  CS-0x02A  0x28301         || 	ADD R3, 1 ; incrment array adres
+(0056)  CS-0x02B  0x08108         || 	BRN diff
+(0057)                            || 
+(0058)  CS-0x02C  0x18000  0x02C  ||  done: CLC
 
 
 
@@ -134,9 +121,10 @@ C4+: source code line number of where symbol is referenced
 
 -- Labels
 ------------------------------------------------------------ 
-DIFF           0x021   (0048)  ||  0063 
-MAIN           0x01D   (0041)  ||  0057 
-OUTPUT         0x026   (0059)  ||  0056 
+DIFF           0x021   (0042)  ||  0056 
+DONE           0x02C   (0058)  ||  0051 
+MAIN           0x01D   (0034)  ||  
+OUTPUT         0x028   (0053)  ||  0050 
 
 
 -- Directives: .BYTE
@@ -146,20 +134,15 @@ OUTPUT         0x026   (0059)  ||  0056
 
 -- Directives: .EQU
 ------------------------------------------------------------ 
-INC_ARR        0x007   (0018)  ||  0041 
-OUT_PORT       0x042   (0017)  ||  
+INC_ARR        0x00B   (0021)  ||  0034 
+OUT_PORT       0x042   (0020)  ||  0053 
 
 
 -- Directives: .DEF
 ------------------------------------------------------------ 
-R_DIFF           r5    (0026)  ||  0053 
-R_HIGHER         r2    (0023)  ||  0051 0053 
-R_HIGHER_ADDR    r4    (0025)  ||  
-R_INC            r0    (0021)  ||  0041 0055 
-R_LOWER          r1    (0022)  ||  0051 
-R_LOWER_ADDR     r3    (0024)  ||  
+--> No ".DEF" directives used
 
 
 -- Directives: .DB
 ------------------------------------------------------------ 
-FIB_SEQ        0x00F   (0033)  ||  0044 
+FIB_SEQ        0x00F   (0026)  ||  

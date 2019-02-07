@@ -18,12 +18,12 @@
 ; R5 - for the difference between higher and lower value (DIFF = Higher - Lower)
 ;--------------------------------------------------------------------
 .EQU OUT_PORT = 0x42  
-.EQU INC_ARR = 10 
+.EQU INC_ARR = 11 
 ;-----------------Data Segment-------------------------------------
 .DSEG
 .ORG 0x01;
 
-fib_seq: .DB 0x00, 0x001, 0x01, 0x02, 0x03, 0x05, 0x08, 0x0d, 0x15, 0x22, 0x37, 0x59, 0x90, 0xe9 
+fib_seq: .DB 0x00, 0x01, 0x01, 0x02, 0x03, 0x05, 0x08, 0x0d, 0x15, 0x22, 0x37, 0x59, 0x90, 0xe9 
 ;-------------------------------------------------------------------
 
 
@@ -34,23 +34,25 @@ fib_seq: .DB 0x00, 0x001, 0x01, 0x02, 0x03, 0x05, 0x08, 0x0d, 0x15, 0x22, 0x37, 
 main: 	MOV R0, INC_ARR ; initalizing R0 = 10
 	
    ;address initalization of arary
-	MOV R4, fib_seq ; R1 = address array[0]
+	MOV R4, 1 ; R1 = address array[0]
 	MOV R3, R4 ; 
 	ADD R3, 3 ; R= 
 	
+	
+diff:	
 	;Values at the location of address
-	LD R1, R4 ; from sctach mem to reg
-	LD R2, R3 ; from sctach mem to reg
+	LD R1, (R4) ; from sctach mem to reg
+	LD R2, (R3) ; from sctach mem to reg
 
-diff:   SUB R2, R1 ; differnce
-	MOV R_DIFF, R2
+    SUB R2, R1 ; differnce
+	MOV R5, R2
 	SUB R0, 1 ; decremen	
 	BRNE output  ; branch only if z != 0	
-	BRN main  
+	BRN done  
 	
-output: OUT R_DIFF
+output: OUT R5, OUT_PORT
 	ADD R4, 1 ; incrment array address
 	ADD R3, 1 ; incrment array adres
 	BRN diff
 
- 
+ done: CLC
