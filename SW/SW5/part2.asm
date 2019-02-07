@@ -2,12 +2,10 @@
 ; Software Assignment .1
 ; Author: Victor Delaplaine
 ; Date: 2019-02-03
-; Description : Create an array in the data segment (1..n=14) fib seq
-;		Iterate through array and calc diff between values that
-;		are three spots aways from eachother.
-;		When no value is availble to subtract dont subtract.
-;		For each differnce output to port 0x42
-;
+; Description : inputted 10 values to an array from port_id 0x9A,
+;		After the 10th value has been saved, the array
+;		should be sorted from leaste to greatest.
+;		The sorted array should be ouput to port_id 0x42 in order least to greatest.
 ;
 ; Register uses:
 ; R0 - 

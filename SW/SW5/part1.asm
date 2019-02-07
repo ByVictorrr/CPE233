@@ -41,16 +41,38 @@ main: 	MOV R0, INC_ARR ; initalizing R0 = 10
 	
 diff:	
 	;Values at the location of address
+<<<<<<< Updated upstream
 	LD R1, (R4) ; from sctach mem to reg
 	LD R2, (R3) ; from sctach mem to reg
+||||||| merged common ancestors
+	LD R1, R4 ; from sctach mem to reg
+	LD R2, R3 ; from sctach mem to reg
+=======
+diff:	LD R1, (R4) ; from sctach mem to reg
+	LD R2, (R3) ; from sctach mem to reg
+>>>>>>> Stashed changes
 
+<<<<<<< Updated upstream
     SUB R2, R1 ; differnce
 	MOV R5, R2
+||||||| merged common ancestors
+diff:   SUB R2, R1 ; differnce
+	MOV R_DIFF, R2
+=======
+	SUB R2, R1 ; differnce
+	MOV R5, R2
+>>>>>>> Stashed changes
 	SUB R0, 1 ; decremen	
 	BRNE output  ; branch only if z != 0	
 	BRN done  
 	
+<<<<<<< Updated upstream
 output: OUT R5, OUT_PORT
+||||||| merged common ancestors
+output: OUT R_DIFF
+=======
+output: OUT R5
+>>>>>>> Stashed changes
 	ADD R4, 1 ; incrment array address
 	ADD R3, 1 ; incrment array adres
 	BRN diff

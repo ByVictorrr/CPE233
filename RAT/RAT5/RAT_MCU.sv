@@ -39,11 +39,9 @@ CONTROL_UNIT
 
 	
 	ProgCounter PC(.DIN(),.PC_LD(),.PC_INC(),.RST(),.CLK(),PC_COUNT());
-	ProgRom PROM();
-
-
+	rogRom PROM();
 	REG_FILE
-SCRATCH_RAM
-ALU alu();
+	SCRATCH_RAM
+	ALU alu();
 endmodule
 
