@@ -8,9 +8,13 @@
 ;		The sorted array should be ouput to port_id 0x42 in order least to greatest.
 ;
 ; Register uses:
-; R0 - 
-; R1 - 
-; R2 - 
+; R0 - input_count 
+; R1 - inner count
+; R2 - outer count
+; R3 - ADDR for inner count arr[i]
+; R4 - ADDR for inner count + 1 ( arr[i+1[)
+; R5 - temp
+; R 
 ;--------------------------------------------------------------------
 .EQU OUT_PORT = 0x42  
 .EQU INC_ARR = 10 
@@ -42,7 +46,7 @@ main: 	MOV R_INC, INC_ARR ; initalizing R_INC = 10
 	MOV R_HIGHER_ADDR, R_LOWER_ADDR ; 
 	ADD R_HIGHER_ADDR, 3 ; R= 
 	
-	;Values at the location of address
+	;Values at the location of addre
 	LD R_LOWER, R_LOWER_ADDR ; from sctach mem to reg
 	LD R_HIGHER, R_HIGHER_ADDR ; from sctach mem to reg
 
