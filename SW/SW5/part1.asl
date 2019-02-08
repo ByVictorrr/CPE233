@@ -81,28 +81,33 @@ C5:  Raw line from source code.
 (0034)  CS-0x01D  0x3600B  0x01D  || main: 	MOV R0, INC_ARR ; initalizing R0 = 10
 (0035)                            || 	
 (0036)                            ||    ;address initalization of arary
-(0037)  CS-0x01E  0x36401         || 	MOV R4, 1 ; R1 = address array[0]
-(0038)  CS-0x01F  0x04321         || 	MOV R3, R4 ; 
-(0039)  CS-0x020  0x28303         || 	ADD R3, 3 ; R= 
+(0037)  CS-0x01E  0x36301         || 	MOV R3, 1 ; R1 = address array[1]
+(0038)  CS-0x01F  0x04419         || 	MOV R4, R3 ;
+(0039)  CS-0x020  0x28403         || 	ADD R4, 3 ; R= 
 (0040)                            || 	
 (0041)                            || 	
 (0042)                     0x021  || diff:	
 (0043)                            || 	;Values at the location of address
-(0044)  CS-0x021  0x04122         || 	LD R1, (R4) ; from sctach mem to reg
-(0045)  CS-0x022  0x0421A         || 	LD R2, (R3) ; from sctach mem to reg
-(0046)                            || 
-(0047)  CS-0x023  0x0220A         ||     SUB R2, R1 ; differnce
-(0048)  CS-0x024  0x04511         || 	MOV R5, R2
-(0049)  CS-0x025  0x2C001         || 	SUB R0, 1 ; decremen	
-(0050)  CS-0x026  0x08143         || 	BRNE output  ; branch only if z != 0	
-(0051)  CS-0x027  0x08160         || 	BRN done  
-(0052)                            || 	
-(0053)  CS-0x028  0x34542  0x028  || output: OUT R5, OUT_PORT
-(0054)  CS-0x029  0x28401         || 	ADD R4, 1 ; incrment array address
-(0055)  CS-0x02A  0x28301         || 	ADD R3, 1 ; incrment array adres
-(0056)  CS-0x02B  0x08108         || 	BRN diff
-(0057)                            || 
-(0058)  CS-0x02C  0x18000  0x02C  ||  done: CLC
+(0044)                            || 
+(0045)  CS-0x021  0x0411A         || 	LD R1, (R3) ; from sctach mem to reg (lower value)
+(0046)  CS-0x022  0x04222         || 	LD R2, (R4) ; from sctach mem to reg (higher value)
+(0047)                            || 	
+(0048)  CS-0x023  0x0220A         ||     SUB R2, R1 ; differnce
+(0049)  CS-0x024  0x04511         || 	MOV R5, R2
+(0050)                            || 
+(0051)                            || 
+(0052)  CS-0x025  0x2C001         || 	SUB R0, 1 ; decremen	
+(0053)  CS-0x026  0x08143         || 	BRNE output  ; branch only if z != 0	
+(0054)  CS-0x027  0x08160         || 	BRN done  
+(0055)                            || 	
+(0056)                            || 
+(0057)  CS-0x028  0x34542  0x028  || output: OUT R5, OUT_PORT
+(0058)                            || 
+(0059)  CS-0x029  0x28401         || 	ADD R4, 1 ; incrment array address
+(0060)  CS-0x02A  0x28301         || 	ADD R3, 1 ; incrment array adres
+(0061)  CS-0x02B  0x08108         || 	BRN diff
+(0062)                            || 
+(0063)  CS-0x02C  0x18000  0x02C  ||  done: CLC
 
 
 
@@ -121,10 +126,10 @@ C4+: source code line number of where symbol is referenced
 
 -- Labels
 ------------------------------------------------------------ 
-DIFF           0x021   (0042)  ||  0056 
-DONE           0x02C   (0058)  ||  0051 
+DIFF           0x021   (0042)  ||  0061 
+DONE           0x02C   (0063)  ||  0054 
 MAIN           0x01D   (0034)  ||  
-OUTPUT         0x028   (0053)  ||  0050 
+OUTPUT         0x028   (0057)  ||  0053 
 
 
 -- Directives: .BYTE
@@ -135,7 +140,7 @@ OUTPUT         0x028   (0053)  ||  0050
 -- Directives: .EQU
 ------------------------------------------------------------ 
 INC_ARR        0x00B   (0021)  ||  0034 
-OUT_PORT       0x042   (0020)  ||  0053 
+OUT_PORT       0x042   (0020)  ||  0057 
 
 
 -- Directives: .DEF

@@ -33,15 +33,16 @@ fib_seq: .BYTE 10 ; declare 10 bytes at 0x01 ....0x0B
 .CSEG
 .ORG 0x1D
 
-main: 	R0, MOV  ; initalizing count_input = 10
+main: 
+	MOV R1, COUNT ; initalizing count_input = 10
 	MOV R3, 1 ; address three is stored into arr[10 - count_input]
 	
 ;read in 10 values and store in SCR from addrss 1 ... 11
 	
 input:  	
 	IN R6, OUT_PORT ; x = 10-count_input value
-        ST R3, R0 ; X = arr[10-count_input]	
-        ADD R3, 1 ; address = address + 1
+    ST R3, (R0) ; X = arr[10-count_input]	
+    ADD R3, 1 ; address = address + 1
 	SUB R0, 1 ; count_input = count_input - 1
 	BRNE input ; if(count_input-1 != 0){PC=input}else{PC=PC+1}
 
