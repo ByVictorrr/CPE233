@@ -58,9 +58,6 @@ module CONTROL_UNIT(
 	
 	STATE NS, PS = ST_INIT;
 	
-	 
-	
-
 
 
 	
@@ -77,9 +74,7 @@ module CONTROL_UNIT(
 	
 	//- model the next-state and output decoders
     always_comb
-    begin
-       
-       
+    begin       
        I_SET = 0;
        I_CLR = 0;
        PC_LD = 0;
@@ -143,6 +138,10 @@ module CONTROL_UNIT(
       
       default : RST = 1; //never gets here
       
-     endcase  
-     
+     endcase 
+
+    default : NS = ST_INIT; //never gets here
+
+   endcase 
+   end 
 endmodule
