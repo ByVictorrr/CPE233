@@ -1,6 +1,11 @@
-`include "~/CPE233/Modules/mux_2t1_nb.v"
-`include "~/CPE233/Modules/mux_4t1_nb.v"
-
+`include "~/CPE233/Modules/mux_2t1_nb.v"                                   
+`include "~/CPE233/Modules/mux_4t1_nb.v"                                   
+`include "./ALU.sv"                                                        
+`include "./CONTROL_UNIT.sv"                                               
+`include "./FLAGS.sv"                                                      
+`include "./ProgCounter.sv"                                                
+`include "./ProgRom.sv"                                                    
+`include "./REG_FILE.sv"  
 /*
  * RAT_MCU
  * Copyright (C) 2019 victor <victor@TheShell>
