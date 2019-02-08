@@ -1,17 +1,12 @@
-`include "~/CPE233/Modules/mux_2t1_nb.v"                                   
-`include "~/CPE233/Modules/mux_4t1_nb.v"                                   
+`include "/home/victor/CPE233/Modules/mux_2t1_nb.v"                                   
+`include "/home/victor/CPE233/Modules/mux_4t1_nb.v"                                   
 `include "./ALU.sv"                                                        
 `include "./CONTROL_UNIT.sv"                                               
 `include "./FLAGS.sv"                                                      
 `include "./ProgCounter.sv"                                                
 `include "./ProgRom.sv"                                                    
 `include "./REG_FILE.sv"  
-/*
- * RAT_MCU
- * Copyright (C) 2019 victor <victor@TheShell>
- *
- * Distributed under terms of the MIT license.
- */
+
 
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Victor Delaplaine
@@ -36,11 +31,12 @@
 module RAT_MCU(
 	input [7:0] IN_PORT,
 	input RESET,
-	input INT,
-	input CLK(CLK),
-	output [7:0] OUT_PORT,
-	output [7:0] PORT_ID;
-	output IO_STRB);
+	input INT_CU,
+	input CLK,
+	output logic [7:0] OUT_PORT = 0,
+	output logic [7:0] PORT_ID = 0,
+	output logic IO_STRB = 0
+	); 
 
 
 logic [17:0] PROG_IR;
@@ -63,12 +59,13 @@ logic PC_COUNT;
 logic [7:0] DY_OUT, DX_OUT;
 logic [7:0] B;
 logic [7:0] DIN_RF, RESULT;
+
 //========INFORMATION ABOUT NON USED PORTS TIED TO 0======\\
 //====Control unit======\\
 	CONTROL_UNIT CU(
 		.OPCODE_HI_5(PROG_IR[17:13]),
 		.OPCODE_LOW_2(PROG_IR[1:0]),
-		.INT_CU(0),
+		.INT_CU(INT_CU),
 		.C_FLAG(C_FLAG),
 		.Z_FLAG(Z_FLAG),
 		.RESET(RESET),
@@ -92,7 +89,7 @@ logic [7:0] DIN_RF, RESULT;
 		.FLG_C_LD(FLG_C_LD),
 		.FLG_Z_LD(FLG_Z_LD),
 		.FLG_LD_SEL(FLG_LD_SEL),
-	       	.FLG_SHAD_LD(0),
+	    .FLG_SHAD_LD(0),
 		.RST(RST),
 		.IO_STRB(IO_STRB) //unsure
 );
@@ -108,7 +105,7 @@ logic [7:0] DIN_RF, RESULT;
   
 	);
 
-	ProgCounter PC(
+	ProgCounter #(.n(10)) PC(
 		.DIN(DIN_PC),
 		.PC_LD(PC_LD),
 		.PC_INC(PC_INC),
@@ -141,7 +138,7 @@ logic [7:0] DIN_RF, RESULT;
 
 	mux_4t1_nb #(.n(8)) RF_DIN_INPUT(
 		.SEL(RF_WR_SEL), 
-      		.D0(RESULT), 
+      	.D0(RESULT), 
 		.D1(), //unsure
 		.D2(0), 
 		.D3(IN_PORT),

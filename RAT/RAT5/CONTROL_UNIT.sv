@@ -87,13 +87,16 @@ module CONTROL_UNIT(
        SCR_CTRL = 0;
        FLAG_CTRL = 0;
        RST = 0;
+       
        case(PS)
+       
           ST_INIT:
           begin
           RST = 1;
           NS = ST_FETCH;
             
-      end
+     
+ end
         	
       ST_FETCH: 
       begin
@@ -140,8 +143,9 @@ module CONTROL_UNIT(
       
      endcase 
 
-    default : NS = ST_INIT; //never gets here
+   // default : NS = ST_INIT; //never gets here
 
    endcase 
    end 
+   
 endmodule
