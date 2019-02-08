@@ -41,10 +41,17 @@ module RAT_MCU_tb();
               
               initial 
               begin
-              PORT_ID = 18'h32A20;               //IN    r10,SWITCH_PORT   ;SWITCH_PORT = 0xFF
+             
+             
+             IN_PORT = 10;
+             #20;
+             
+             RESET = 1;
+             
+             /* PORT_ID = 18'h32A20;               //IN    r10,SWITCH_PORT   ;SWITCH_PORT = 0xFF
               #20;
               
-              PORT_ID = 18'h36BFF;              // MOV   r11,0xFF 
+            PORT_ID = 18'h36BFF;              // MOV   r11,0xFF 
               #20;
               
               PORT_ID = 18'h11011;              // EXOR  r10,r11               
@@ -55,7 +62,7 @@ module RAT_MCU_tb();
               
               PORT_ID = 18'h11010;              // BRN   main 
               #20;
-              
+             */ 
              
               end 
           endmodule
