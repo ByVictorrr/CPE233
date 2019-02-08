@@ -1,5 +1,10 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
+"../../../../../ALU.sv" \
+"../../../../../CONTROL_UNIT.sv" \
+"../../../../../FLAGS.sv" \
+"../../../../../RAT_MCU.sv" \
+"../../../../../REG_FILE.sv" \
 "../../../../../RAT_MCU_tb.sv" \
 
 # compile glbl module

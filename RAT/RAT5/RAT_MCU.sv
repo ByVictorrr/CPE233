@@ -70,8 +70,8 @@ logic [7:0] DIN_RF, RESULT;
 		.Z_FLAG(Z_FLAG),
 		.RESET(RESET),
 		.CLK(CLK),		
-		.I_SET(0),
-		.I_CLR(0),
+		.I_SET(), //unused
+		.I_CLR(), //unused
 		.PC_LD(PC_LD),
 		.PC_INC(PC_INC),
 		.PC_MUX_SEL(PC_MUX_SEL),
@@ -79,17 +79,17 @@ logic [7:0] DIN_RF, RESULT;
 		.ALU_SEL(ALU_SEL),
 		.RF_WR(RF_WR),
 		.RF_WR_SEL(RF_WR_SEL),
-		.SP_LD(0),
-		.SP_INCR(0),
-		.SP_DECR(0),
-		.SCR_WE(0),
-		.SCR_ADDR_SEL(0),
+		.SP_LD(), //unused
+		.SP_INCR(), //unused
+		.SP_DECR(), //unused
+		.SCR_WE(), //unused
+		.SCR_ADDR_SEL(), //unused
 		.FLG_C_SET(FLG_C_SET),
 		.FLG_C_CLR(FLG_C_CLR),
 		.FLG_C_LD(FLG_C_LD),
 		.FLG_Z_LD(FLG_Z_LD),
 		.FLG_LD_SEL(FLG_LD_SEL),
-	    .FLG_SHAD_LD(0),
+	    .FLG_SHAD_LD(), //unused
 		.RST(RST),
 		.IO_STRB(IO_STRB) //unsure
 );
