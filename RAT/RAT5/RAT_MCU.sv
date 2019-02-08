@@ -126,15 +126,15 @@ logic [7:0] DIN_RF, RESULT;
 
 //===============start of  POWR house
 	FLAGS flag(
-		 CLK(CLK),
-		 FLG_C_SET(FLG_C_SET),
-		 FLG_C_LD(FLG_C_LD),
-		 C(C),
-		 FLG_C_CLR(FLG_C_CLR),
-		 FLG_Z_LD(FLG_Z_LD),
-		 Z(Z),
-		 C_FLAG(C_FLAG),
-		 Z_FLAG(Z_FLAG)
+		.CLK(CLK),
+		.FLG_C_SET(FLG_C_SET),
+		.FLG_C_LD(FLG_C_LD),
+		.C(C),
+		.FLG_C_CLR(FLG_C_CLR),
+		.FLG_Z_LD(FLG_Z_LD),
+		.Z(Z),
+		.C_FLAG(C_FLAG),
+		.Z_FLAG(Z_FLAG)
 	);
 
 
