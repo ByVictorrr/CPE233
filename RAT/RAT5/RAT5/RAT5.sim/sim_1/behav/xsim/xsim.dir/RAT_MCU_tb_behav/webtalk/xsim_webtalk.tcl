@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Fri Feb  8 14:54:26 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Fri Feb  8 23:22:37 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2258646" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,11 +14,11 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "288d341d-3ec1-45a9-afe2-23b661aac362" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "6bb3b9eba01e4e5588926ce085539fae" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "5" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "8" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "unknown" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "unknown" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz" -context "user_environment"
-webtalk_add_data -client project -key cpu_speed -value "3100.314 MHz" -context "user_environment"
+webtalk_add_data -client project -key cpu_speed -value "3100.574 MHz" -context "user_environment"
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "16.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
@@ -37,7 +37,7 @@ webtalk_add_data -client xsim -key Total_Nets -value "0" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Processes -value "85" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "12" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip unimacro_ver unisims_ver " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "1.35_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "195076_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3798744239 -regid "" -xml /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "1.38_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "195080_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 2688141542 -regid "" -xml /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/xsim.dir/RAT_MCU_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate
