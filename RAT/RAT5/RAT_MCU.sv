@@ -59,6 +59,7 @@ logic PC_COUNT;
 logic [7:0] DY_OUT, DX_OUT;
 logic [7:0] B;
 logic [7:0] DIN_RF, RESULT;
+logic 
 
 //========INFORMATION ABOUT NON USED PORTS TIED TO 0======\\
 //====Control unit======\\
