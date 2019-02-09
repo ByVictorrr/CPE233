@@ -3,6 +3,8 @@ sv xil_defaultlib  \
 "../../../../../ALU.sv" \
 "../../../../../CONTROL_UNIT.sv" \
 "../../../../../FLAGS.sv" \
+"../../../../../ProgCounter.sv" \
+"../../../../../ProgRom.sv" \
 "../../../../../RAT_MCU.sv" \
 "../../../../../REG_FILE.sv" \
 "../../../../../RAT_MCU_tb.sv" \
