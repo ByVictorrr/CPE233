@@ -1,9 +1,4 @@
-/*
- * CONTROL_UNIT_tb
- * Copyright (C) 2019 victor <victor@TheShell>
- *
- * Distributed under terms of the MIT license.
- */
+
 
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Victor Delaplaine
@@ -28,47 +23,53 @@
 module CONTROL_UNIT_tb();
 
 
-		logic [4:0] OPCODE_HI_5,
-		logic [1:0] OPCODE_LOW_2,
-		logic INT_CU,
-		logic C_FLAG,
-		logic Z_FLAG,
-		logic RESET,
-		logic CLK,	
-		 logic PC_LD,
-		 logic PC_INC,
-		 logic [1:0] PC_MUX_SEL,
-		 logic ALU_OPY_SEL,
-		 logic [3:0] ALU_SEL ,
-		 logic RF_WR,
-		 logic [1:0] RF_WR_SEL,
-        	 logic FLG_C_SET,
-        	 logic FLG_C_CLR,
-        	 logic FLG_C_LD,
-        	 logic FLG_Z_LD,
-		 logic RST,
-		 logic IO_STRB
+		logic [4:0] OPCODE_HI_5;
+		logic [1:0] OPCODE_LOW_2;
+		logic INT_CU;
+		logic C_FLAG;
+		logic Z_FLAG;
+		logic RESET;
+		logic CLK;	
+		 logic PC_LD;
+		 logic PC_INC;
+		 logic [1:0] PC_MUX_SEL;
+		 logic ALU_OPY_SEL;
+		 logic [3:0] ALU_SEL ;
+		 logic RF_WR;
+		 logic [1:0] RF_WR_SEL;
+        	 logic FLG_C_SET;
+        	 logic FLG_C_CLR;
+        	 logic FLG_C_LD;
+        	 logic FLG_Z_LD;
+		 logic RST;
+		logic IO_STRB;
 		
 	CONTROL_UNIT UUT(.*);
 
 
 	initial begin
 	CLK = 1;
-	always CLK = ~ CLK;
+	forever # 5 CLK = ~ CLK;
 	end	
 
 	initial begin //actual test
 //initalize firstj
-	 	OPCODE_HI_5=0;
-		 OPCODE_LOW_2=0;
-		 INT_CU=0;
-		 C_FLAG=0;
-		 Z_FLAG=0;
-		 RESET=0;
-		 CLK=0;	
 		
+
 //TEST 1 - test the OPCODE 
-# 10 
-	       OPCODE_HI_5 =  
+# 10 //test mov reg 
+		OPCODE_HI_5 =  2'b000_10; // should output 
+		OPCODE_LOW_2 = 2'b01; //
+		//should output ALU_OPY_SEL = 0;
+# 10 //test mov immedaite 
+		OPCODE_HI_5 =  2'b000_10; // should output 
+		OPCODE_LOW_2 = 2'b00; //
+		//should output ALU_OPY_SEL = 1;
+#10 //test EXOR	
+		OPCODE_HI_5 =  2'b000_00; // should output 
+		OPCODE_LOW_2 = 2'b00; 
+		//should ouput ALU_OPY_SEL = 0
+end
+		 	
 endmodule
 

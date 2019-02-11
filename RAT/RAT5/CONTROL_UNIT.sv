@@ -44,7 +44,7 @@ module CONTROL_UNIT(
 		output logic PC_INC,
 		output logic [1:0] PC_MUX_SEL,
 		output logic ALU_OPY_SEL,
-		output logic [3:0] ALU_SEL ,
+		output logic [3:0] ALU_SEL,
 		output logic RF_WR,
 		output logic [1:0] RF_WR_SEL,
         	output logic FLG_C_SET,
@@ -53,113 +53,115 @@ module CONTROL_UNIT(
         	output logic FLG_Z_LD,
 		output logic RST,
 		output logic IO_STRB
-		
-	
-	);
-	
-	//wire from PROGROM
-	logic [6:0] opcode;
+);
 
-	assign opcode = {OPCODE_HI_5, OPCODE_LOW_2};
+
+	typedef enum {ST_INIT, ST_FETCH, ST_EXEC} STATE; //creating a new data set
 	
-	typedef enum{ST_INIT, ST_FETCH, ST_EXEC} STATE; //Defining a new type
-	
-	STATE NS, PS = ST_INIT; 
-	
-	//state register	
-	always_ff @(posedge CLK)
-	begin
-		if(RESET == 1)	
+	STATE NS, PS = ST_INIT; //initalizing states
+
+	//modeling state register
+	always_ff @ (posedge CLK)
+	begin 
+		if(RESET == 1)
+		begin
 			PS <= ST_INIT;
+		end
 		else
 			PS <= NS;
-			
+
 	end
+		
+	//OUTPUT and NS DECODER
+	always_comb
+	begin
+	//initalize all outputs to zero	
+		 PC_LD=0;
+		 PC_INC=0;
+		 PC_MUX_SEL=0;
+		 ALU_OPY_SEL=0;
+		 ALU_SEL =0;
+		 RF_WR=0;
+		 RF_WR_SEL=0;
+        	 FLG_C_SET=0;
+        	 FLG_C_CLR=0;
+        	 FLG_C_LD=0;
+        	 FLG_Z_LD=0;
+		 RST=0;
+		 IO_STRB=0;
 
-	
-	//- model the next-state and output decoders
-    always_comb
-    begin
- 
-      //initalizing outputs
-      PC_MUX_SEL = 0;
-      ALU_OPY_SEL = 0;
-      ALU_SEL = 0;
-      RF_WR = 0;
-      PC_LD = 0;    
-      RF_WR_SEL = 0; 
-      FLG_C_SET = 0;
-      FLG_C_CLR = 0;
-      FLG_C_LD = 0;
-      FLG_Z_LD = 0;
-      RST = 0;
-      PC_INC = 0;
-      IO_STRB = 0;
-   
+		case(PS)
+			ST_INIT: //if PS = ST_INIT
+			begin
+				RST = 1;
+				NS = ST_FETCH;
+			end
 
+			ST_FETCH: // if PS = ST_FETCH
+			begin
+				PC_INC = 1;
+				NS = ST_EXEC;
+			end
 
-// Where are we in the present state?
-     case(PS)
+			ST_EXEC: //if PS = ST_EXEC
+			begin
+				case(OPCODE_HI_5) //just looking at the highest bits
+					5'b110_01: //IN 
+					begin
+						RF_WR_SEL = 3; //write what ever is in IN_PORT to REG file
+						RF_WR = 1; //write
+					end
+					5'b000_10: //MOV
+					begin
+					ALU_SEL = 14;	
+						case (OPCODE_LOW_2)
+						2'b01: //REG to REG
+						begin
+							ALU_OPY_SEL = 0; //get reg value
+						end
 
-     ST_INIT: //PS = ST_INIT (we have reseted
-     begin
-     RST = 1;  //reset the program counter "reset the program"
-     NS = ST_FETCH; //after reset we are going to fetch a instruction
-     end
-       
-      ST_FETCH: //PS = ST_FETCH ; lets retrieve one instructino 
-      begin
-      PC_INC = 1;
-      NS = ST_EXEC;
-      RST = 0;
-      end
+						default:	//REG - imediate form
+						begin	
+							ALU_OPY_SEL = 1; //get immediate value
+						end
+						endcase
+					end
+					5'b000_00: //EXOR
+					begin	
+					ALU_SEL = 7;
+					RF_WR = 1;
+					RF_WR_SEL = 0;
+						case (OPCODE_LOW_2)
+						2'b01: //REG to REG
+						begin
+							ALU_OPY_SEL = 0; //get reg value
+						end
 
-	     ST_EXEC: //PS = ST_EXEC ; meansing 
-      begin
-      case(opcode)
-      //IN
-      7'b1100100, 7'b1100101, 7'b1100110, 7'b1100111:
-      begin
-      RF_WR_SEL = 3;
-      RF_WR = 1;
-      end
-      //MOV
-      7'b1101100, 7'b1101101, 7'b1101110, 7'b1101111:
-      begin
-      RF_WR = 1;
-      ALU_OPY_SEL = 1;
-      ALU_SEL = 14;
-      end
-      //EXOR
-      7'b0000010:
-      begin
-      RF_WR = 1;
-      ALU_OPY_SEL = 1;
-      ALU_SEL = 7;
-      FLG_Z_LD = 1;
-      FLG_C_CLR = 1;
-      end
-      //OUT
-      7'b1101000, 7'b1101001, 7'b1101010, 7'b1101011, 7'b0001001:
-      begin
-      IO_STRB = 1;
-      end
-      //BRN
-      7'b0010000:
-      begin
-      PC_LD = 1;
-      PC_MUX_SEL = 0;
-      end
-      
-      default : RST = 0; //never gets here
-      
-       
-     endcase
-     
-     NS = ST_FETCH; 
-     end //end of ST_EXEC
-     default : NS = ST_INIT; 
-     endcase
-     end 
-     
-   endmodule
+						default:	//REG - imediate form
+						begin	
+							ALU_OPY_SEL = 1; //get immediate value
+						end
+						endcase	
+					end
+					5'b110_10: //OUT
+					begin
+						RF_WR = 0; //read value from reg 
+					end		
+					5'b001_00: //BRN
+					begin
+					PC_LD = 1; //load PC with immediate value 
+					PC_MUX_SEL = 0; //select immediate value to be loaded 
+					end
+
+					default:
+						RST = 1; //nvr should get herej
+				endcase //end of OPCOD_HI_5 case statment
+				NS=ST_FETCH;
+			end
+			default: 
+				NS = ST_INIT; //nvr get here
+		
+	endcase //end case of PS
+		end
+endmodule 
+					
