@@ -69,6 +69,6 @@ module CONTROL_UNIT_tb();
 		
 //TEST 1 - test the OPCODE 
 # 10 
-	       OPCODE_HI_5 = 
+	       OPCODE_HI_5 =  
 endmodule
 
