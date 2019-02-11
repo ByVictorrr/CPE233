@@ -17,7 +17,21 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+//======================SIGNALS NOT USED =====================\\
 
+//========INPUT:
+//
+//======OUTPUTS:
+//	1.)output I_SET;
+//	2.)output I_CLR;
+//	3.)output SP_LD 
+//	4.)output SP_INCR;
+//	5.)output SP_DECR;
+//	6.)output SCR_WE;
+//	7.)output [1:0] SCR_ADDR_SEL;
+//	8.)output SCR_DATA_SEL;
+//	9.)output FLG_LD_SEL;
+//	10.)output FLG_SHAD_LD
 module CONTROL_UNIT(
 		input [4:0] OPCODE_HI_5,
 		input [1:0] OPCODE_LOW_2,
@@ -25,11 +39,7 @@ module CONTROL_UNIT(
 		input C_FLAG,
 		input Z_FLAG,
 		input RESET,
-		input CLK,
-		
-		
-		output logic I_SET,
-		output logic I_CLR,
+		input CLK,	
 		output logic PC_LD,
 		output logic PC_INC,
 		output logic [1:0] PC_MUX_SEL,
@@ -37,38 +47,24 @@ module CONTROL_UNIT(
 		output logic [3:0] ALU_SEL ,
 		output logic RF_WR,
 		output logic [1:0] RF_WR_SEL,
-		output logic SP_LD,
-		output logic SP_INCR,
-		output logic SP_DECR,
-		output logic SCR_WE,
-		output logic [1:0] SCR_ADDR_SEL,
-		output logic SCR_DATA_SEL,
         	output logic FLG_C_SET,
         	output logic FLG_C_CLR,
         	output logic FLG_C_LD,
         	output logic FLG_Z_LD,
-        	output logic FLG_LD_SEL,
-        	output logic FLG_SHAD_LD,
 		output logic RST,
 		output logic IO_STRB
 		
 	
 	);
 	
-
+	//wire from PROGROM
 	logic [6:0] opcode;
+
 	assign opcode = {OPCODE_HI_5, OPCODE_LOW_2};
 	
-	typedef enum{ST_INIT, ST_FETCH, ST_EXEC}
-	STATE;
+	typedef enum{ST_INIT, ST_FETCH, ST_EXEC} STATE; //Defining a new type
 	
-	STATE NS, PS = ST_INIT;
-	
-	 
-	
-
-
-
+	STATE NS, PS = ST_INIT; 
 	
 	//state register	
 	always_ff @(posedge CLK)
@@ -84,8 +80,8 @@ module CONTROL_UNIT(
 	//- model the next-state and output decoders
     always_comb
     begin
-       
-       
+ 
+      //initalizing outputs
       I_SET = 0;
       I_CLR = 0;
       PC_MUX_SEL = 0;
@@ -105,24 +101,28 @@ module CONTROL_UNIT(
       FLG_LD_SEL = 0;
       FLG_SHAD_LD = 0;
       RST = 0;
-    PC_INC = 0;
-    IO_STRB = 0;
-    
-       case(PS)
-          ST_INIT:
-          begin
-          RST = 1;
-          NS = ST_FETCH;
-            
-      end
-        	
-      ST_FETCH: 
+      PC_INC = 0;
+      IO_STRB = 0;
+   
+
+
+// Where are we in the present state?
+     case(PS)
+
+     ST_INIT: //PS = ST_INIT (we have reseted
+     begin
+     RST = 1;  //reset the program counter "reset the program"
+     NS = ST_FETCH; //after reset we are going to fetch a instruction
+     end
+       
+      ST_FETCH: //PS = ST_FETCH ; lets retrieve one instructino 
       begin
       PC_INC = 1;
       NS = ST_EXEC;
       RST = 0;
       end
-      ST_EXEC: 
+
+	     ST_EXEC: //PS = ST_EXEC ; meansing 
       begin
       case(opcode)
       //IN
