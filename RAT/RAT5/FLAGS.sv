@@ -33,8 +33,8 @@ module FLAGS(
 	input FLG_C_CLR,
 	input FLG_Z_LD,
 	input Z,
-	output reg C_FLAG,
-	output reg Z_FLAG
+	output reg C_FLAG=0,
+	output reg Z_FLAG=0
 	);
 //for C flip flop 
 always_ff @(posedge CLK)
