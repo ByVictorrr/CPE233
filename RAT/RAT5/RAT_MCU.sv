@@ -1,6 +1,13 @@
 `include "/home/victor/CPE233/Modules/mux_4t1_nb.v"
-`include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
-
+`include "/home/victor/CPE233/Modules/mux_2t1_nb.v"	
+`include "/home/victor/CPE233/RAT5/ALU.sv"
+`include "/home/victor/CPE233/RAT5/CONTROL_UNIT.sv"
+`include "/home/victor/CPE233/RAT5/FLAGS.sv"
+`include "/home/victor/CPE233/RAT5/ProgCounter.sv"
+`include "/home/victor/CPE233/RAT5/ProgRom.sv"
+`include "/home/victor/CPE233/RAT5/RAT_MCU.sv"
+`include "/home/victor/CPE233/RAT5/REG_FILE.sv"
+`include "/home/victor/CPE233/RAT5/SCRATCH_RAM.sv"
 
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Victor Delaplaine and Conrad Chan
