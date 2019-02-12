@@ -37,7 +37,7 @@ logic [8:0] D_OUT; //for {CIN, RESULT}
 	else if (SEL == 11)  D_OUT = {A[7],A[6:0],A[7]}; //ROL
 	else if (SEL == 12)  D_OUT = {A[0],A[0], A[7:1]}; // ROR
 	else if (SEL == 13)  D_OUT = {A[0], A[7], A[7:1]}; //ASR
-	else if (SEL == 14)  D_OUT = {B}; //MOV
+	else if (SEL == 14)  D_OUT = {CIN,B}; //MOV
 	else if (SEL == 15)  D_OUT = 0; //unused
     else                D_OUT = 0; 
 	end

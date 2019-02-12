@@ -1,3 +1,7 @@
+`include "/home/victor/CPE233/Modules/mux_4t1_nb.v"
+`include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
+
+
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Victor Delaplaine and Conrad Chan
 // 
@@ -24,7 +28,7 @@ module RAT_MCU(
 	input CLK,
 	output logic [7:0] OUT_PORT,
 	output logic [7:0] PORT_ID,
-	output logic IO_STRB = 0
+	output logic IO_STRB
 	); 
 
 
@@ -51,6 +55,8 @@ logic  FLG_LD_SEL;
 logic [4:0] ADRX;
 logic [4:0] ADRY;
 logic [9:0] DATA_OUT;
+
+
 //========INFORMATION ABOUT NON USED PORTS TIED TO 0======\\
 //====Control unit======\\
 	CONTROL_UNIT CU(
@@ -61,8 +67,8 @@ logic [9:0] DATA_OUT;
 		.Z_FLAG(Z_FLAG),
 		.RESET(RESET),
 		.CLK(CLK),		
-		.I_SET(), //unused
-		.I_CLR(), //unused
+		//.I_SET(), //unused
+		//.I_CLR(), //unused
 		.PC_LD(PC_LD),
 		.PC_INC(PC_INC),
 		.PC_MUX_SEL(PC_MUX_SEL),
@@ -70,16 +76,16 @@ logic [9:0] DATA_OUT;
 		.ALU_SEL(ALU_SEL),
 		.RF_WR(RF_WR),
 		.RF_WR_SEL(RF_WR_SEL),
-		.SP_LD(), //unused
-		.SP_INCR(), //unused
-		.SP_DECR(), //unused
-		.SCR_WE(), //unused
-		.SCR_ADDR_SEL(), //unused
+		//.SP_LD(), //unused
+		//.SP_INCR(), //unused
+		//.SP_DECR(), //unused
+		//.SCR_WE(), //unused
+		//.SCR_ADDR_SEL(), //unused
 		.FLG_C_SET(FLG_C_SET),
 		.FLG_C_CLR(FLG_C_CLR),
 		.FLG_C_LD(FLG_C_LD),
 		.FLG_Z_LD(FLG_Z_LD),
-		.FLG_LD_SEL(FLG_LD_SEL),
+		//.FLG_LD_SEL(FLG_LD_SEL),
 	    //.FLG_SHAD_LD(), //unused
 		.RST(RST),
 		.IO_STRB(IO_STRB) //unsure
@@ -88,7 +94,7 @@ logic [9:0] DATA_OUT;
 //================left side===============
 	mux_4t1_nb #(.n(10)) PC_DIN_INPUT(
 		.SEL(PC_MUX_SEL), 
-      		.D0(PROG_IR[12:3]), 
+      	.D0(PROG_IR[12:3]), 
 		.D1(DATA_OUT), //come back to
 		.D2('h3FF), 
 		.D3('h000), //dont care
@@ -96,7 +102,7 @@ logic [9:0] DATA_OUT;
   
 	);
 
-	ProgCounter PC(
+	ProgCounter #(.n(10)) PC(
 		.DIN(DIN_PC),
 		.PC_LD(PC_LD),
 		.PC_INC(PC_INC),
@@ -130,10 +136,10 @@ logic [9:0] DATA_OUT;
 	mux_4t1_nb #(.n(8)) RF_DIN_INPUT(
 		.SEL(RF_WR_SEL), 
       	.D0(RESULT), 
-		.D1(DATA_OUT), //unsure
+		.D1(DATA_OUT[7:0]), //unsure
 		.D2(0), 
 		.D3(IN_PORT),
-       		.D_OUT(DIN_RF) 
+       	.D_OUT(DIN_RF) 
   
 	);
 	REG_FILE RF(

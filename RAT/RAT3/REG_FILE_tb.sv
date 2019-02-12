@@ -21,7 +21,7 @@ initial begin
 //test 1 - check if each reg stores a zero
 //==============================================
 //CLK = 1
-    DIN=0;
+    DIN=8;
     RF_WR=0;
 	ADRX = 2; //arbitary
 	ADRY = 10; // aysnc read
@@ -33,15 +33,15 @@ initial begin
 //test 2 - check if the synch write works
 //==============================================
 #10	//CLK = 1
-
-	ADRX = 0'hFF;
-	DIN = 0'hFF;
+    
+	ADRX = 2;
+	DIN = 8;
 	RF_WR = 1; // test write control signal
 	
 #5 //CLK = 0
 
 //check if SCR_ADDR was written to
-	ADRX = 0'hFF;
+	ADRX = 2;
 	ADRY = 0'hFF;
 	RF_WR = 0;
 //=================================================

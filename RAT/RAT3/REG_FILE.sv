@@ -16,7 +16,7 @@ initial //runs one
 begin
 	for(int i = 0; i < 32; i++)
 	begin
-	memory[i] =0; //initalize all to zero
+	memory[i] = 0; //initalize all to zero
 	end
 end
 

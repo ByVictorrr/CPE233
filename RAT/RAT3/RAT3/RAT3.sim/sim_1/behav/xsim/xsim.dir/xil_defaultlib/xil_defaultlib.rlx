@@ -3,5 +3,5 @@
 Jun 14 2018
 20:07:38
 /home/victor/CPE233/RAT/RAT3/RAT3/RAT3.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
-/home/victor/CPE233/RAT/RAT3/REG_FILE.sv,1548321984,systemVerilog,,/home/victor/CPE233/RAT/RAT3/REG_FILE_tb.sv,,REG_FILE,,,,,,,,
-/home/victor/CPE233/RAT/RAT3/REG_FILE_tb.sv,1548321471,systemVerilog,,,,REG_FILE_tb,,,,,,,,
+/home/victor/CPE233/RAT/RAT3/REG_FILE.sv,1549927456,systemVerilog,,/home/victor/CPE233/RAT/RAT3/REG_FILE_tb.sv,,REG_FILE,,,,,,,,
+/home/victor/CPE233/RAT/RAT3/REG_FILE_tb.sv,1549927745,systemVerilog,,,,REG_FILE_tb,,,,,,,,

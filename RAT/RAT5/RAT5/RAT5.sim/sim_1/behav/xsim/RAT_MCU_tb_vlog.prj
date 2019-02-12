@@ -1,4 +1,8 @@
 # compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../../Modules/mux_2t1_nb.v" \
+"../../../../../../../Modules/mux_4t1_nb.v" \
+
 sv xil_defaultlib  \
 "../../../../../ALU.sv" \
 "../../../../../CONTROL_UNIT.sv" \

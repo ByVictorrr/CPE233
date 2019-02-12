@@ -2,14 +2,14 @@
 2018.2
 Jun 14 2018
 20:07:38
-/home/victor/CPE233/Modules/mux_2t1_nb.v,1547609877,verilog,,,,mux_2t1_nb,,,,,,,,
+/home/victor/CPE233/Modules/mux_2t1_nb.v,1547609877,verilog,,/home/victor/CPE233/Modules/mux_4t1_nb.v,,mux_2t1_nb,,,,,,,,
 /home/victor/CPE233/Modules/mux_4t1_nb.v,1547609877,verilog,,,,mux_4t1_nb,,,,,,,,
-/home/victor/CPE233/RAT/RAT5/ALU.sv,1549182245,systemVerilog,,/home/victor/CPE233/RAT/RAT5/CONTROL_UNIT.sv,,ALU,,,,,,,,
-/home/victor/CPE233/RAT/RAT5/CONTROL_UNIT.sv,1549925704,systemVerilog,,/home/victor/CPE233/RAT/RAT5/FLAGS.sv,,CONTROL_UNIT,,,,,,,,
-/home/victor/CPE233/RAT/RAT5/FLAGS.sv,1549245902,systemVerilog,,/home/victor/CPE233/RAT/RAT5/ProgCounter.sv,,FLAGS,,,,,,,,
+/home/victor/CPE233/RAT/RAT5/ALU.sv,1549928158,systemVerilog,,/home/victor/CPE233/RAT/RAT5/CONTROL_UNIT.sv,,ALU,,,,,,,,
+/home/victor/CPE233/RAT/RAT5/CONTROL_UNIT.sv,1549926302,systemVerilog,,/home/victor/CPE233/RAT/RAT5/FLAGS.sv,,CONTROL_UNIT,,,,,,,,
+/home/victor/CPE233/RAT/RAT5/FLAGS.sv,1549928137,systemVerilog,,/home/victor/CPE233/RAT/RAT5/ProgCounter.sv,,FLAGS,,,,,,,,
 /home/victor/CPE233/RAT/RAT5/ProgCounter.sv,1549182060,systemVerilog,,/home/victor/CPE233/RAT/RAT5/ProgRom.sv,,ProgCounter,,,,,,,,
 /home/victor/CPE233/RAT/RAT5/ProgRom.sv,1549703101,systemVerilog,,/home/victor/CPE233/RAT/RAT5/RAT_MCU.sv,,ProgRom,,,,,,,,
 /home/victor/CPE233/RAT/RAT5/RAT5/RAT5.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
-/home/victor/CPE233/RAT/RAT5/RAT_MCU.sv,1549743656,systemVerilog,,/home/victor/CPE233/RAT/RAT5/REG_FILE.sv,/home/victor/CPE233/Modules/mux_2t1_nb.v;/home/victor/CPE233/Modules/mux_4t1_nb.v;/home/victor/CPE233/RAT/RAT5/ALU.sv;/home/victor/CPE233/RAT/RAT5/CONTROL_UNIT.sv;/home/victor/CPE233/RAT/RAT5/FLAGS.sv;/home/victor/CPE233/RAT/RAT5/ProgCounter.sv;/home/victor/CPE233/RAT/RAT5/ProgRom.sv;/home/victor/CPE233/RAT/RAT5/REG_FILE.sv,RAT_MCU,,,,,,,,
-/home/victor/CPE233/RAT/RAT5/RAT_MCU_tb.sv,1549696946,systemVerilog,,,/home/victor/CPE233/RAT/RAT5/RAT_MCU.sv,RAT_MCU_tb,,,,,,,,
+/home/victor/CPE233/RAT/RAT5/RAT_MCU.sv,1549928623,systemVerilog,,/home/victor/CPE233/RAT/RAT5/REG_FILE.sv,/home/victor/CPE233/Modules/mux_2t1_nb.v;/home/victor/CPE233/Modules/mux_4t1_nb.v;/home/victor/CPE233/RAT/RAT5/ALU.sv;/home/victor/CPE233/RAT/RAT5/CONTROL_UNIT.sv;/home/victor/CPE233/RAT/RAT5/FLAGS.sv;/home/victor/CPE233/RAT/RAT5/ProgCounter.sv;/home/victor/CPE233/RAT/RAT5/ProgRom.sv;/home/victor/CPE233/RAT/RAT5/REG_FILE.sv,RAT_MCU,,,,,,,,
+/home/victor/CPE233/RAT/RAT5/RAT_MCU_tb.sv,1549746301,systemVerilog,,,/home/victor/CPE233/RAT/RAT5/RAT_MCU.sv,RAT_MCU_tb,,,,,,,,
 /home/victor/CPE233/RAT/RAT5/REG_FILE.sv,1549182218,verilog,,/home/victor/CPE233/RAT/RAT5/RAT_MCU_tb.sv,,REG_FILE,,,,,,,,
