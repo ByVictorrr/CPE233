@@ -1,12 +1,12 @@
 `include "/home/victor/CPE233/Modules/mux_4t1_nb.v"
 `include "/home/victor/CPE233/Modules/mux_2t1_nb.v"	
-`include "/home/victor/CPE233/RAT4/ALU.sv"
-`include "/home/victor/CPE233/RAT6/CONTROL_UNIT.sv"
-`include "/home/victor/CPE233/RAT5/FLAGS.sv"
-`include "/home/victor/CPE233/RAT2/ProgCounter.sv"
-`include "/home/victor/CPE233/RAT1/ProgRom.sv"
-`include "/home/victor/CPE233/RAT3/REG_FILE.sv"
-`include "/home/victor/CPE233/RAT3/SCRATCH_RAM.sv"
+`include "/home/victor/CPE233/RAT/RAT4/ALU.sv"
+`include "/home/victor/CPE233/RAT/RAT6/CONTROL_UNIT.sv"
+`include "/home/victor/CPE233/RAT/RAT5/FLAGS.sv"
+`include "/home/victor/CPE233/RAT/RAT2/ProgCounter.sv"
+`include "/home/victor/CPE233/RAT/RAT1/ProgRom.sv"
+`include "/home/victor/CPE233/RAT/RAT3/REG_FILE.sv"
+`include "/home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv"
 
 //////////////////////////////////////////////////////////////////////////////////
 // Engineer: Victor Delaplaine
@@ -143,7 +143,7 @@ logic [9:0] DATA_OUT;
 		.SEL(RF_WR_SEL), 
       	.D0(RESULT), 
 		.D1(DATA_OUT[7:0]), //unsure
-		.D2(0), 
+		.D2(), 
 		.D3(IN_PORT),
        	.D_OUT(DIN_RF) 
   

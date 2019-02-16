@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Feb 15 22:02:05 2019
+# Process ID: 5972
+# Current directory: /home/victor/CPE233/RAT/RAT6/RAT6/RAT6.runs/impl_1
+# Command line: vivado -log RAT_WRAPPER.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source RAT_WRAPPER.tcl -notrace
+# Log file: /home/victor/CPE233/RAT/RAT6/RAT6/RAT6.runs/impl_1/RAT_WRAPPER.vdi
+# Journal file: /home/victor/CPE233/RAT/RAT6/RAT6/RAT6.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source RAT_WRAPPER.tcl -notrace
