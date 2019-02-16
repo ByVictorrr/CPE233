@@ -106,62 +106,419 @@ module CONTROL_UNIT(
 			ST_EXEC: //if PS = ST_EXEC
 			begin
 				case(OPCODE_HI_5) //just looking at the highest bits
+					
+					5'b000_00: //BOOLEAN Operations (REG - REG )_
+					begin	
+					case (OPCODE_LOW_2)
+					
+						FLG_C_CLR = 1;
+						FLG_Z_LD = 1;
+
+						2'b00: //AND 
+						begin
+						RF_WR = 1;
+						ALU_SEL = 5;
+						end
+						
+						2'b01: //OR
+						begin
+						RF_WR = 1;							
+						ALU_SEL = 6;
+						end
+						
+						2'b10: //EXOR
+						begin
+						RF_WR = 1;	
+						ALU_SEL = 7; 
+						end
+						
+						2'b11: //TEST
+						begin
+						ALU_SEL = 8;
+						end
+
+						default:  ALU_SEL = 00; //dont know
+						endcase	
+						
+					end
+
+					5'b000_01: //Arithmetic Operations (REG - REG)
+					begin
+					case (OPCODE_LOW_2)
+					
+						FLG_C_LD = 1
+						FLG_Z_LD = 1;
+						RF_WR = 1;
+
+						2'b00: //ADD
+						begin
+						ALU_SEL = 0;
+						end
+						
+						2'b01: //ADDC
+						begin
+						ALU_SEL = 1;
+						end
+						
+						2'b10: //SUB
+						begin
+						ALU_SEL = 2; 
+						end
+						
+						2'b11: //SUBC
+						begin
+						ALU_SEL = 3;
+						end
+
+						default:  ALU_SEL = 00; //dont know
+						endcase	
+	
+					end
+
+					5'b000_10: //CMP, and Moving Operations (REG - REG)
+					begin
+					case (OPCODE_LOW_2)
+					
+						2'b00: //CMP
+						begin
+						ALU_SEL = 4;
+						FLG_C_LD = 1
+						FLG_Z_LD = 1;
+						end
+						
+						2'b01: //MOV
+						begin
+						ALU_SEL = 14;
+						end
+						
+						2'b10: //LD
+						begin
+					   	//insert later	
+						end
+						
+						2'b11: //ST
+						begin
+					        //insert later	
+						end
+
+						default:  ALU_SEL = 00; //dont know
+						endcase	
+	
+					end
+
+
+/////////////////////////////////////////////////////////imediate//////////////////////////////////////////////////////////
+					5'b100_00: //AND (REG - immediate )
+					begin
+					FLG_C_CLR = 1;
+					FLG_Z_LD = 1;
+					ALU_OPY_SEL = 1;
+					RF_WR = 1;
+					ALU_SEL = 5;
+					end
+						
+					5'b100_01: //OR
+					begin
+					FLG_C_CLR = 1;
+					FLG_Z_LD = 1;
+					ALU_OPY_SEL = 1;
+					RF_WR = 1;							
+					ALU_SEL = 6;
+					end
+						
+					5'b100_10: //EXOR
+					begin
+					FLG_C_CLR = 1;
+					FLG_Z_LD = 1;
+					ALU_OPY_SEL = 1;
+					RF_WR = 1;	
+					ALU_SEL = 7; 
+					end
+						
+					5'b100_11: //TEST
+					begin
+					FLG_C_CLR = 1;
+					FLG_Z_LD = 1;
+					ALU_OPY_SEL = 1;	
+					ALU_SEL = 8;
+					end
+
+								
+
+
+					
+					5'b101_00: //ADD
+					begin
+					FLG_C_LD = 1
+					FLG_Z_LD = 1;
+					RF_WR = 1;
+					ALU_OPY_SEL = 1;
+					ALU_SEL = 0;
+					end
+					
+					5'b101_01: //ADDC
+					begin
+					FLG_C_LD = 1
+					FLG_Z_LD = 1;
+					RF_WR = 1;
+					ALU_OPY_SEL = 1;
+					ALU_SEL = 1;
+					end
+					
+					5'b101_10: //SUB
+					begin
+					FLG_C_LD = 1
+					FLG_Z_LD = 1;
+					RF_WR = 1;
+					ALU_OPY_SEL = 1;
+					ALU_SEL = 2; 
+					end
+					
+					5'b101_11: //SUBC
+					begin
+					FLG_C_LD = 1
+					FLG_Z_LD = 1;
+					RF_WR = 1;
+					ALU_OPY_SEL = 1;
+					ALU_SEL = 3;
+					end
+
 					5'b110_01: //IN 
 					begin
-						RF_WR_SEL = 3; //write what ever is in IN_PORT to REG file
-						RF_WR = 1; //write
+					RF_WR_SEL = 3; //write what ever is in IN_PORT to REG file
+					RF_WR = 1; //write
 					end
-					5'b000_10: //MOV
-					begin
-					ALU_SEL = 14;	
-						case (OPCODE_LOW_2)
-						2'b01: //REG to REG
-						begin
-							ALU_OPY_SEL = 0; //get reg value
-						end
-
-						default:	//REG - imediate form
-						begin	
-							ALU_OPY_SEL = 1; //get immediate value
-						end
-						endcase
-					end
-					5'b000_00: //EXOR
-					begin	
-					ALU_SEL = 7;
-					RF_WR = 1;
-					RF_WR_SEL = 0;
-						case (OPCODE_LOW_2)
-						2'b01: //REG to REG
-						begin
-							ALU_OPY_SEL = 0; //get reg value
-						end
-
-						default:	//REG - imediate form
-						begin	
-							ALU_OPY_SEL = 1; //get immediate value
-						end
-						endcase	
-					end
+				
 					5'b110_10: //OUT
-					begin
-						RF_WR = 0; //read value from reg 
+					begin 
+					IO_STRB = 1;
 					end		
-					5'b001_00: //BRN
-					begin
-					PC_LD = 1; //load PC with immediate value 
-					PC_MUX_SEL = 0; //select immediate value to be loaded 
+				
+					5'b110_11: //MOV
+					begin	
+					RF_WR = 1;
+					ALU_OPY_SEL = 1;
+					ALU_SEL = 14;
+					end
+					
+					5'b111_00: //LD
+					begin	
+					RF_WR = 1;
+					RF_WR_SEL = 1;
+					ALU_OPY_SEL = 1;
+					//insert here
+					end
+					
+					
+					5'b111_01: //ST
+					begin	
+					//insert here
+					end
+				
+						
+
+					5'b001_00: //BRANCH type operations
+					begin	
+					case(OPCODE_LOW_2)
+						
+						2'b00: //BRN
+						begin
+						PC_LD = 1;	
+						end
+						
+						2'b01: //CALL
+						begin
+						//insert here
+						end
+						
+						2'b10: //BREQ
+						begin
+							if(Z_FLAG == 1)
+							begin	
+							PC_LD = 1;
+							end
+							else PC_LD = 0;
+
+						end
+						
+						2'b11: //BRNE
+						begin
+							if(Z_FLAG == 0)
+						       	begin	
+							PC_LD = 1;
+							end
+							else PC_LD = 0;
+	
+						end
+
+						default: ; //dont know
+						endcase	
+	
 					end
 
-					default:
-						RST = 1; //nvr should get herej
+					5'b001_01: //BRANCH type operations (CONTINUATION)
+					begin	
+					case(OPCODE_LOW_2)
+					
+						2'b00: //BRCS
+						begin
+							if(C_FLAG == 1)
+						       	begin	
+							PC_LD = 1;
+							end
+							else PC_LD = 0;
+						end
+						
+						2'b01: //BRCC
+						begin
+						//insert 
+							if(C_FLAG == 0)
+						       	begin	
+							PC_LD = 1;
+							end
+							else PC_LD = 0;
+						end
+						
+						default: ; //dont know
+						endcase	
+	
+					end
+//left of at lsl
+					
+
+					5'b010_00: //Shift operations
+					begin	
+					case(OPCODE_LOW_2)
+					RF_WR = 1;
+
+						2'b00: //LSL
+						begin
+						ALU_SEL = 9;
+						end
+						
+						2'b01: //LSR
+						begin
+						ALU_SEL = 10;
+						end
+						
+						2'b10: //ROL
+						begin
+						ALU_SEL = 11;
+						end
+						
+						2'b11: //ROR
+						begin
+						ALU_SEL = 12;
+						end
+
+						default: ; //dont know
+						endcase	
+	
+					end
+
+					5'b010_01: //Shift operations (Continued) and PUSH and POP
+					begin	
+					case(OPCODE_LOW_2)
+					
+						2'b00: //ASR
+						begin
+						RF_WR = 1;
+						ALU_SEL = 13;
+						end
+						
+						2'b01: //PUSH
+						begin
+						//insert here
+						end
+						
+						2'b10: //POP
+						begin
+						//insert here	
+						end
+						
+						default: ; //dont know
+						endcase	
+	
+					end
+
+					5'b010_10: //WSP and RSP
+					begin	
+					case(OPCODE_LOW_2)
+					
+						2'b00: //WSP
+						begin
+						//insert here	
+						end
+						
+						2'b01: //RSP
+						begin
+						//insert here
+						end
+						
+						default: ; //dont know
+						endcase	
+	
+					end
+
+
+					5'b011_00: // Manipulating Carry flag
+					begin	
+					case(OPCODE_LOW_2)
+					
+						2'b00: //CLC
+						begin
+						FLG_C_CLR = 1;
+						end
+						
+						2'b01: //SEC
+						begin
+						FLG_C_SET = 1;
+						end
+						
+						2'b10: //RET
+						begin	
+						//inser here
+						end	
+						default: ; //dont know
+						endcase	
+	
+					end
+
+					5'b011_01: // SEI,CLI,RETID,RETIE
+					begin	
+					case(OPCODE_LOW_2)
+					
+						2'b00: //SEI
+						begin
+						//inser here	
+						end
+						
+						2'b01: //CLI
+						begin
+						//insert here
+						end
+						
+						2'b10: //RETID
+						begin	
+						//inser herej
+						end	
+						2'b11:
+						begin	
+						//insert here
+						end
+						default: ; //dont know
+						endcase	
+	
+						
+
+					default: RST = 1; //nvr should get herej
 				endcase //end of OPCOD_HI_5 case statment
 				NS=ST_FETCH;
-			end
-			default: 
+				end
+				default: 
 				NS = ST_INIT; //nvr get here
 		
-	endcase //end case of PS
+		endcase //end case of PS
 		end
 endmodule 
 					
