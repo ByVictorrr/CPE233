@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date                      : Fri Feb 15 20:48:01 2019
+| Date                      : Fri Feb 15 22:03:06 2019
 | Host                      : TheShell running 64-bit unknown
 | Command                   : report_io -file RAT_WRAPPER_io_placed.rpt
 | Design                    : RAT_WRAPPER
@@ -233,7 +233,7 @@ Table of Contents
 | U15        | LEDS[5]     | High Range | IO_L23P_T3_A03_D19_14        | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | U16        | LEDS[0]     | High Range | IO_L23N_T3_A02_D18_14        | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | U17        |             | High Range | IO_L18P_T2_A12_D28_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| U18        | BTNR        | High Range | IO_L18N_T2_A11_D27_14        | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| U18        |             | High Range | IO_L18N_T2_A11_D27_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | U19        | LEDS[2]     | High Range | IO_L15P_T2_DQS_RDWR_B_14     | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | V1         |             | High Range | VCCO_34                      | VCCO          |             |      34 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
 | V2         |             | High Range | IO_L5P_T0_34                 | User IO       |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
@@ -272,7 +272,7 @@ Table of Contents
 | W16        | SWITCHES[2] | High Range | IO_L20P_T3_A08_D24_14        | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | W17        | SWITCHES[3] | High Range | IO_L20N_T3_A07_D23_14        | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | W18        | LEDS[4]     | High Range | IO_L16P_T2_CSI_B_14          | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
-| W19        |             | High Range | IO_L16N_T2_A15_D31_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| W19        | BTNR        | High Range | IO_L16N_T2_A15_D31_14        | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 +------------+-------------+------------+------------------------------+---------------+-------------+---------+------------+------+---------------------+----------------------+---------+------------+-----------+----------+------+------------------+--------------+-------------------+--------------+
 * Default value
 ** Special VCCO requirements may apply. Please consult the device family datasheet for specific guideline on VCCO requirements.

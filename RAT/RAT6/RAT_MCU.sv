@@ -143,7 +143,7 @@ logic [9:0] DATA_OUT;
 		.SEL(RF_WR_SEL), 
       	.D0(RESULT), 
 		.D1(DATA_OUT[7:0]), //unsure
-		.D2(0), 
+		.D2(), 
 		.D3(IN_PORT),
        	.D_OUT(DIN_RF) 
   
