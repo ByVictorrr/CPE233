@@ -109,10 +109,9 @@ module CONTROL_UNIT(
 					
 					5'b000_00: //BOOLEAN Operations (REG - REG )_
 					begin	
-					case (OPCODE_LOW_2)
-					
-						FLG_C_CLR = 1;
-						FLG_Z_LD = 1;
+					FLG_C_CLR = 1;
+                    FLG_Z_LD = 1;
+					case (OPCODE_LOW_2)	
 
 						2'b00: //AND 
 						begin
@@ -144,11 +143,10 @@ module CONTROL_UNIT(
 
 					5'b000_01: //Arithmetic Operations (REG - REG)
 					begin
-					case (OPCODE_LOW_2)
-					
-						FLG_C_LD = 1
-						FLG_Z_LD = 1;
-						RF_WR = 1;
+					FLG_C_LD = 1;
+                    FLG_Z_LD = 1;
+                    RF_WR = 1;
+					case (OPCODE_LOW_2)	
 
 						2'b00: //ADD
 						begin
@@ -182,7 +180,7 @@ module CONTROL_UNIT(
 						2'b00: //CMP
 						begin
 						ALU_SEL = 4;
-						FLG_C_LD = 1
+						FLG_C_LD = 1;
 						FLG_Z_LD = 1;
 						end
 						
@@ -249,7 +247,7 @@ module CONTROL_UNIT(
 					
 					5'b101_00: //ADD
 					begin
-					FLG_C_LD = 1
+					FLG_C_LD = 1;
 					FLG_Z_LD = 1;
 					RF_WR = 1;
 					ALU_OPY_SEL = 1;
@@ -258,7 +256,7 @@ module CONTROL_UNIT(
 					
 					5'b101_01: //ADDC
 					begin
-					FLG_C_LD = 1
+					FLG_C_LD = 1;
 					FLG_Z_LD = 1;
 					RF_WR = 1;
 					ALU_OPY_SEL = 1;
@@ -267,7 +265,7 @@ module CONTROL_UNIT(
 					
 					5'b101_10: //SUB
 					begin
-					FLG_C_LD = 1
+					FLG_C_LD = 1;
 					FLG_Z_LD = 1;
 					RF_WR = 1;
 					ALU_OPY_SEL = 1;
@@ -276,7 +274,7 @@ module CONTROL_UNIT(
 					
 					5'b101_11: //SUBC
 					begin
-					FLG_C_LD = 1
+					FLG_C_LD = 1;
 					FLG_Z_LD = 1;
 					RF_WR = 1;
 					ALU_OPY_SEL = 1;
@@ -388,9 +386,9 @@ module CONTROL_UNIT(
 
 					5'b010_00: //Shift operations
 					begin	
-					case(OPCODE_LOW_2)
 					RF_WR = 1;
-
+					case(OPCODE_LOW_2)
+					
 						2'b00: //LSL
 						begin
 						ALU_SEL = 9;
@@ -509,8 +507,8 @@ module CONTROL_UNIT(
 						default: ; //dont know
 						endcase	
 	
-						
-
+					end
+					
 					default: RST = 1; //nvr should get herej
 				endcase //end of OPCOD_HI_5 case statment
 				NS=ST_FETCH;

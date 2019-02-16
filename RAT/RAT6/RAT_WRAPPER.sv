@@ -1,5 +1,4 @@
-`timescale 1ns / 1ps
-`include "/home/victor/CPE233/RAT5/RAT_MCU.sv"
+`include "./RAT_MCU.sv"
 //////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
 // Engineer: Paul Hummel
@@ -69,7 +68,6 @@ module RAT_WRAPPER(
                 r_leds <= s_output_port;
             end
         end
-    end
      
     // Connect Signals ///////////////////////////////////////////////////////
     assign s_reset = BTNC;
