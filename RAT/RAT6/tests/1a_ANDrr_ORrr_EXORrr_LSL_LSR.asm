@@ -42,27 +42,12 @@ INIT:		MOV 	R20,	0x00	;output register
 			MOV 	R2, 	0xAA	;used for logic operations
 
 ;---------------------------------------------------------------
-timedelay0:    	MOV     R17, OUTSIDE_FOR_COUNT  
-outside_for0: 	SUB     R17, 0x01
 
-             	MOV     R18, MIDDLE_FOR_COUNT   
-middle_for0:  	SUB     R18, 0x01
-             
-             	MOV     R19, INSIDE_FOR_COUNT   
-inside_for0:  	SUB     R19, 0x01
-             	BRNE    inside_for0
-             
-             	OR      R18, 0x00              
-             	BRNE    middle_for0
-             
-             	OR      R17, 0x00               
-             	BRNE    outside_for0
 
 ;---------------------------------------------------------------
 ANDTest: 		MOV 	R3, R1
 			AND 	R3, R2
 			CMP 	R3, 0x0A
-			BRNE 	timedelay1
 
 			OR 	R20,  BIT_0_MASK
 			OUT 	R20, LED_PORT

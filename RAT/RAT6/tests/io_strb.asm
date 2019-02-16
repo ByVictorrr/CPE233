@@ -1,0 +1,8 @@
+.CSEG
+.ORG 0x04
+
+.EQU LED_PORT = 0x40
+
+
+MOV R0, 0x12
+OUT R0, LED_PORT
