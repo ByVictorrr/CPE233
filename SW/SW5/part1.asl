@@ -34,7 +34,7 @@ C5:  Raw line from source code.
 (0018)                            || ; R5 - for the difference between higher and lower value (DIFF = Higher - Lower)
 (0019)                            || ;--------------------------------------------------------------------
 (0020)                       066  || .EQU OUT_PORT = 0x42  
-(0021)                       011  || .EQU INC_ARR = 11 
+(0021)                       012  || .EQU INC_ARR = 12 
 (0022)                            || ;-----------------Data Segment-------------------------------------
 (0023)                            || .DSEG
 (0024)                       001  || .ORG 0x01;
@@ -78,7 +78,7 @@ C5:  Raw line from source code.
 -STUP-  CS-0x01B  0x3A00E  0x00E  ||              LD      r0,0x0E     ; place reg data in mem 
 -STUP-  CS-0x01C  0x080E8  0x100  ||              BRN     0x1D        ; jump to start of .cseg in program mem 
 -------------------------------------------------------------------------------------------
-(0034)  CS-0x01D  0x3600B  0x01D  || main: 	MOV R0, INC_ARR ; initalizing R0 = 10
+(0034)  CS-0x01D  0x3600C  0x01D  || main: 	MOV R0, INC_ARR ; initalizing R0 = 10
 (0035)                            || 	
 (0036)                            ||    ;address initalization of arary
 (0037)  CS-0x01E  0x36301         || 	MOV R3, 1 ; R1 = address array[1]
@@ -139,7 +139,7 @@ OUTPUT         0x028   (0057)  ||  0053
 
 -- Directives: .EQU
 ------------------------------------------------------------ 
-INC_ARR        0x00B   (0021)  ||  0034 
+INC_ARR        0x00C   (0021)  ||  0034 
 OUT_PORT       0x042   (0020)  ||  0057 
 
 

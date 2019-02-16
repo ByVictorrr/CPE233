@@ -35,7 +35,7 @@ C5:  Raw line from source code.
 (0019)                            || .CSEG
 (0020)                       001  || .ORG 0x01 
 (0021)                            || 
-(0022)  CS-0x001  0x3209A  0x001  || main:   	IN R0, IN_PORT ; X = IN_PORT
+(0022)  CS-0x001  0x3209A  0x001  || main:   IN R0, IN_PORT ; X = IN_PORT
 (0023)  CS-0x002  0x3219A         || 		IN R1, IN_PORT ; y = IN_PORT
 (0024)  CS-0x003  0x04301         || 		MOV R3, R0 ; R = X
 (0025)                            || 		;is Y ==0 ?

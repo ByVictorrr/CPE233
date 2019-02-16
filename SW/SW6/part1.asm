@@ -27,6 +27,7 @@
 
 main: 	IN R0, IN_PORT 
 	;check if R0 is 0xFF
+	MOV R3, R0 ; res = X
 	EXOR R0, 0xFF
 	;if (z==1){R0 == 0xFF}
 	;else {R0 != 0xFF}
@@ -34,7 +35,7 @@ main: 	IN R0, IN_PORT
 	;else if z == 0
 
 inc_push:	ADD R1, 1 ; count = count + 1		
-		PUSH R0 ; arr[SP_START - count ] = X
+		PUSH R3 ; arr[SP_START - count ] = X
 		BRN main
 
 output_1:	MOV R2, SP_START ;
@@ -48,7 +49,7 @@ output_2:	CMP R2, SP_START
 		;else if R2 != SP_START
 		POP R3 ; res = arr[current_SP]
 		OUT R3, OUT_PORT 
-		SUB R2, 1
+		ADD R2, 1
 		BRN output_2
 done: 
 		

@@ -9,19 +9,24 @@
 ; R1 - hold the value of the character just read 
 ; R2 - holds string length 
 ;--------------------------------------------------------------------
+.DSEG 
+.ORG 0x01
+
+array: .DB 4, 9, 1, 1, 2
 
 .EQU IN_PORT = 1
 .EQU OUT_PORT = 2 
-.EQU ST_ADDR = 5
+.EQU ST_ADDR = 1
 .CSEG
-.ORG 0x01
+.ORG 0x11
+
 
 main_loop: 
 		MOV R0, ST_ADDR
 Loop1: 		
 		ADD R0, 1
 Loop2:
-		ADD R1, (R0)
+		LD R1, (R0)
 
 		CMP R1, 0
 
@@ -31,5 +36,5 @@ Loop2:
 		
 		BRN Loop1
 
-done:
+done: OUT R3, OUT_PORT
 	

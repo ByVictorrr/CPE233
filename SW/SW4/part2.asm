@@ -19,7 +19,7 @@
 .CSEG
 .ORG 0x01 
 
-main:   	IN R0, IN_PORT ; X = IN_PORT
+main:   IN R0, IN_PORT ; X = IN_PORT
 		IN R1, IN_PORT ; y = IN_PORT
 		MOV R3, R0 ; R = X
 		;is Y ==0 ?
