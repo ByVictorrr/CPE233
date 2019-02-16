@@ -31,9 +31,9 @@ C5:  Raw line from source code.
 (0015)                       064  || .EQU BIT_6_MASK = 0X40
 (0016)                       128  || .EQU BIT_7_MASK = 0X80
 (0017)                            || 
-(0018)                       180  || .EQU INSIDE_FOR_COUNT    = 0xB4
-(0019)                       202  || .EQU MIDDLE_FOR_COUNT    = 0xCA
-(0020)                       170  || .EQU OUTSIDE_FOR_COUNT   = 0xAA
+(0018)                       001  || .EQU INSIDE_FOR_COUNT    = 0x01
+(0019)                       002  || .EQU MIDDLE_FOR_COUNT    = 0x02
+(0020)                       003  || .EQU OUTSIDE_FOR_COUNT   = 0x03
 (0021)                            || 
 (0022)                            || ;------------------------------------------------------------------------------------------------------
 (0023)                            || 
@@ -58,13 +58,13 @@ C5:  Raw line from source code.
 (0042)  CS-0x044  0x362AA         || 			MOV 	R2, 	0xAA	;used for logic operations
 (0043)                            || 
 (0044)                            || ;---------------------------------------------------------------
-(0045)  CS-0x045  0x371AA  0x045  || timedelay0:    	MOV     R17, OUTSIDE_FOR_COUNT  
+(0045)  CS-0x045  0x37103  0x045  || timedelay0:    	MOV     R17, OUTSIDE_FOR_COUNT  
 (0046)  CS-0x046  0x2D101  0x046  || outside_for0: 	SUB     R17, 0x01
 (0047)                            || 
-(0048)  CS-0x047  0x372CA         ||              	MOV     R18, MIDDLE_FOR_COUNT   
+(0048)  CS-0x047  0x37202         ||              	MOV     R18, MIDDLE_FOR_COUNT   
 (0049)  CS-0x048  0x2D201  0x048  || middle_for0:  	SUB     R18, 0x01
 (0050)                            ||              
-(0051)  CS-0x049  0x373B4         ||              	MOV     R19, INSIDE_FOR_COUNT   
+(0051)  CS-0x049  0x37301         ||              	MOV     R19, INSIDE_FOR_COUNT   
 (0052)  CS-0x04A  0x2D301  0x04A  || inside_for0:  	SUB     R19, 0x01
 (0053)  CS-0x04B  0x08253         ||              	BRNE    inside_for0
 (0054)                            ||              
@@ -84,13 +84,13 @@ C5:  Raw line from source code.
 (0068)  CS-0x055  0x35440         || 			OUT 	R20, LED_PORT
 (0069)                            || 
 (0070)                            || 
-(0071)  CS-0x056  0x371AA  0x056  || timedelay1:    	MOV     R17, OUTSIDE_FOR_COUNT  
+(0071)  CS-0x056  0x37103  0x056  || timedelay1:    	MOV     R17, OUTSIDE_FOR_COUNT  
 (0072)  CS-0x057  0x2D101  0x057  || outside_for1: 	SUB     R17, 0x01
 (0073)                            || 
-(0074)  CS-0x058  0x372CA         ||              	MOV     R18, MIDDLE_FOR_COUNT   
+(0074)  CS-0x058  0x37202         ||              	MOV     R18, MIDDLE_FOR_COUNT   
 (0075)  CS-0x059  0x2D201  0x059  || middle_for1:  	SUB     R18, 0x01
 (0076)                            ||              
-(0077)  CS-0x05A  0x373B4         ||              	MOV     R19, INSIDE_FOR_COUNT   
+(0077)  CS-0x05A  0x37301         ||              	MOV     R19, INSIDE_FOR_COUNT   
 (0078)  CS-0x05B  0x2D301  0x05B  || inside_for1:  	SUB     R19, 0x01
 (0079)  CS-0x05C  0x082DB         ||              	BRNE    inside_for1
 (0080)                            ||              
@@ -109,13 +109,13 @@ C5:  Raw line from source code.
 (0093)  CS-0x065  0x23402         || 			OR 	R20, BIT_1_MASK
 (0094)  CS-0x066  0x35440         || 			OUT 	R20, LED_PORT
 (0095)                            || 
-(0096)  CS-0x067  0x371AA  0x067  || timedelay2:    	MOV     R17, OUTSIDE_FOR_COUNT  
+(0096)  CS-0x067  0x37103  0x067  || timedelay2:    	MOV     R17, OUTSIDE_FOR_COUNT  
 (0097)  CS-0x068  0x2D101  0x068  || outside_for2: 	SUB     R17, 0x01
 (0098)                            || 
-(0099)  CS-0x069  0x372CA         ||              	MOV     R18, MIDDLE_FOR_COUNT   
+(0099)  CS-0x069  0x37202         ||              	MOV     R18, MIDDLE_FOR_COUNT   
 (0100)  CS-0x06A  0x2D201  0x06A  || middle_for2:  	SUB     R18, 0x01
 (0101)                            ||              
-(0102)  CS-0x06B  0x373B4         ||              	MOV     R19, INSIDE_FOR_COUNT   
+(0102)  CS-0x06B  0x37301         ||              	MOV     R19, INSIDE_FOR_COUNT   
 (0103)  CS-0x06C  0x2D301  0x06C  || inside_for2:  	SUB     R19, 0x01
 (0104)  CS-0x06D  0x08363         ||              	BRNE    inside_for2
 (0105)                            ||              
@@ -134,13 +134,13 @@ C5:  Raw line from source code.
 (0118)  CS-0x076  0x23404         || 			OR 	R20,  BIT_2_MASK
 (0119)  CS-0x077  0x35440         || 			OUT 	R20, LED_PORT
 (0120)                            || 
-(0121)  CS-0x078  0x371AA  0x078  || timedelay3:    	MOV     R17, OUTSIDE_FOR_COUNT  
+(0121)  CS-0x078  0x37103  0x078  || timedelay3:    	MOV     R17, OUTSIDE_FOR_COUNT  
 (0122)  CS-0x079  0x2D101  0x079  || outside_for3: 	SUB     R17, 0x01
 (0123)                            || 
-(0124)  CS-0x07A  0x372CA         ||              	MOV     R18, MIDDLE_FOR_COUNT   
+(0124)  CS-0x07A  0x37202         ||              	MOV     R18, MIDDLE_FOR_COUNT   
 (0125)  CS-0x07B  0x2D201  0x07B  || middle_for3:  	SUB     R18, 0x01
 (0126)                            ||              
-(0127)  CS-0x07C  0x373B4         ||              	MOV     R19, INSIDE_FOR_COUNT   
+(0127)  CS-0x07C  0x37301         ||              	MOV     R19, INSIDE_FOR_COUNT   
 (0128)  CS-0x07D  0x2D301  0x07D  || inside_for3:  	SUB     R19, 0x01
 (0129)  CS-0x07E  0x083EB         ||              	BRNE    inside_for3
 (0130)                            ||              
@@ -160,13 +160,13 @@ C5:  Raw line from source code.
 (0144)  CS-0x088  0x23408         || 			OR 	R20,  BIT_3_MASK
 (0145)  CS-0x089  0x35440         || 			OUT 	R20, LED_PORT
 (0146)                            || 
-(0147)  CS-0x08A  0x371AA  0x08A  || timedelay4:    	MOV     R17, OUTSIDE_FOR_COUNT  
+(0147)  CS-0x08A  0x37103  0x08A  || timedelay4:    	MOV     R17, OUTSIDE_FOR_COUNT  
 (0148)  CS-0x08B  0x2D101  0x08B  || outside_for4: 	SUB     R17, 0x01
 (0149)                            || 
-(0150)  CS-0x08C  0x372CA         ||              	MOV     R18, MIDDLE_FOR_COUNT   
+(0150)  CS-0x08C  0x37202         ||              	MOV     R18, MIDDLE_FOR_COUNT   
 (0151)  CS-0x08D  0x2D201  0x08D  || middle_for4:  	SUB     R18, 0x01
 (0152)                            ||              
-(0153)  CS-0x08E  0x373B4         ||              	MOV     R19, INSIDE_FOR_COUNT   
+(0153)  CS-0x08E  0x37301         ||              	MOV     R19, INSIDE_FOR_COUNT   
 (0154)  CS-0x08F  0x2D301  0x08F  || inside_for4:  	SUB     R19, 0x01
 (0155)  CS-0x090  0x0847B         ||              	BRNE    inside_for4
 (0156)                            ||              
@@ -186,13 +186,13 @@ C5:  Raw line from source code.
 (0170)  CS-0x09A  0x23410         || 			OR 	R20,  BIT_4_MASK
 (0171)  CS-0x09B  0x35440         || 			OUT 	R20, LED_PORT
 (0172)                            || 
-(0173)  CS-0x09C  0x371AA  0x09C  || timedelay5:    	MOV     R17, OUTSIDE_FOR_COUNT  
+(0173)  CS-0x09C  0x37103  0x09C  || timedelay5:    	MOV     R17, OUTSIDE_FOR_COUNT  
 (0174)  CS-0x09D  0x2D101  0x09D  || outside_for5: 	SUB     R17, 0x01
 (0175)                            || 
-(0176)  CS-0x09E  0x372CA         ||              	MOV     R18, MIDDLE_FOR_COUNT   
+(0176)  CS-0x09E  0x37202         ||              	MOV     R18, MIDDLE_FOR_COUNT   
 (0177)  CS-0x09F  0x2D201  0x09F  || middle_for5:  	SUB     R18, 0x01
 (0178)                            ||              
-(0179)  CS-0x0A0  0x373B4         ||              	MOV     R19, INSIDE_FOR_COUNT   
+(0179)  CS-0x0A0  0x37301         ||              	MOV     R19, INSIDE_FOR_COUNT   
 (0180)  CS-0x0A1  0x2D301  0x0A1  || inside_for5:  	SUB     R19, 0x01
 (0181)  CS-0x0A2  0x0850B         ||              	BRNE    inside_for5
 (0182)                            ||              
@@ -279,10 +279,10 @@ BIT_4_MASK     0x010   (0013)  ||  0170
 BIT_5_MASK     0x020   (0014)  ||  
 BIT_6_MASK     0x040   (0015)  ||  
 BIT_7_MASK     0x080   (0016)  ||  
-INSIDE_FOR_COUNT 0x0B4   (0018)  ||  0051 0077 0102 0127 0153 0179 
+INSIDE_FOR_COUNT 0x001   (0018)  ||  0051 0077 0102 0127 0153 0179 
 LED_PORT       0x040   (0002)  ||  0068 0094 0119 0145 0171 0191 
-MIDDLE_FOR_COUNT 0x0CA   (0019)  ||  0048 0074 0099 0124 0150 0176 
-OUTSIDE_FOR_COUNT 0x0AA   (0020)  ||  0045 0071 0096 0121 0147 0173 
+MIDDLE_FOR_COUNT 0x002   (0019)  ||  0048 0074 0099 0124 0150 0176 
+OUTSIDE_FOR_COUNT 0x003   (0020)  ||  0045 0071 0096 0121 0147 0173 
 SWITCH_PORT    0x020   (0003)  ||  
 
 

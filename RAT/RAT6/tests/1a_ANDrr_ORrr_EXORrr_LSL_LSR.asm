@@ -15,9 +15,9 @@
 .EQU BIT_6_MASK = 0X40
 .EQU BIT_7_MASK = 0X80
 
-.EQU INSIDE_FOR_COUNT    = 0xB4
-.EQU MIDDLE_FOR_COUNT    = 0xCA
-.EQU OUTSIDE_FOR_COUNT   = 0xAA
+.EQU INSIDE_FOR_COUNT    = 0x01
+.EQU MIDDLE_FOR_COUNT    = 0x02
+.EQU OUTSIDE_FOR_COUNT   = 0x03
 
 ;------------------------------------------------------------------------------------------------------
 
