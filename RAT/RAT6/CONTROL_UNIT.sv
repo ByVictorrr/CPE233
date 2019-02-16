@@ -35,7 +35,7 @@
 module CONTROL_UNIT(
 		input [4:0] OPCODE_HI_5,
 		input [1:0] OPCODE_LOW_2,
-		input INT_CU,
+		input INTR,
 		input C_FLAG,
 		input Z_FLAG,
 		input RESET,

@@ -30,7 +30,7 @@
 module RAT_MCU(
 	input [7:0] IN_PORT,
 	input RESET,
-	input INT_CU,
+	input INTR,
 	input CLK,
 	output logic [7:0] OUT_PORT,
 	output logic [7:0] PORT_ID,
@@ -68,7 +68,7 @@ logic [9:0] DATA_OUT;
 	CONTROL_UNIT CU(
 		.OPCODE_HI_5(PROG_IR[17:13]),
 		.OPCODE_LOW_2(PROG_IR[1:0]),
-		.INT_CU(INT_CU),
+		.INTR(INTR),
 		.C_FLAG(C_FLAG),
 		.Z_FLAG(Z_FLAG),
 		.RESET(RESET),
