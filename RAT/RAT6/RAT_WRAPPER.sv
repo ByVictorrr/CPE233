@@ -14,7 +14,7 @@
 
 module RAT_WRAPPER(
     input CLK,
-    input BTNC,
+    input BTNR,
     input [7:0] SWITCHES,
     output [7:0] LEDS
     );
@@ -70,7 +70,7 @@ module RAT_WRAPPER(
         end
      
     // Connect Signals ///////////////////////////////////////////////////////
-    assign s_reset = BTNC;
+    assign s_reset = BTNR;
     assign s_interrupt = 1'b0;  // no interrupt used yet
      
     // Output Assignments ////////////////////////////////////////////////////
