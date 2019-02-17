@@ -2,7 +2,7 @@
 module RAT_MCU_tb();
 
        logic CLK;
-       logic BTNC;
+       logic BTNR;
        logic [7:0] SWITCHES;
        logic [7:0] LEDS;
             
@@ -19,7 +19,7 @@ module RAT_MCU_tb();
                  begin
                  
     
-                     INTR = 0; BTNC = 0; SWITCHES = 8'hFF;
+                      BTNR = 0; SWITCHES = 8'hFF;
                      #120;
                  end 
                  

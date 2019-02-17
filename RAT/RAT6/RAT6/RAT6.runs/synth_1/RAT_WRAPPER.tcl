@@ -17,10 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-23340-TheShell/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -32,10 +29,26 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo /home/victor/CPE233/RAT/RAT6/RAT6/RAT6.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_mem {
+  /home/victor/CPE233/RAT/RAT6/test/1b_ANDrr_ORrr_EXORrr_LSL_LSR.mem
+  /home/victor/CPE233/RAT/RAT6/test/1a_ANDrr_ORrr_EXORrr_LSL_LSR.mem
+  /home/victor/CPE233/RAT/RAT6/test/3ab_BRN_BREQ_BRNE_BRCS_BRCC_CLC_SEC.mem
+  /home/victor/CPE233/RAT/RAT6/test/1c_ANDrr_ORrr_EXORrr_LSL_LSR.mem
+  /home/victor/CPE233/RAT/RAT6/test/6a_ADDri_ADDCri_SUBri_SUBCri.mem
+}
 read_verilog -library xil_defaultlib -sv {
+  /home/victor/CPE233/RAT/RAT4/ALU.sv
   /home/victor/CPE233/RAT/RAT6/CONTROL_UNIT.sv
+  /home/victor/CPE233/RAT/RAT5/FLAGS.sv
+  /home/victor/CPE233/RAT/RAT2/ProgCounter.sv
+  /home/victor/CPE233/RAT/RAT1/ProgRom.sv
+  /home/victor/CPE233/RAT/RAT3/REG_FILE.sv
   /home/victor/CPE233/RAT/RAT6/RAT_MCU.sv
   /home/victor/CPE233/RAT/RAT6/RAT_WRAPPER.sv
+}
+read_verilog -library xil_defaultlib {
+  /home/victor/CPE233/Modules/mux_2t1_nb.v
+  /home/victor/CPE233/Modules/mux_4t1_nb.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
