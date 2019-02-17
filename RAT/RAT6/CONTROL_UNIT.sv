@@ -97,7 +97,7 @@ module CONTROL_UNIT(
 				NS = ST_FETCH;
 			end
 
-			ST_FETCH: // if PS = ST_FETCH
+			ST_FETCH: // if PS = ST_FETCH 
 			begin
 				PC_INC = 1;
 				NS = ST_EXEC;
@@ -111,6 +111,7 @@ module CONTROL_UNIT(
 					begin	
 					FLG_C_CLR = 1;
                     FLG_Z_LD = 1;
+                    
 					case (OPCODE_LOW_2)	
 
 						2'b00: //AND 
@@ -144,7 +145,7 @@ module CONTROL_UNIT(
 					5'b000_01: //Arithmetic Operations (REG - REG)
 					begin
 					FLG_C_LD = 1;
-                    FLG_Z_LD = 1;
+					FLG_Z_LD = 1;
                     RF_WR = 1;
 					case (OPCODE_LOW_2)	
 
@@ -187,6 +188,7 @@ module CONTROL_UNIT(
 						2'b01: //MOV
 						begin
 						ALU_SEL = 14;
+						RF_WR = 1;
 						end
 						
 						2'b10: //LD
@@ -196,9 +198,9 @@ module CONTROL_UNIT(
 						
 						2'b11: //ST
 						begin
-					        //insert later	
-						end
-
+					        //insert later	end
+                        end 
+                        
 						default:  ALU_SEL = 00; //dont know
 						endcase	
 	
@@ -242,8 +244,6 @@ module CONTROL_UNIT(
 					end
 
 								
-
-
 					
 					5'b101_00: //ADD
 					begin
@@ -280,6 +280,14 @@ module CONTROL_UNIT(
 					ALU_OPY_SEL = 1;
 					ALU_SEL = 3;
 					end
+					
+					5'b110_00: //CMP
+					begin
+					FLG_C_LD = 1;
+					FLG_Z_LD = 1;
+					ALU_OPY_SEL = 1;
+					ALU_SEL = 4;
+					end
 
 					5'b110_01: //IN 
 					begin
@@ -301,9 +309,9 @@ module CONTROL_UNIT(
 					
 					5'b111_00: //LD
 					begin	
-					RF_WR = 1;
-					RF_WR_SEL = 1;
-					ALU_OPY_SEL = 1;
+					//RF_WR = 1;
+					//RF_WR_SEL = 1;
+					//ALU_OPY_SEL = 1;
 					//insert here
 					end
 					
@@ -381,12 +389,13 @@ module CONTROL_UNIT(
 						endcase	
 	
 					end
-//left of at lsl
 					
 
 					5'b010_00: //Shift operations
 					begin	
 					RF_WR = 1;
+					FLG_C_LD = 1;
+					FLG_Z_LD = 1;
 					case(OPCODE_LOW_2)
 					
 						2'b00: //LSL
@@ -421,6 +430,8 @@ module CONTROL_UNIT(
 						2'b00: //ASR
 						begin
 						RF_WR = 1;
+						FLG_C_LD = 1;
+						FLG_Z_LD = 1;
 						ALU_SEL = 13;
 						end
 						
@@ -509,7 +520,7 @@ module CONTROL_UNIT(
 	
 					end
 					
-					default: RST = 1; //nvr should get herej
+				default: RST = 1; //nvr should get herej
 				endcase //end of OPCOD_HI_5 case statment
 				NS=ST_FETCH;
 				end
@@ -519,4 +530,4 @@ module CONTROL_UNIT(
 		endcase //end case of PS
 		end
 endmodule 
-					
+	
