@@ -99,7 +99,7 @@ logic SP_LD, SP_INC, SP_DECR;
 		.FLG_C_LD(FLG_C_LD),
 		.FLG_Z_LD(FLG_Z_LD),
 		//.FLG_LD_SEL(FLG_LD_SEL),
-	    //.FLG_SHAD_LD(), //unused
+	    	//.FLG_SHAD_LD(), //unused
 		.RST(RST),
 		.IO_STRB(IO_STRB) //unsure
 );
