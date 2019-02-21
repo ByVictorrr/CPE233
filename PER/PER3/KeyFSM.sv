@@ -31,7 +31,7 @@ module KeyFSM(
 	input A,
 	input E,
 	output logic PRESS,
-	output logic DATA,
+	output logic [3:0] DATA,
 	output logic B,
 	output logic G,
 	output logic F,
@@ -92,20 +92,121 @@ module KeyFSM(
 
 				else
 				begin
+				DATA = 13; //not sure about
+		  		PRESS = 0;
+				end
+			end
+		end
+	  NS = ST_G;
+	  end 
+	ST_G:
+	begin
+		G=1;
+             	if (C == 1)
+		begin
+		DATA = 4;
+		PRESS = 1;
+		end
+
+		else
+		begin
+			if(A==1) //if C == 0
+			begin
+			DATA = 5;
+			PRESS = 1;
+			end
+
+			else //if C == 0 and A == 0
+			begin
+
+				if(E == 1)
+				begin
+				DATA = 6;
+				PRESS = 1;
+				end
+
+				else
+				begin
 				DATA = 13;
 		  		PRESS = 0;
 				end
 			end
 		end
+	  NS = ST_F;
 	  end 
-	ST_G:
 
+	ST_F:
+	begin
+		F=1;
+             	if (C == 1)
+		begin
+		DATA = 7;
+		PRESS = 1;
+		end
 
+		else
+		begin
+			if(A==1) //if C == 0
+			begin
+			DATA = 8;
+			PRESS = 1;
+			end
 
+			else //if C == 0 and A == 0
+			begin
 
+				if(E == 1)
+				begin
+				DATA = 7;
+				PRESS = 1;
+				end
 
+				else
+				begin
+				DATA = 13;
+		  		PRESS = 0;
+				end
+			end
+		end
+	  NS = ST_D;
+	  end 
 
+	ST_D:
+	begin
+		D=1;
+             	if (C == 1)
+		begin
+		DATA = 10;
+		PRESS = 1;
+		end
 
+		else
+		begin
+			if(A==1) //if C == 0
+			begin
+			DATA = 0;
+			PRESS = 1;
+			end
+
+			else //if C == 0 and A == 0
+			begin
+
+				if(E == 1)
+				begin
+				DATA = 11;
+				PRESS = 1;
+				end
+
+				else
+				begin
+				DATA = 13;
+		  		PRESS = 0;
+				end
+			end
+		end
+	  NS = ST_B;
+	  end 
+	       default: NS=ST_B;
           endcase
       end              
 endmodule

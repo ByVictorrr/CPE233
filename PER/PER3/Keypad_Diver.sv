@@ -25,7 +25,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 `include "/home/victor/CPE233/Modules/ClockDivider.sv"
-
 `include "/home/victor/CPE233/Modules/reg_nb.v"
 `include "./sevenSegment.sv"
 `include "/home/victor/CPE233/Modules/KeyFSM.sv"
@@ -44,6 +43,50 @@ module Keypad_Diver(
 		output INTR);
 
 
+	logic [3:0] DATA;
+	logic PRESS;
+	logic [3:0] binary;
+	logic sclk;
+
+ClockDivider DIV(
+      .clk(CLK),
+      .maxcount(2272727), //change to mine
+      .sclk(sclk)
+);
+
+KeyFSM KEY_FSM(
+	 .CLK(sclk),
+	 .C(C),
+	 .A(A),
+	 .E(E),
+	 .PRESS(PRESS),
+	 .DATA(DATA),
+	 .B(B),
+	 .G(G),
+	 .F(F),
+	 .D(D)
+);
+
+reg_nb #(.n(4)) key_to_seg(
+	          .data_in  (DATA), 
+	          .ld       (PRESS), 
+	          .clk      (sclk), 
+	          .clr      (0), //nvr clear
+	          .data_out (binary)
+          ); 
+
+BinSseg seg_dcdr(
+     		.binary(binary),    
+     		.seg(seg),
+     		.an(an)
+    );   
+ 
+
+IntrFSM INTR_FSM(
+	 .PRESS(PRESS),
+	 .CLK(CLK),
+	 .INTR(INTR)
+);
 
 endmodule
 
