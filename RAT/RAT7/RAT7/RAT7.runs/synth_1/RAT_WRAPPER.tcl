@@ -28,6 +28,14 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo /home/victor/CPE233/RAT/RAT7/RAT7/RAT7.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_mem {
+  /home/victor/CPE233/RAT/RAT7/tests/4a_WSP_PUSH_POP_CALL_RET.mem
+  /home/victor/CPE233/RAT/RAT7/tests/5a_MOV_LD_ST.mem
+  /home/victor/CPE233/RAT/RAT7/tests/4b_WSP_PUSH_POP_CALL_RET.mem
+  /home/victor/CPE233/RAT/RAT7/tests/TestAll.mem
+  /home/victor/CPE233/RAT/RAT7/tests/3b_BRN_BREQ_BRNE_BRCS_BRCC_CLC_SEC.mem
+  /home/victor/CPE233/RAT/RAT7/tests/6b_ADDri_ADDCri_SUBri_SUBCri.mem
+}
 read_verilog -library xil_defaultlib -sv {
   /home/victor/CPE233/RAT/RAT4/ALU.sv
   /home/victor/CPE233/RAT/RAT7/BCD.sv
