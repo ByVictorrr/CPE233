@@ -9,3 +9,4 @@
 # Log file: /home/victor/CPE233/PER/PER3/PER3/PER3.runs/synth_1/Keypad_Diver.vds
 # Journal file: /home/victor/CPE233/PER/PER3/PER3/PER3.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
+source Keypad_Diver.tcl -notrace

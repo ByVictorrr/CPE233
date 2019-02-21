@@ -9,3 +9,356 @@
 # Log file: /home/victor/CPE233/PER/PER3/PER3/PER3.runs/synth_1/Keypad_Diver.vds
 # Journal file: /home/victor/CPE233/PER/PER3/PER3/PER3.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
+source Keypad_Diver.tcl -notrace
+Command: synth_design -top Keypad_Diver -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1778 
+WARNING: [Synth 8-2490] overwriting previous definition of module ClockDivider [/home/victor/CPE233/Modules/ClockDivider.sv:12]
+WARNING: [Synth 8-2490] overwriting previous definition of module BinSseg [/home/victor/CPE233/PER/PER3/./BinSseg.sv:9]
+WARNING: [Synth 8-2490] overwriting previous definition of module KeyFSM [/home/victor/CPE233/PER/PER3/KeyFSM.sv:28]
+WARNING: [Synth 8-2490] overwriting previous definition of module IntrFSM [/home/victor/CPE233/PER/PER3/IntrFSM.sv:28]
+WARNING: [Synth 8-2490] overwriting previous definition of module reg_nb [/home/victor/CPE233/Modules/reg_nb.v:32]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.480 ; gain = 89.008 ; free physical = 1231 ; free virtual = 13781
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Keypad_Diver' [/home/victor/CPE233/PER/PER3/Keypad_Diver.sv:33]
+INFO: [Synth 8-6157] synthesizing module 'ClockDivider' [/home/victor/CPE233/Modules/ClockDivider.sv:12]
+INFO: [Synth 8-6155] done synthesizing module 'ClockDivider' (1#1) [/home/victor/CPE233/Modules/ClockDivider.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'KeyFSM' [/home/victor/CPE233/PER/PER3/KeyFSM.sv:28]
+INFO: [Synth 8-6155] done synthesizing module 'KeyFSM' (2#1) [/home/victor/CPE233/PER/PER3/KeyFSM.sv:28]
+INFO: [Synth 8-6157] synthesizing module 'reg_nb' [/home/victor/CPE233/Modules/reg_nb.v:32]
+	Parameter n bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'reg_nb' (3#1) [/home/victor/CPE233/Modules/reg_nb.v:32]
+INFO: [Synth 8-6157] synthesizing module 'BinSseg' [/home/victor/CPE233/PER/PER3/BinSseg.sv:9]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/PER/PER3/BinSseg.sv:18]
+INFO: [Synth 8-6155] done synthesizing module 'BinSseg' (4#1) [/home/victor/CPE233/PER/PER3/BinSseg.sv:9]
+INFO: [Synth 8-6157] synthesizing module 'IntrFSM' [/home/victor/CPE233/PER/PER3/IntrFSM.sv:28]
+INFO: [Synth 8-6155] done synthesizing module 'IntrFSM' (5#1) [/home/victor/CPE233/PER/PER3/IntrFSM.sv:28]
+INFO: [Synth 8-6155] done synthesizing module 'Keypad_Diver' (6#1) [/home/victor/CPE233/PER/PER3/Keypad_Diver.sv:33]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1270.730 ; gain = 117.258 ; free physical = 1250 ; free virtual = 13800
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1270.730 ; gain = 117.258 ; free physical = 1250 ; free virtual = 13801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1270.730 ; gain = 117.258 ; free physical = 1250 ; free virtual = 13801
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/victor/CPE233/PER/PER3/hardwareConfig.xdc]
+Finished Parsing XDC File [/home/victor/CPE233/PER/PER3/hardwareConfig.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/victor/CPE233/PER/PER3/hardwareConfig.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Keypad_Diver_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Keypad_Diver_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1594.074 ; gain = 0.000 ; free physical = 1020 ; free virtual = 13576
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 1101 ; free virtual = 13657
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 1101 ; free virtual = 13657
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 1102 ; free virtual = 13658
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "sclk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'KeyFSM'
+INFO: [Synth 8-5545] ROM "D" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "F" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "G" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "B" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "NS" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'IntrFSM'
+INFO: [Synth 8-5545] ROM "INTR" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ST_B |                               00 | 00000000000000000000000000000000
+                    ST_G |                               01 | 00000000000000000000000000000001
+                    ST_F |                               10 | 00000000000000000000000000000010
+                    ST_D |                               11 | 00000000000000000000000000000011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'KeyFSM'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                ST_START |                              000 | 00000000000000000000000000000000
+                   ST_T1 |                              001 | 00000000000000000000000000000001
+                   ST_T2 |                              010 | 00000000000000000000000000000010
+                   ST_T3 |                              011 | 00000000000000000000000000000011
+                   ST_T4 |                              100 | 00000000000000000000000000000100
+                   ST_T5 |                              101 | 00000000000000000000000000000101
+                   ST_T6 |                              110 | 00000000000000000000000000000110
+                 ST_DONE |                              111 | 00000000000000000000000000000111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'IntrFSM'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 1093 ; free virtual = 13649
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+	   4 Input      4 Bit        Muxes := 4     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 5     
+	   8 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module ClockDivider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module KeyFSM 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+	   4 Input      4 Bit        Muxes := 4     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 5     
+Module reg_nb 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module IntrFSM 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   8 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design Keypad_Diver has port an[3] driven by constant 1
+WARNING: [Synth 8-3917] design Keypad_Diver has port an[2] driven by constant 1
+WARNING: [Synth 8-3917] design Keypad_Diver has port an[1] driven by constant 1
+WARNING: [Synth 8-3917] design Keypad_Diver has port an[0] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 1081 ; free virtual = 13639
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13512
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     8|
+|3     |LUT1   |     2|
+|4     |LUT2   |     5|
+|5     |LUT3   |     2|
+|6     |LUT4   |     9|
+|7     |LUT5   |     4|
+|8     |LUT6   |     6|
+|9     |FDRE   |    26|
+|10    |IBUF   |     4|
+|11    |OBUF   |    16|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------+-------------+------+
+|      |Instance     |Module       |Cells |
++------+-------------+-------------+------+
+|1     |top          |             |    83|
+|2     |  DIV        |ClockDivider |    31|
+|3     |  INTR_FSM   |IntrFSM      |     7|
+|4     |  KEY_FSM    |KeyFSM       |    12|
+|5     |  key_to_seg |reg_nb       |     5|
+|6     |  seg_dcdr   |BinSseg      |     7|
++------+-------------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.074 ; gain = 440.602 ; free physical = 969 ; free virtual = 13513
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1594.074 ; gain = 117.258 ; free physical = 1023 ; free virtual = 13567
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1594.082 ; gain = 440.602 ; free physical = 1023 ; free virtual = 13566
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+38 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:34 . Memory (MB): peak = 1594.082 ; gain = 440.977 ; free physical = 1023 ; free virtual = 13567
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/victor/CPE233/PER/PER3/PER3/PER3.runs/synth_1/Keypad_Diver.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Keypad_Diver_utilization_synth.rpt -pb Keypad_Diver_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1618.086 ; gain = 0.000 ; free physical = 1024 ; free virtual = 13568
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 21 11:42:55 2019...

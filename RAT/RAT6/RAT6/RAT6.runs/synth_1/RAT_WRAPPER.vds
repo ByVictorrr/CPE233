@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat Feb 16 21:13:31 2019
-# Process ID: 15083
+# Start of session at: Thu Feb 21 11:49:36 2019
+# Process ID: 3618
 # Current directory: /home/victor/CPE233/RAT/RAT6/RAT6/RAT6.runs/synth_1
 # Command line: vivado -log RAT_WRAPPER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RAT_WRAPPER.tcl
 # Log file: /home/victor/CPE233/RAT/RAT6/RAT6/RAT6.runs/synth_1/RAT_WRAPPER.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15103 
+INFO: Helper process launched with PID 3628 
 WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
 WARNING: [Synth 8-2490] overwriting previous definition of module CONTROL_UNIT [/home/victor/CPE233/RAT/RAT6/CONTROL_UNIT.sv:35]
 WARNING: [Synth 8-2490] overwriting previous definition of module FLAGS [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
@@ -35,7 +35,7 @@ WARNING: [Synth 8-2490] overwriting previous definition of module RAT_MCU [/home
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_2t1_nb [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_4t1_nb [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1242.484 ; gain = 89.008 ; free physical = 6717 ; free virtual = 17258
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.480 ; gain = 89.008 ; free physical = 1228 ; free virtual = 13776
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'RAT_WRAPPER' [/home/victor/CPE233/RAT/RAT6/RAT_WRAPPER.sv:15]
 	Parameter SWITCHES_ID bound to: 8'b00100000 
@@ -57,7 +57,113 @@ INFO: [Synth 8-6157] synthesizing module 'ProgCounter' [/home/victor/CPE233/RAT/
 INFO: [Synth 8-6155] done synthesizing module 'ProgCounter' (3#1) [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'ProgRom' [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
 INFO: [Synth 8-5534] Detected attribute (* rom_style = "{distributed | block}" *) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
-INFO: [Synth 8-3876] $readmem data file '/home/victor/CPE233/RAT/RAT6/test/1c_ANDrr_ORrr_EXORrr_LSL_LSR.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
+CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file '/home/victor/CPE233/RAT/RAT7/tests/ 3ab_BRN_BREQ_BRNE_BRCS_BRCC_CLC_SEC.mem'; please make sure the file is added to project and has read permission, ignoring [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
+
+Warning: Trying to implement RAM in registers. Block RAM or DRAM implementation is not possible for one or more of the following reasons :
+	1: Unable to determine number of words or word size in RAM. 
+	2: No valid read/write found for RAM. 
+RAM dissolved into registers
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+WARNING: [Synth 8-3848] Net rom in module/entity ProgRom does not have driver. [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6155] done synthesizing module 'ProgRom' (4#1) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
 INFO: [Synth 8-6157] synthesizing module 'FLAGS' [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
 INFO: [Synth 8-6155] done synthesizing module 'FLAGS' (5#1) [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
@@ -71,12 +177,11 @@ INFO: [Synth 8-6157] synthesizing module 'mux_2t1_nb' [/home/victor/CPE233/Modul
 INFO: [Synth 8-6155] done synthesizing module 'mux_2t1_nb' (7#1) [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
 INFO: [Synth 8-6157] synthesizing module 'ALU' [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
 INFO: [Synth 8-6155] done synthesizing module 'ALU' (8#1) [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
-WARNING: [Synth 8-3848] Net DATA_OUT in module/entity RAT_MCU does not have driver. [/home/victor/CPE233/RAT/RAT6/RAT_MCU.sv:63]
 INFO: [Synth 8-6155] done synthesizing module 'RAT_MCU' (9#1) [/home/victor/CPE233/RAT/RAT6/RAT_MCU.sv:30]
 INFO: [Synth 8-6155] done synthesizing module 'RAT_WRAPPER' (10#1) [/home/victor/CPE233/RAT/RAT6/RAT_WRAPPER.sv:15]
 WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port INTR
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1272.609 ; gain = 119.133 ; free physical = 6735 ; free virtual = 17276
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1280.605 ; gain = 127.133 ; free physical = 1237 ; free virtual = 13786
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -115,10 +220,10 @@ WARNING: [Synth 8-3295] tying undriven pin RF_DIN_INPUT:D2[0] to constant 0 [/ho
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1272.609 ; gain = 119.133 ; free physical = 6735 ; free virtual = 17276
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1280.605 ; gain = 127.133 ; free physical = 1239 ; free virtual = 13788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1272.609 ; gain = 119.133 ; free physical = 6735 ; free virtual = 17276
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1280.605 ; gain = 127.133 ; free physical = 1239 ; free virtual = 13788
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -134,27 +239,26 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1602.938 ; gain = 0.000 ; free physical = 6492 ; free virtual = 17026
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1555.441 ; gain = 0.000 ; free physical = 970 ; free virtual = 13518
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1602.938 ; gain = 449.461 ; free physical = 6569 ; free virtual = 17103
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.441 ; gain = 401.969 ; free physical = 1068 ; free virtual = 13617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1602.938 ; gain = 449.461 ; free physical = 6569 ; free virtual = 17103
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.441 ; gain = 401.969 ; free physical = 1068 ; free virtual = 13617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1602.938 ; gain = 449.461 ; free physical = 6571 ; free virtual = 17105
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.441 ; gain = 401.969 ; free physical = 1070 ; free virtual = 13619
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'CONTROL_UNIT'
 INFO: [Synth 8-5545] ROM "PC_INC" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "NS" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element PROG_IR_reg was removed.  [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:36]
 INFO: [Synth 8-5546] ROM "Z" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "r_leds" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------------------------
@@ -166,7 +270,7 @@ INFO: [Synth 8-5546] ROM "r_leds" won't be mapped to RAM because it is too spars
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'one-hot' in module 'CONTROL_UNIT'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.938 ; gain = 449.461 ; free physical = 6556 ; free virtual = 17095
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.449 ; gain = 409.977 ; free physical = 1058 ; free virtual = 13607
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -190,8 +294,6 @@ Detailed RTL Component Info :
 	               10 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
-+---ROMs : 
-	                              ROMs := 1     
 +---Muxes : 
 	   5 Input     10 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 1     
@@ -255,8 +357,6 @@ Module ProgRom
 Detailed RTL Component Info : 
 +---Registers : 
 	               18 Bit    Registers := 1     
-+---ROMs : 
-	                              ROMs := 1     
 Module FLAGS 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -297,37 +397,61 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5546] ROM "MCU/alu/Z" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "r_leds" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element MCU/PC/PC_COUNT_reg_rep was removed.  [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:37]
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[12]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[11]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[10]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[9]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[8]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[15]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[13]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[16]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[14]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[17]' (FD) to 'MCU/PROM/PROG_IR_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[0]' (FD) to 'MCU/PROM/PROG_IR_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[7]' (FD) to 'MCU/PROM/PROG_IR_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[5]' (FD) to 'MCU/PROM/PROG_IR_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[4]' (FD) to 'MCU/PROM/PROG_IR_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[3]' (FD) to 'MCU/PROM/PROG_IR_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[2]' (FD) to 'MCU/PROM/PROG_IR_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg[1]' (FD) to 'MCU/PROM/PROG_IR_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\MCU/PROM /\PROG_IR_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\r_leds_reg[7] )
+WARNING: [Synth 8-3332] Sequential element (PROG_IR_reg[6]) is unused and will be removed from module ProgRom.
+WARNING: [Synth 8-3332] Sequential element (MCU/flag/C_FLAG_reg) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[7]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[6]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[5]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[4]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[3]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[2]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[1]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (r_leds_reg[0]) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3332] Sequential element (MCU/flag/Z_FLAG_reg) is unused and will be removed from module RAT_WRAPPER.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1602.938 ; gain = 449.461 ; free physical = 6539 ; free virtual = 17080
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1571.457 ; gain = 417.984 ; free physical = 1038 ; free virtual = 13591
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 ROM:
-+-------------+-------------------------+---------------+----------------+
-|Module Name  | RTL Object              | Depth x Width | Implemented As | 
-+-------------+-------------------------+---------------+----------------+
-|CONTROL_UNIT | ALU_OPY_SEL             | 32x1          | LUT            | 
-|ProgRom      | PROG_IR_reg             | 1024x18       | Block RAM      | 
-|RAT_WRAPPER  | MCU/PC/PC_COUNT_reg_rep | 1024x18       | Block RAM      | 
-|RAT_WRAPPER  | MCU/CU/ALU_OPY_SEL      | 32x1          | LUT            | 
-+-------------+-------------------------+---------------+----------------+
++-------------+--------------------+---------------+----------------+
+|Module Name  | RTL Object         | Depth x Width | Implemented As | 
++-------------+--------------------+---------------+----------------+
+|CONTROL_UNIT | ALU_OPY_SEL        | 32x1          | LUT            | 
+|RAT_WRAPPER  | MCU/CU/ALU_OPY_SEL | 32x1          | LUT            | 
++-------------+--------------------+---------------+----------------+
 
-
-Distributed RAM: Preliminary Mapping  Report (see note below)
-+------------+-------------------+-----------+----------------------+----------------+
-|Module Name | RTL Object        | Inference | Size (Depth x Width) | Primitives     | 
-+------------+-------------------+-----------+----------------------+----------------+
-|RAT_WRAPPER | MCU/RF/memory_reg | Implied   | 32 x 8               | RAM32X1D x 8   | 
-+------------+-------------------+-----------+----------------------+----------------+
-
-Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4480] The timing for the instance i_2/MCU/PC/PC_COUNT_reg_rep (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -338,27 +462,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1602.938 ; gain = 449.461 ; free physical = 6415 ; free virtual = 16956
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1580.457 ; gain = 426.984 ; free physical = 918 ; free virtual = 13472
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1603.938 ; gain = 450.461 ; free physical = 6402 ; free virtual = 16943
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Distributed RAM: Final Mapping  Report
-+------------+-------------------+-----------+----------------------+----------------+
-|Module Name | RTL Object        | Inference | Size (Depth x Width) | Primitives     | 
-+------------+-------------------+-----------+----------------------+----------------+
-|RAT_WRAPPER | MCU/RF/memory_reg | Implied   | 32 x 8               | RAM32X1D x 8   | 
-+------------+-------------------+-----------+----------------------+----------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1580.457 ; gain = 426.984 ; free physical = 918 ; free virtual = 13472
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -369,13 +479,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[7]' (FD) to 'MCU/PROM/PROG_IR_reg[7]'
-INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[6]' (FD) to 'MCU/PROM/PROG_IR_reg[6]'
-INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[5]' (FD) to 'MCU/PROM/PROG_IR_reg[5]'
-INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[4]' (FD) to 'MCU/PROM/PROG_IR_reg[4]'
-INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[3]' (FD) to 'MCU/PROM/PROG_IR_reg[3]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6401 ; free virtual = 16942
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -399,7 +504,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -412,7 +517,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -424,25 +529,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -455,59 +560,46 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |BUFG       |     1|
-|2     |CARRY4     |     9|
-|3     |LUT1       |     1|
-|4     |LUT2       |    12|
-|5     |LUT3       |    13|
-|6     |LUT4       |    26|
-|7     |LUT5       |    59|
-|8     |LUT6       |    55|
-|9     |MUXF7      |    10|
-|10    |MUXF8      |     2|
-|11    |RAM32X1D   |     8|
-|12    |RAMB18E1_1 |     1|
-|13    |FDRE       |    24|
-|14    |IBUF       |    10|
-|15    |OBUF       |     8|
-+------+-----------+------+
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT1 |     1|
+|3     |LUT2 |     1|
+|4     |LUT3 |     1|
+|5     |FDRE |     4|
+|6     |IBUF |     2|
+|7     |OBUF |     8|
++------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------------+------+
 |      |Instance |Module       |Cells |
 +------+---------+-------------+------+
-|1     |top      |             |   239|
-|2     |  MCU    |RAT_MCU      |   210|
-|3     |    CU   |CONTROL_UNIT |    10|
-|4     |    PC   |ProgCounter  |   150|
-|5     |    RF   |REG_FILE     |    34|
-|6     |    alu  |ALU          |    10|
-|7     |    flag |FLAGS        |     6|
+|1     |top      |             |    18|
+|2     |  MCU    |RAT_MCU      |     5|
+|3     |    CU   |CONTROL_UNIT |     5|
 +------+---------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.945 ; gain = 458.469 ; free physical = 6402 ; free virtual = 16942
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1590.480 ; gain = 437.008 ; free physical = 917 ; free virtual = 13471
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1611.945 ; gain = 128.141 ; free physical = 6458 ; free virtual = 16998
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.953 ; gain = 458.469 ; free physical = 6458 ; free virtual = 16998
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1590.480 ; gain = 162.172 ; free physical = 969 ; free virtual = 13523
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1590.488 ; gain = 437.008 ; free physical = 969 ; free virtual = 13523
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 40 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 8 instances were transformed.
-  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 8 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-56 Infos, 48 Warnings, 0 Critical Warnings and 0 Errors encountered.
+76 Infos, 156 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1611.953 ; gain = 458.844 ; free physical = 6463 ; free virtual = 17003
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1595.480 ; gain = 442.375 ; free physical = 970 ; free virtual = 13524
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/victor/CPE233/RAT/RAT6/RAT6/RAT6.runs/synth_1/RAT_WRAPPER.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RAT_WRAPPER_utilization_synth.rpt -pb RAT_WRAPPER_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1635.957 ; gain = 0.000 ; free physical = 6464 ; free virtual = 17005
-INFO: [Common 17-206] Exiting Vivado at Sat Feb 16 21:14:12 2019...
+report_utilization: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1595.480 ; gain = 0.000 ; free physical = 972 ; free virtual = 13526
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 21 11:50:22 2019...
