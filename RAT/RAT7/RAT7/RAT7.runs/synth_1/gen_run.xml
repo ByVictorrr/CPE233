@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1550737688">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1550770402">
   <File Type="VDS-TIMING-PB" Name="RAT_WRAPPER_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="RAT_WRAPPER_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="RAT_WRAPPER.dcp"/>
