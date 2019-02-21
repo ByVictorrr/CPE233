@@ -106,14 +106,14 @@ set_property PACKAGE_PIN V7 [get_ports {CATHODES[7]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[7]}]
 
 
-set_property PACKAGE_PIN U2 [get_ports {ANODES[3]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[3]}]
-set_property PACKAGE_PIN U4 [get_ports {ANODES[2]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[2]}]
-set_property PACKAGE_PIN V4 [get_ports {ANODES[1]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[1]}]
-set_property PACKAGE_PIN W4 [get_ports {ANODES[0]}]					
+set_property PACKAGE_PIN U2 [get_ports {ANODES[0]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[0]}]
+set_property PACKAGE_PIN U4 [get_ports {ANODES[1]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[1]}]
+set_property PACKAGE_PIN V4 [get_ports {ANODES[2]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[2]}]
+set_property PACKAGE_PIN W4 [get_ports {ANODES[3]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[3]}]
 
 
 #Buttons

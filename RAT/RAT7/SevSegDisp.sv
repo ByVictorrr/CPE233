@@ -38,7 +38,9 @@ module SevSegDisp(
                 .HUNDREDS(BCD_Val[11:8]), .TENS(BCD_Val[7:4]),
                 .ONES(BCD_Val[3:0]));
     
-    CathodeDriver CathMod (.HEX(Hex_Val), .CLK(CLK), .CATHODES(CATHODES),
+    CathodeDriver CathMod (.HEX(Hex_Val), 
+                            .CLK(CLK), 
+                            .CATHODES(CATHODES),
                             .ANODES(ANODES));
     
     // MUX to switch between HEX and BCD input

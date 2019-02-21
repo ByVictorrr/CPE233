@@ -51,8 +51,8 @@ module RAT_WRAPPER(
     RAT_MCU MCU (.IN_PORT(s_input_port), 
 	    	.OUT_PORT(s_output_port),
                 .PORT_ID(s_port_id), 
-	   	.IO_STRB(s_load), 
-	    	.RESET(s_reset),
+	   	       .IO_STRB(s_load), 
+	       	.RESET(s_reset),
                 .INTR(s_interrupt), 
 	    	.CLK(s_clk_50));
    
