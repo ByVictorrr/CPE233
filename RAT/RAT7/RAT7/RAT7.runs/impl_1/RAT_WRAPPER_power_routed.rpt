@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Wed Feb 20 20:39:52 2019
+| Date             : Wed Feb 20 21:23:47 2019
 | Host             : TheShell running 64-bit unknown
 | Command          : report_power -file RAT_WRAPPER_power_routed.rpt -pb RAT_WRAPPER_power_summary_routed.pb -rpx RAT_WRAPPER_power_routed.rpx
 | Design           : RAT_WRAPPER
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.002 |      473 |       --- |             --- |
-|   LUT as Logic           |     0.002 |      226 |     20800 |            1.09 |
+| Slice Logic              |     0.002 |      480 |       --- |             --- |
+|   LUT as Logic           |     0.002 |      230 |     20800 |            1.11 |
 |   LUT as Distributed RAM |    <0.001 |       48 |      9600 |            0.50 |
 |   CARRY4                 |    <0.001 |       21 |      8150 |            0.26 |
 |   F7/F8 Muxes            |    <0.001 |       54 |     32600 |            0.17 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   Register               |    <0.001 |       74 |     41600 |            0.18 |
 |   Others                 |     0.000 |       16 |       --- |             --- |
-| Signals                  |     0.003 |      370 |       --- |             --- |
+| Signals                  |     0.003 |      375 |       --- |             --- |
 | Block RAM                |    <0.001 |      0.5 |        50 |            1.00 |
 | I/O                      |    <0.001 |       30 |       106 |           28.30 |
 | Static Power             |     0.072 |          |           |                 |

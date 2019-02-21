@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Wed Feb 20 20:39:52 2019
+| Date         : Wed Feb 20 21:23:48 2019
 | Host         : TheShell running 64-bit unknown
 | Command      : report_clock_utilization -file RAT_WRAPPER_clock_utilization_routed.rpt
 | Design       : RAT_WRAPPER
@@ -72,7 +72,7 @@ Table of Contents
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+--------------------------------------+--------------------------------+
 | Local Id | Driver Type/Pin | Constraint | Site/BEL         | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                           | Net                            |
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+--------------------------------------+--------------------------------||
-| 0        | FDRE/Q          | None       | SLICE_X10Y14/AFF | X0Y0         |          13 |               1 |              |       | Sev_Seg_Disp/CathMod/s_clk_500_reg/Q | Sev_Seg_Disp/CathMod/s_clk_500 - Static -
+| 0        | FDRE/Q          | None       | SLICE_X10Y15/AFF | X0Y0         |          13 |               1 |              |       | Sev_Seg_Disp/CathMod/s_clk_500_reg/Q | Sev_Seg_Disp/CathMod/s_clk_500 - Static -
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+--------------------------------------+--------------------------------||
 * Local Clocks in this context represents only clocks driven by non-global buffers
 ** Clock Loads column represents the clock pin loads (pin count)

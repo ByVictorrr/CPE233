@@ -1,7 +1,6 @@
 `include "./RAT_MCU.sv"
 `include "./SevSegDisp.sv"
 `include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
-`include "/home/victor/CPE233/Modules/mux_flipped_2t1_nb.v"
 
 //////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
@@ -29,12 +28,12 @@ module RAT_WRAPPER(
     // Right now, the only possible inputs are the switches
     // In future labs you can add more port IDs, and you'll have
     // to add constants here for the mux below
-    localparam SWITCHES_ID = 8'h20;
+    localparam SWITCHES_ID = 8'hFF;
        
     // OUTPUT PORT IDS ///////////////////////////////////////////////////////
     // In future labs you can add more port IDs
     localparam LEDS_ID      = 8'h40;
-    localparam SEG_ID       = 8'h41;
+    localparam SEG_ID       = 8'h81;
     // Signals for connecting RAT_MCU to RAT_wrapper /////////////////////////
     logic [7:0] s_output_port;
     logic [7:0] s_port_id;
