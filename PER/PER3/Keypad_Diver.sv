@@ -1,3 +1,8 @@
+`include "/home/victor/CPE233/Modules/ClockDivider.sv"
+`include "/home/victor/CPE233/Modules/reg_nb.v"
+`include "./BinSseg.sv"
+`include "/home/victor/CPE233/PER/PER3/KeyFSM.sv"
+`include "/home/victor/CPE233/PER/PER3/IntrFSM.sv"
 /*
  * Keypad_Diver
  * Copyright (C) 2019 victor <victor@TheShell>
@@ -24,23 +29,21 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`include "/home/victor/CPE233/Modules/ClockDivider.sv"
-`include "/home/victor/CPE233/Modules/reg_nb.v"
-`include "./sevenSegment.sv"
-`include "/home/victor/CPE233/Modules/KeyFSM.sv"
-`include "/home/victor/CPE233/Modules/IntrFSM.sv"
+
 module Keypad_Diver(
 		input C,
 		input A,
 		input E,
 		input CLK,
 		output [6:0] seg,
-		output [3:0] an
+		output [3:0] an,
 		output B,
 		output G,
 		output F,
-		output D
-		output INTR);
+		output D,
+		output INTR
+		
+		);
 
 
 	logic [3:0] DATA;

@@ -28,7 +28,7 @@
 module IntrFSM(
 	input PRESS,
 	input CLK,
-	output INTR
+	output logic INTR
 );
 
 	typedef enum{
@@ -50,7 +50,7 @@ module IntrFSM(
 	
 
     //- model the state registers
-    always @ (negedge reset_n, posedge clk)
+    always_ff @ (posedge CLK)
           PS <= NS; 
     
     
@@ -73,7 +73,7 @@ module IntrFSM(
           ST_T1:
           begin
 		INTR=1;
-		 NS = ST_T2;_
+		 NS = ST_T2;
 	  end
 
 	  ST_T2:
@@ -85,7 +85,7 @@ module IntrFSM(
 	  ST_T3:
           begin
 		INTR=1;
-		NS = ST_4;
+		NS = ST_T4;
 	  end
 	  ST_T4:
           begin
@@ -106,7 +106,7 @@ module IntrFSM(
 
 	  ST_DONE:
           begin
-		INTR=0
+		INTR=0;
 		if (PRESS == 0)
 			NS = ST_START;
 		else

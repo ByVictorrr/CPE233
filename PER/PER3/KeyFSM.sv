@@ -49,7 +49,7 @@ module KeyFSM(
 	
 
     //- model the state registers
-    always @ (negedge reset_n, posedge clk)
+    always @ (posedge CLK)
           PS <= NS; 
     
     
