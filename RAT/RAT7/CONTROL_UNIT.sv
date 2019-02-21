@@ -49,8 +49,8 @@ module CONTROL_UNIT(
 		output logic RST,
 		output logic IO_STRB,
 		output logic SP_LD,
-		output logic SP_INC,
-		output logic SP_DEC,
+		output logic SP_INCR,
+		output logic SP_DECR,
 		output logic SCR_WE,
 		output logic [1:0] SCR_ADDR_SEL,
 		output logic SCR_DATA_SEL
@@ -92,11 +92,11 @@ module CONTROL_UNIT(
 		 RST=0;
 		 IO_STRB=0;
 		 SP_LD=0;
-		 SP_INC=0;
-		 SP_DEC=0;
+		 SP_INCR=0;
+		 SP_DECR=0;
 		 SCR_WE=0;
 		 SCR_ADDR_SEL=0;
-		 SCR_DATA_SE=0;
+		 SCR_DATA_SEL=0;
 	
 
 		case(PS)
@@ -202,13 +202,14 @@ module CONTROL_UNIT(
 						
 						2'b10: //LD
 						begin
-					   	//insert later	
+						RF_WR = 1;
+						RF_WR_SEL = 1;
 						end
 						
 						2'b11: //ST
 						begin
-					        //insert later	end
-                        end 
+					        SCR_WE = 1;	
+                       				end 
                         
 						default:  ALU_SEL = 00; //dont know
 						endcase	
@@ -318,16 +319,16 @@ module CONTROL_UNIT(
 					
 					5'b111_00: //LD
 					begin	
-					//RF_WR = 1;
-					//RF_WR_SEL = 1;
-					//ALU_OPY_SEL = 1;
-					//insert here
+					RF_WR = 1;
+					RF_WR_SEL = 1;
+					SCR_ADDR_SEL = 1;
 					end
 					
 					
 					5'b111_01: //ST
 					begin	
-					//insert here
+					SCR_WE = 1;
+					SCR_ADDR_SEL = 1;
 					end
 				
 						
@@ -341,9 +342,12 @@ module CONTROL_UNIT(
 						PC_LD = 1;	
 						end
 						
-						2'b01: //CALL
+						2'b01: //CALL (like a BRN and PUSH)
 						begin
-						//insert here
+						PC_LD = 1;
+						SCR_ADDR_SEL = 3;
+						SCR_DATA_SEL = 1;
+						SP_DECR = 1;
 						end
 						
 						2'b10: //BREQ
@@ -446,12 +450,17 @@ module CONTROL_UNIT(
 						
 						2'b01: //PUSH
 						begin
-						//insert here
+						SCR_WE = 1;
+						SCR_ADDR_SEL = 3;
+						SP_DECR = 1;
 						end
 						
 						2'b10: //POP
 						begin
-						//insert here	
+						RF_WR = 1;
+						RF_WR_SEL = 1;
+						SCR_ADDR_SEL = 2;
+						SP_INCR =1;
 						end
 						
 						default: ; //dont know
@@ -465,7 +474,7 @@ module CONTROL_UNIT(
 					
 						2'b00: //WSP
 						begin
-						//insert here	
+						SP_LD = 1;
 						end
 						
 						2'b01: //RSP
@@ -495,7 +504,9 @@ module CONTROL_UNIT(
 						
 						2'b10: //RET
 						begin	
-						//inser here
+						PC_LD = 1;
+						PC_MUX_SEL = 1;
+						SP_INCR = 1;
 						end	
 						default: ; //dont know
 						endcase	

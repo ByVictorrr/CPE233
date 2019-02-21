@@ -1,0 +1,114 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Feb 20 20:30:03 2019
+# Process ID: 1862
+# Current directory: /home/victor/CPE233/RAT/RAT7/RAT7/RAT7.runs/synth_1
+# Command line: vivado -log RAT_WRAPPER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RAT_WRAPPER.tcl
+# Log file: /home/victor/CPE233/RAT/RAT7/RAT7/RAT7.runs/synth_1/RAT_WRAPPER.vds
+# Journal file: /home/victor/CPE233/RAT/RAT7/RAT7/RAT7.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source RAT_WRAPPER.tcl -notrace
+Command: synth_design -top RAT_WRAPPER -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1888 
+WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
+WARNING: [Synth 8-2490] overwriting previous definition of module CONTROL_UNIT [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:30]
+WARNING: [Synth 8-2490] overwriting previous definition of module FLAGS [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
+WARNING: [Synth 8-2490] overwriting previous definition of module ProgCounter [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
+WARNING: [Synth 8-2490] overwriting previous definition of module ProgRom [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
+WARNING: [Synth 8-2490] overwriting previous definition of module REG_FILE [/home/victor/CPE233/RAT/RAT3/REG_FILE.sv:1]
+WARNING: [Synth 8-2490] overwriting previous definition of module SCRATCH_RAM [/home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv:1]
+WARNING: [Synth 8-2490] overwriting previous definition of module Stack_Pointer [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:28]
+WARNING: [Synth 8-2490] overwriting previous definition of module mux_4t1_nb [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
+WARNING: [Synth 8-2490] overwriting previous definition of module mux_2t1_nb [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
+WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
+WARNING: [Synth 8-2490] overwriting previous definition of module CONTROL_UNIT [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:30]
+WARNING: [Synth 8-2490] overwriting previous definition of module FLAGS [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
+WARNING: [Synth 8-2490] overwriting previous definition of module ProgCounter [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
+WARNING: [Synth 8-2490] overwriting previous definition of module ProgRom [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
+WARNING: [Synth 8-2490] overwriting previous definition of module REG_FILE [/home/victor/CPE233/RAT/RAT3/REG_FILE.sv:1]
+WARNING: [Synth 8-2490] overwriting previous definition of module SCRATCH_RAM [/home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv:1]
+WARNING: [Synth 8-2490] overwriting previous definition of module Stack_Pointer [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:28]
+WARNING: [Synth 8-2490] overwriting previous definition of module RAT_MCU [/home/victor/CPE233/RAT/RAT7/./RAT_MCU.sv:30]
+WARNING: [Synth 8-2490] overwriting previous definition of module SevSegDisp [/home/victor/CPE233/RAT/RAT7/./SevSegDisp.sv:26]
+WARNING: [Synth 8-2490] overwriting previous definition of module mux_2t1_nb [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
+WARNING: [Synth 8-2490] overwriting previous definition of module mux_4t1_nb [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.484 ; gain = 89.008 ; free physical = 388 ; free virtual = 15079
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'RAT_WRAPPER' [/home/victor/CPE233/RAT/RAT7/RAT_WRAPPER.sv:19]
+	Parameter SWITCHES_ID bound to: 8'b00100000 
+	Parameter LEDS_ID bound to: 8'b01000000 
+	Parameter SEG_ID bound to: 8'b01000001 
+INFO: [Synth 8-6157] synthesizing module 'RAT_MCU' [/home/victor/CPE233/RAT/RAT7/RAT_MCU.sv:30]
+INFO: [Synth 8-6157] synthesizing module 'CONTROL_UNIT' [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:30]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:124]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:159]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:188]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:338]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:412]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:518]
+INFO: [Synth 8-6155] done synthesizing module 'CONTROL_UNIT' (1#1) [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:30]
+INFO: [Synth 8-6157] synthesizing module 'mux_4t1_nb' [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
+	Parameter n bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_4t1_nb' (2#1) [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
+INFO: [Synth 8-6157] synthesizing module 'ProgCounter' [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
+	Parameter n bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'ProgCounter' (3#1) [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'ProgRom' [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
+INFO: [Synth 8-5534] Detected attribute (* rom_style = "{distributed | block}" *) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
+INFO: [Synth 8-3876] $readmem data file '/home/victor/CPE233/RAT/RAT6/test/1c_ANDrr_ORrr_EXORrr_LSL_LSR.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
+INFO: [Synth 8-6155] done synthesizing module 'ProgRom' (4#1) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'FLAGS' [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
+INFO: [Synth 8-6155] done synthesizing module 'FLAGS' (5#1) [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
+INFO: [Synth 8-6157] synthesizing module 'mux_4t1_nb__parameterized0' [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
+	Parameter n bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_4t1_nb__parameterized0' (5#1) [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
+INFO: [Synth 8-6157] synthesizing module 'REG_FILE' [/home/victor/CPE233/RAT/RAT3/REG_FILE.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'REG_FILE' (6#1) [/home/victor/CPE233/RAT/RAT3/REG_FILE.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'mux_2t1_nb' [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
+	Parameter n bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2t1_nb' (7#1) [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (8#1) [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'Stack_Pointer' [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:28]
+WARNING: [Synth 8-567] referenced signal 'RST' should be on the sensitivity list [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:38]
+WARNING: [Synth 8-567] referenced signal 'LD' should be on the sensitivity list [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:38]
+WARNING: [Synth 8-567] referenced signal 'D_IN' should be on the sensitivity list [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:38]
+WARNING: [Synth 8-567] referenced signal 'INCR' should be on the sensitivity list [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:38]
+WARNING: [Synth 8-567] referenced signal 'D_OUT' should be on the sensitivity list [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:38]
+WARNING: [Synth 8-567] referenced signal 'DECR' should be on the sensitivity list [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:38]
+WARNING: [Synth 8-89] always_ff on 'D_OUT_reg' did not result in a flip-flop [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:41]
+INFO: [Synth 8-6155] done synthesizing module 'Stack_Pointer' (9#1) [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:28]
+INFO: [Synth 8-6157] synthesizing module 'mux_2t1_nb__parameterized0' [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
+	Parameter n bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2t1_nb__parameterized0' (9#1) [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
+WARNING: [Synth 8-689] width (72) of port connection 'D0' does not match port width (10) of module 'mux_2t1_nb__parameterized0' [/home/victor/CPE233/RAT/RAT7/RAT_MCU.sv:204]
+WARNING: [Synth 8-689] width (32) of port connection 'D3' does not match port width (8) of module 'mux_4t1_nb__parameterized0' [/home/victor/CPE233/RAT/RAT7/RAT_MCU.sv:215]
+INFO: [Synth 8-6157] synthesizing module 'SCRATCH_RAM' [/home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'SCRATCH_RAM' (10#1) [/home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'RAT_MCU' (11#1) [/home/victor/CPE233/RAT/RAT7/RAT_MCU.sv:30]
+INFO: [Synth 8-6157] synthesizing module 'SevSegDisp' [/home/victor/CPE233/RAT/RAT7/SevSegDisp.sv:26]
+INFO: [Synth 8-6157] synthesizing module 'BCD' [/home/victor/CPE233/RAT/RAT7/BCD.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'BCD' (12#1) [/home/victor/CPE233/RAT/RAT7/BCD.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'CathodeDriver' [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:19]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:41]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:44]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:66]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:88]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:110]
+INFO: [Synth 8-6155] done synthesizing module 'CathodeDriver' (13#1) [/home/victor/CPE233/RAT/RAT7/CathodeDriver.sv:19]
+INFO: [Synth 8-6155] done synthesizing module 'SevSegDisp' (14#1) [/home/victor/CPE233/RAT/RAT7/SevSegDisp.sv:26]
+WARNING: [Synth 8-689] width (8) of port connection 'DATA_IN' does not match port width (16) of module 'SevSegDisp' [/home/victor/CPE233/RAT/RAT7/RAT_WRAPPER.sv:91]
+WARNING: [Synth 8-350] instance 'Sev_Seg_Disp' of module 'SevSegDisp' requires 5 connections, but only 4 given [/home/victor/CPE233/RAT/RAT7/RAT_WRAPPER.sv:89]
+INFO: [Synth 8-6155] done synthesizing module 'RAT_WRAPPER' (15#1) [/home/victor/CPE233/RAT/RAT7/RAT_WRAPPER.sv:19]
+WARNING: [Synth 8-3331] design Stack_Pointer has unconnected port CLK
+WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port INTR
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1276.609 ; gain = 123.133 ; free physical = 402 ; free virtual = 15093
+---------------------------------------------------------------------------------

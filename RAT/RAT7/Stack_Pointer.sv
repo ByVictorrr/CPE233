@@ -32,7 +32,7 @@ module Stack_Pointer(
 		input INCR,
 		input DECR,
 		input CLK,
-		output [7:0] D_D_OUT,
+		output logic [7:0] D_OUT
 );                                                     
                                                                            
 always_ff @(CLK)

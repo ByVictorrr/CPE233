@@ -67,7 +67,7 @@ logic [1:0] SCR_ADDR_SEL;
 logic [7:0] SCR_ADDR_IN;
 logic [7:0] SP_DATA_OUT;
 logic SCR_WE;
-logic SP_LD, SP_INC, SP_DECR;
+logic SP_LD, SP_INCR, SP_DECR;
 
 
 //========INFORMATION ABOUT NON USED PORTS TIED TO 0======\\
@@ -80,8 +80,6 @@ logic SP_LD, SP_INC, SP_DECR;
 		.Z_FLAG(Z_FLAG),
 		.RESET(RESET),
 		.CLK(CLK),		
-		//.I_SET(), //unused
-		//.I_CLR(), //unused
 		.PC_LD(PC_LD),
 		.PC_INC(PC_INC),
 		.PC_MUX_SEL(PC_MUX_SEL),
@@ -89,19 +87,24 @@ logic SP_LD, SP_INC, SP_DECR;
 		.ALU_SEL(ALU_SEL),
 		.RF_WR(RF_WR),
 		.RF_WR_SEL(RF_WR_SEL),
-		//.SP_LD(), //unused
-		//.SP_INCR(), //unused
-		//.SP_DECR(), //unused
-		//.SCR_WE(), //unused
-		//.SCR_ADDR_SEL(), //unused
 		.FLG_C_SET(FLG_C_SET),
 		.FLG_C_CLR(FLG_C_CLR),
 		.FLG_C_LD(FLG_C_LD),
 		.FLG_Z_LD(FLG_Z_LD),
+		.RST(RST),
+		.IO_STRB(IO_STRB), //unsure
+		.SP_LD(SP_LD), //unused
+		.SP_INCR(SP_INCR), //unused
+		.SP_DECR(SP_DECR), //unused
+		.SCR_WE(SCR_WE), //unused
+		.SCR_ADDR_SEL(SCR_ADDR_SEL), //unused
+		.SCR_DATA_SEL(SCR_DATA_SEL)
+		//.I_SET(), //unused
+		//.I_CLR(), //unused
 		//.FLG_LD_SEL(FLG_LD_SEL),
 	    	//.FLG_SHAD_LD(), //unused
-		.RST(RST),
-		.IO_STRB(IO_STRB) //unsure
+
+
 );
 
 //================left side===============
@@ -150,7 +153,7 @@ logic SP_LD, SP_INC, SP_DECR;
 		.SEL(RF_WR_SEL), 
       		.D0(RESULT), 
 		.D1(DATA_OUT[7:0]), //unsure
-		.D2(), 
+		.D2(SP_DATA_OUT), 
 		.D3(IN_PORT),
        		.D_OUT(DIN_RF) 
   
@@ -189,7 +192,7 @@ logic SP_LD, SP_INC, SP_DECR;
 		 .D_IN(DX_OUT),
 		 .RST(RST),
 		 .LD(SP_LD),
-		 .INCR(SP_INC),
+		 .INCR(SP_INCR),
 		 .DECR(SP_DECR),
 		 .CLK(CLK),
 		 .D_OUT(SP_DATA_OUT)
@@ -198,29 +201,28 @@ logic SP_LD, SP_INC, SP_DECR;
 //End of scr and SP
 	mux_2t1_nb #(.n(10)) MUX_SCR_DATA_IN(	
 		.SEL(SCR_DATA_SEL), 
-      		.D0({0,0,DX_OUT}), 
+        .D0({0,0,DX_OUT}), 
 		.D1(PC_COUNT), 
 		.D_OUT(SCR_DATA_IN)
 	);
 
 	
-	mux_4t1_nb #(.n(8))) MUX_SCR_ADDR_IN(
+	mux_4t1_nb #(.n(8)) MUX_SCR_ADDR_IN(
 		.SEL(SCR_ADDR_SEL), 
-      		.D0(DY_OUT), 
-		.D1(IR[7:0]), //come back to
+      	.D0(DY_OUT), 
+		.D1(PROG_IR[7:0]), //come back to
 		.D2(SP_DATA_OUT), 
 		.D3(SP_DATA_OUT-1), //dont care
        		.D_OUT(SCR_ADDR_IN) 
   
 	);
 
-	SCRATCH_RAM SCR(
-	
+	SCRATCH_RAM SCR(	
 	  .DATA_IN(SCR_DATA_IN),
 	  .SCR_ADDR(SCR_ADDR_IN),
 	  .SCR_WE(SCR_WE),
-	 .CLK(CLK),
-	  DATA_OUT(DATA_OUT)
+	  .CLK(CLK),
+	  .DATA_OUT(DATA_OUT)
 	);	
 
 

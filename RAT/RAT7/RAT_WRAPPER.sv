@@ -1,8 +1,12 @@
 `include "./RAT_MCU.sv"
+`include "./SevSegDisp.sv"
+`include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
+`include "/home/victor/CPE233/Modules/mux_flipped_2t1_nb.v"
+
 //////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
 // Engineer: Paul Hummel
-//
+// Edited by: Victor Delaplaine
 // Create Date: 06/28/2018 05:21:01 AM
 // Module Name: RAT_WRAPPER
 // Target Devices: RAT MCU on Basys3
@@ -16,7 +20,9 @@ module RAT_WRAPPER(
     input CLK,
     input BTNR,
     input [7:0] SWITCHES,
-    output [7:0] LEDS
+    output [7:0] LEDS,
+    output [3:0] ANODES,
+    output [7:0] CATHODES
     );
     
     // INPUT PORT IDS ////////////////////////////////////////////////////////
@@ -28,7 +34,7 @@ module RAT_WRAPPER(
     // OUTPUT PORT IDS ///////////////////////////////////////////////////////
     // In future labs you can add more port IDs
     localparam LEDS_ID      = 8'h40;
-       
+    localparam SEG_ID       = 8'h41;
     // Signals for connecting RAT_MCU to RAT_wrapper /////////////////////////
     logic [7:0] s_output_port;
     logic [7:0] s_port_id;
@@ -40,18 +46,24 @@ module RAT_WRAPPER(
     // Register definitions for output devices ///////////////////////////////
     logic [7:0]   s_input_port;
     logic [7:0]   r_leds = 8'h00;
-
-    // Declare RAT_CPU ///////////////////////////////////////////////////////
-    RAT_MCU MCU (.IN_PORT(s_input_port), .OUT_PORT(s_output_port),
-                .PORT_ID(s_port_id), .IO_STRB(s_load), .RESET(s_reset),
-                .INTR(s_interrupt), .CLK(s_clk_50));
+    logic [7:0]   r_seg = 8'h00;
     
+    // Declare RAT_CPU ///////////////////////////////////////////////////////
+    RAT_MCU MCU (.IN_PORT(s_input_port), 
+	    	.OUT_PORT(s_output_port),
+                .PORT_ID(s_port_id), 
+	   	.IO_STRB(s_load), 
+	    	.RESET(s_reset),
+                .INTR(s_interrupt), 
+	    	.CLK(s_clk_50));
+   
+	
     // Clock Divider to create 50 MHz Clock //////////////////////////////////
     always_ff @(posedge CLK) begin
         s_clk_50 <= ~s_clk_50;
     end
     
-     
+
     // MUX for selecting what input to read //////////////////////////////////
     always_comb begin
         if (s_port_id == SWITCHES_ID)
@@ -66,14 +78,31 @@ module RAT_WRAPPER(
         if (s_load == 1'b1) begin
             if (s_port_id == LEDS_ID)
                 r_leds <= s_output_port;
+	    else if (s_port_id == SEG_ID)
+		      r_seg <= s_output_port;
             end
         end
-     
+    
+    
+
+////INSTANITATION of SEV Seg//////////////////////
+	SevSegDisp Sev_Seg_Disp(
+			.CLK(s_clk_50),    
+   			.DATA_IN(r_seg),
+			.CATHODES(CATHODES),
+ 			.ANODES(ANODES)
+
+	);
+
+////////////////////////////////////////////
+
+
+
     // Connect Signals ///////////////////////////////////////////////////////
     assign s_reset = BTNR;
     assign s_interrupt = 1'b0;  // no interrupt used yet
      
     // Output Assignments ////////////////////////////////////////////////////
     assign LEDS = r_leds;
-   
+  
     endmodule
