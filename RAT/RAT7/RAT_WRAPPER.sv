@@ -1,7 +1,6 @@
 `include "./RAT_MCU.sv"
 `include "./SevSegDisp.sv"
 `include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
-
 //////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
 // Engineer: Paul Hummel
@@ -37,11 +36,11 @@ module RAT_WRAPPER(
     // Signals for connecting RAT_MCU to RAT_wrapper /////////////////////////
     logic [7:0] s_output_port;
     logic [7:0] s_port_id;
-    logic s_load;
+    logic IO_STRB;
     logic s_interrupt;
     logic s_reset;
     logic s_clk_50 = 1'b0;     // 50 MHz clock
-    
+    logic [7:0] SEV_SEG; 
     // Register definitions for output devices ///////////////////////////////
     logic [7:0]   s_input_port;
     logic [7:0]   r_leds = 8'h00;
@@ -51,7 +50,7 @@ module RAT_WRAPPER(
     RAT_MCU MCU (.IN_PORT(s_input_port), 
 	    	.OUT_PORT(s_output_port),
                 .PORT_ID(s_port_id), 
-	   	       .IO_STRB(s_load), 
+	   	.IO_STRB(IOSTRB), 
 	       	.RESET(s_reset),
                 .INTR(s_interrupt), 
 	    	.CLK(s_clk_50));
@@ -70,16 +69,37 @@ module RAT_WRAPPER(
         else
             s_input_port = 8'h00;
     end
-   
+/*j 
+ //===========LED_REG=======================================
+	reg_nb #(.n(8)) LED_REG (                                     
+          .data_in  (s_output_port), 
+          .ld       (IOSTRB), 
+          .clk      (s_clk_50), 
+          .clr      (0), //dont clear
+          .data_out (LEDS)
+          );  
+//======================================================
+
+//===========SEV_SEG REG=======================================
+	reg_nb #(.n(8)) SEV_SEG_REG (                                     
+          .data_in  (s_output_port), 
+          .ld       (IOSTRB), 
+          .clk      (s_clk_50), 
+          .clr      (0), //dont clear
+          .data_out (SEV_SEG)
+          );  
+//======================================================
+
+*/
+
     // MUX for updating output registers /////////////////////////////////////
     // Register updates depend on rising clock edge and asserted load signal
     always_ff @ (posedge CLK) begin
-        if (s_load == 1'b1) begin
+        if (IOSTRB == 1'b1) begin
             if (s_port_id == LEDS_ID)
                 r_leds <= s_output_port;
-
-	    else if (s_port_id == SEG_ID)
-		      r_seg <= s_output_port;
+	    if (s_port_id == SEG_ID)
+		r_seg <= s_output_port;
             end
         end
     
@@ -89,7 +109,8 @@ module RAT_WRAPPER(
 ////INSTANITATION of SEV Seg//////////////////////
 	SevSegDisp Sev_Seg_Disp(
 			.CLK(s_clk_50),    
-   			.DATA_IN(r_seg),
+			.MODE(0), //output in hex
+   			.DATA_IN(SEV_SEG),
 			.CATHODES(CATHODES),
  			.ANODES(ANODES)
 
@@ -105,5 +126,5 @@ module RAT_WRAPPER(
      
     // Output Assignments ////////////////////////////////////////////////////
     assign LEDS = r_leds;
-  
+    assign SEV_SEG =r_seg;  
     endmodule
