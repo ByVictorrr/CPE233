@@ -345,6 +345,7 @@ module CONTROL_UNIT(
 						2'b01: //CALL (like a BRN and PUSH)
 						begin
 						PC_LD = 1;
+						SCR_WE = 1;
 						SCR_ADDR_SEL = 3;
 						SCR_DATA_SEL = 1;
 						SP_DECR = 1;

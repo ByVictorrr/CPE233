@@ -1,0 +1,1 @@
+BTN press period = 106ms

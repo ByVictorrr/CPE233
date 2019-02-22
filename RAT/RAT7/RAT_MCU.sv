@@ -209,7 +209,7 @@ logic SP_LD, SP_INCR, SP_DECR;
 	
 	mux_4t1_nb #(.n(8)) MUX_SCR_ADDR_IN(
 		.SEL(SCR_ADDR_SEL), 
-      	.D0(DY_OUT), 
+	      	.D0(DY_OUT), 
 		.D1(PROG_IR[7:0]), //come back to
 		.D2(SP_DATA_OUT), 
 		.D3(SP_DATA_OUT-1), //dont care
