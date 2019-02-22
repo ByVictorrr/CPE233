@@ -92,7 +92,7 @@ module KeyFSM(
 
 				else
 				begin
-				DATA = 13; //not sure about
+				DATA = 16; //not sure about
 		  		PRESS = 0;
 				end
 			end
@@ -127,7 +127,7 @@ module KeyFSM(
 
 				else
 				begin
-				DATA = 13;
+				DATA = 16;
 		  		PRESS = 0;
 				end
 			end
@@ -163,7 +163,7 @@ module KeyFSM(
 
 				else
 				begin
-				DATA = 13;
+				DATA = 16;
 		  		PRESS = 0;
 				end
 			end
@@ -199,7 +199,7 @@ module KeyFSM(
 
 				else
 				begin
-				DATA = 13;
+				DATA = 16;
 		  		PRESS = 0;
 				end
 			end

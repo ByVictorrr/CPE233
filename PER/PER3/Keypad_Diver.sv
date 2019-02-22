@@ -53,7 +53,7 @@ module Keypad_Diver(
 
 ClockDivider DIV(
       .clk(CLK),
-      .maxcount(2272727), //change to mine
+      .maxcount(10), //change to mine
       .sclk(sclk)
 );
 

@@ -21,8 +21,7 @@
 
 //========INPUT:
 //
-//======OUTPUTS:
-//	1.)output I_SET;
+//======OUTPUTS: //	1.)output I_SET;
 //	2.)output I_CLR;
 //	10.)output FLG_SHAD_LD
 //	output FLG_LD_SEL
