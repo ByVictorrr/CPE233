@@ -22,12 +22,11 @@
 .EQU OUT_PORT_TENS =  0x42
 .EQU OUT_PORT_HUNDS =  0x41
 .EQU IN_PORT = 0x9A
-.EQU COUNT_DIV = 5 
 .CSEG
 .ORG 0x01
 
 main:
-		IN R0, IN_PORT
+		IN R2, IN_PORT
 		MOV R0, R2 ; using R0 as parameter
 		CALL DIV10 ; getting 1's place
 		OUT R0, OUT_PORT_ONES ; outputs 1's place of  
@@ -35,10 +34,7 @@ main:
 		MOV R0, R1 ;  
 		CALL DIV10
 		OUT R0, OUT_PORT_TENS ;
-		
-		MOV R0, R1 ;  
-		CALL DIV10
-		OUT R0, OUT_PORT_HUNDS ;
+		OUT R1, OUT_PORT_HUNDS 		
 
 end:		BRN end
 
