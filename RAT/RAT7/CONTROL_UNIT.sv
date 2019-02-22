@@ -449,14 +449,14 @@ module CONTROL_UNIT(
 						ALU_SEL = 13;
 						end
 						
-						2'b01: //PUSH
+						2'b01: //PUSH imm
 						begin
 						SCR_WE = 1;
 						SCR_ADDR_SEL = 3;
 						SP_DECR = 1;
 						end
 						
-						2'b10: //POP
+						2'b10: //POP 
 						begin
 						RF_WR = 1;
 						RF_WR_SEL = 1;
@@ -507,6 +507,7 @@ module CONTROL_UNIT(
 						begin	
 						PC_LD = 1;
 						PC_MUX_SEL = 1;
+						SCR_ADDR_SEL = 2;
 						SP_INCR = 1;
 						end	
 						default: ; //dont know

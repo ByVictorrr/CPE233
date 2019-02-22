@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu Feb 21 09:33:24 2019
-# Process ID: 18274
+# Start of session at: Thu Feb 21 19:04:07 2019
+# Process ID: 8495
 # Current directory: /home/victor/CPE233/RAT/RAT7/RAT7/RAT7.runs/synth_1
 # Command line: vivado -log RAT_WRAPPER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RAT_WRAPPER.tcl
 # Log file: /home/victor/CPE233/RAT/RAT7/RAT7/RAT7.runs/synth_1/RAT_WRAPPER.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18286 
+INFO: Helper process launched with PID 8508 
 WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
 WARNING: [Synth 8-2490] overwriting previous definition of module CONTROL_UNIT [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:30]
 WARNING: [Synth 8-2490] overwriting previous definition of module FLAGS [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
@@ -39,7 +39,7 @@ WARNING: [Synth 8-2490] overwriting previous definition of module SevSegDisp [/h
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_2t1_nb [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_4t1_nb [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.480 ; gain = 89.008 ; free physical = 1194 ; free virtual = 13767
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.480 ; gain = 89.008 ; free physical = 1715 ; free virtual = 12521
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'RAT_WRAPPER' [/home/victor/CPE233/RAT/RAT7/RAT_WRAPPER.sv:18]
 	Parameter SWITCHES_ID bound to: 8'b11111111 
@@ -51,8 +51,8 @@ INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CO
 INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:159]
 INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:188]
 INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:338]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:412]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:518]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:413]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:520]
 INFO: [Synth 8-6155] done synthesizing module 'CONTROL_UNIT' (1#1) [/home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv:30]
 INFO: [Synth 8-6157] synthesizing module 'mux_4t1_nb' [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
 	Parameter n bound to: 10 - type: integer 
@@ -62,7 +62,7 @@ INFO: [Synth 8-6157] synthesizing module 'ProgCounter' [/home/victor/CPE233/RAT/
 INFO: [Synth 8-6155] done synthesizing module 'ProgCounter' (3#1) [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'ProgRom' [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
 INFO: [Synth 8-5534] Detected attribute (* rom_style = "{distributed | block}" *) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
-INFO: [Synth 8-3876] $readmem data file '/home/victor/CPE233/RAT/RAT7/tests/6b_ADDri_ADDCri_SUBri_SUBCri.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
+INFO: [Synth 8-3876] $readmem data file '/home/victor/CPE233/RAT/RAT7/tests/4a_WSP_PUSH_POP_CALL_RET.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
 INFO: [Synth 8-6155] done synthesizing module 'ProgRom' (4#1) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
 INFO: [Synth 8-6157] synthesizing module 'FLAGS' [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
 INFO: [Synth 8-6155] done synthesizing module 'FLAGS' (5#1) [/home/victor/CPE233/RAT/RAT5/FLAGS.sv:28]
@@ -110,7 +110,7 @@ INFO: [Synth 8-6155] done synthesizing module 'RAT_WRAPPER' (15#1) [/home/victor
 WARNING: [Synth 8-3331] design Stack_Pointer has unconnected port CLK
 WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port INTR
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1276.605 ; gain = 123.133 ; free physical = 1207 ; free virtual = 13781
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1276.605 ; gain = 123.133 ; free physical = 1727 ; free virtual = 12533
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -124,10 +124,10 @@ WARNING: [Synth 8-3295] tying undriven pin Sev_Seg_Disp:MODE to constant 0 [/hom
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.605 ; gain = 123.133 ; free physical = 1209 ; free virtual = 13783
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.605 ; gain = 123.133 ; free physical = 1729 ; free virtual = 12536
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.605 ; gain = 123.133 ; free physical = 1209 ; free virtual = 13783
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.605 ; gain = 123.133 ; free physical = 1729 ; free virtual = 12536
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -143,22 +143,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1606.465 ; gain = 0.000 ; free physical = 956 ; free virtual = 13523
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1606.941 ; gain = 0.000 ; free physical = 1478 ; free virtual = 12284
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1606.465 ; gain = 452.992 ; free physical = 1036 ; free virtual = 13603
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1606.941 ; gain = 453.469 ; free physical = 1557 ; free virtual = 12364
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1606.465 ; gain = 452.992 ; free physical = 1036 ; free virtual = 13603
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1606.941 ; gain = 453.469 ; free physical = 1557 ; free virtual = 12364
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1606.465 ; gain = 452.992 ; free physical = 1036 ; free virtual = 13603
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1606.941 ; gain = 453.469 ; free physical = 1559 ; free virtual = 12366
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'CONTROL_UNIT'
 INFO: [Synth 8-5545] ROM "PC_INC" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -177,7 +177,7 @@ INFO: [Synth 8-5546] ROM "r_leds" won't be mapped to RAM because it is too spars
 INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'one-hot' in module 'CONTROL_UNIT'
 WARNING: [Synth 8-327] inferring latch for variable 'D_OUT_reg' [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:41]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1606.465 ; gain = 452.992 ; free physical = 1029 ; free virtual = 13595
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1606.941 ; gain = 453.469 ; free physical = 1549 ; free virtual = 12355
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -226,7 +226,7 @@ Detailed RTL Component Info :
 	  25 Input      3 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 4     
-	   4 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 3     
 	  25 Input      2 Bit        Muxes := 4     
 	   3 Input      2 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 1     
@@ -259,7 +259,7 @@ Detailed RTL Component Info :
 	   3 Input      4 Bit        Muxes := 1     
 	  25 Input      3 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 3     
 	  25 Input      2 Bit        Muxes := 4     
 	   3 Input      2 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 13    
@@ -373,7 +373,7 @@ WARNING: [Synth 8-6014] Unused sequential element MCU/PC/PC_COUNT_reg_rep was re
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\Sev_Seg_Disp/CathMod/CATHODES_reg[7] )
 WARNING: [Synth 8-3332] Sequential element (Sev_Seg_Disp/CathMod/CATHODES_reg[7]) is unused and will be removed from module RAT_WRAPPER.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:25 . Memory (MB): peak = 1606.465 ; gain = 452.992 ; free physical = 1011 ; free virtual = 13578
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:25 . Memory (MB): peak = 1606.941 ; gain = 453.469 ; free physical = 1530 ; free virtual = 12339
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -413,13 +413,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1606.465 ; gain = 452.992 ; free physical = 886 ; free virtual = 13454
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1606.941 ; gain = 453.469 ; free physical = 1404 ; free virtual = 12213
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:34 . Memory (MB): peak = 1611.465 ; gain = 457.992 ; free physical = 871 ; free virtual = 13438
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:34 . Memory (MB): peak = 1609.941 ; gain = 456.469 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -451,7 +451,7 @@ INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[5]' (FD) to
 INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[4]' (FD) to 'MCU/PROM/PROG_IR_reg[4]'
 INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[3]' (FD) to 'MCU/PROM/PROG_IR_reg[3]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:34 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -475,7 +475,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -488,7 +488,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -500,25 +500,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -537,13 +537,13 @@ Report Cell Usage:
 |1     |BUFG       |     2|
 |2     |CARRY4     |    21|
 |3     |LUT1       |     5|
-|4     |LUT2       |    22|
-|5     |LUT3       |    32|
-|6     |LUT4       |    30|
-|7     |LUT5       |    81|
-|8     |LUT6       |    88|
-|9     |MUXF7      |    20|
-|10    |MUXF8      |     4|
+|4     |LUT2       |    39|
+|5     |LUT3       |    34|
+|6     |LUT4       |    20|
+|7     |LUT5       |    67|
+|8     |LUT6       |    90|
+|9     |MUXF7      |    18|
+|10    |MUXF8      |     2|
 |11    |RAM256X1S  |    10|
 |12    |RAM32X1D   |     8|
 |13    |RAMB18E1_1 |     1|
@@ -558,26 +558,26 @@ Report Instance Areas:
 +------+---------------+--------------+------+
 |      |Instance       |Module        |Cells |
 +------+---------------+--------------+------+
-|1     |top            |              |   428|
-|2     |  MCU          |RAT_MCU       |   303|
+|1     |top            |              |   421|
+|2     |  MCU          |RAT_MCU       |   296|
 |3     |    CU         |CONTROL_UNIT  |    10|
-|4     |    PC         |ProgCounter   |   186|
-|5     |    RF         |REG_FILE      |    43|
+|4     |    PC         |ProgCounter   |   202|
+|5     |    RF         |REG_FILE      |    37|
 |6     |    SCR        |SCRATCH_RAM   |    10|
 |7     |    SP         |Stack_Pointer |    23|
-|8     |    alu        |ALU           |    22|
-|9     |    flag       |FLAGS         |     9|
+|8     |    alu        |ALU           |     9|
+|9     |    flag       |FLAGS         |     5|
 |10    |  Sev_Seg_Disp |SevSegDisp    |    75|
 |11    |    CathMod    |CathodeDriver |    75|
 +------+---------------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.473 ; gain = 466.000 ; free physical = 870 ; free virtual = 13437
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.949 ; gain = 464.477 ; free physical = 1387 ; free virtual = 12196
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1619.473 ; gain = 136.141 ; free physical = 926 ; free virtual = 13492
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1619.480 ; gain = 466.000 ; free physical = 926 ; free virtual = 13492
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1617.949 ; gain = 134.141 ; free physical = 1443 ; free virtual = 12252
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:35 . Memory (MB): peak = 1617.957 ; gain = 464.477 ; free physical = 1443 ; free virtual = 12252
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 82 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 78 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -590,9 +590,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 76 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1619.480 ; gain = 466.375 ; free physical = 931 ; free virtual = 13498
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1617.957 ; gain = 464.852 ; free physical = 1449 ; free virtual = 12258
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/victor/CPE233/RAT/RAT7/RAT7/RAT7.runs/synth_1/RAT_WRAPPER.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RAT_WRAPPER_utilization_synth.rpt -pb RAT_WRAPPER_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1643.484 ; gain = 0.000 ; free physical = 933 ; free virtual = 13499
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 21 09:34:08 2019...
+report_utilization: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1641.961 ; gain = 0.000 ; free physical = 1450 ; free virtual = 12259
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 21 19:04:52 2019...
