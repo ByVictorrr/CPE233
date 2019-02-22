@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Thu Feb 21 20:41:27 2019
+| Date         : Thu Feb 21 21:45:29 2019
 | Host         : TheShell running 64-bit unknown
 | Command      : report_timing_summary -max_paths 10 -file Keypad_Diver_timing_summary_routed.rpt -pb Keypad_Diver_timing_summary_routed.pb -rpx Keypad_Diver_timing_summary_routed.rpx -warn_on_violation
 | Design       : Keypad_Diver
@@ -933,7 +933,7 @@ Slack (MET) :             0.271ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
     SLICE_X64Y93         FDRE (Prop_fdre_C_Q)         0.164     1.640 r  INTR_FSM/FSM_sequential_PS_reg[2]/Q
                          net (fo=4, routed)           0.182     1.822    INTR_FSM/PS[2]
-    SLICE_X64Y93         LUT6 (Prop_lut6_I3_O)        0.045     1.867 r  INTR_FSM/FSM_sequential_PS[1]_i_1/O
+    SLICE_X64Y93         LUT6 (Prop_lut6_I0_O)        0.045     1.867 r  INTR_FSM/FSM_sequential_PS[1]_i_1/O
                          net (fo=1, routed)           0.000     1.867    INTR_FSM/NS[1]
     SLICE_X64Y93         FDRE                                         r  INTR_FSM/FSM_sequential_PS_reg[1]/D
   -------------------------------------------------------------------    -------------------

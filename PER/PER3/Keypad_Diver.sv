@@ -37,11 +37,11 @@ module Keypad_Diver(
 		input CLK,
 		output [6:0] seg,
 		output [3:0] an,
-		output B,
-		output G,
-		output F,
-		output D,
-		output INTR
+		output logic B,
+		output logic G,
+		output logic F,
+		output logic D,
+		output logic INTR
 		
 		);
 
