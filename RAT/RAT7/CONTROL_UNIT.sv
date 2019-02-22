@@ -448,7 +448,7 @@ module CONTROL_UNIT(
 						ALU_SEL = 13;
 						end
 						
-						2'b01: //PUSH imm
+						2'b01: //PUSH 
 						begin
 						SCR_WE = 1;
 						SCR_ADDR_SEL = 3;

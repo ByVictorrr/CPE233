@@ -35,7 +35,7 @@ module Stack_Pointer(
 		output logic [7:0] D_OUT
 );                                                     
                                                                            
-always_ff @(CLK)
+always_ff @(posedge CLK)
 begin	
 	if(RST == 1)
 		D_OUT <=0;
@@ -46,5 +46,6 @@ begin
 	else if(DECR == 1)
 		D_OUT <= D_OUT-1;
 end
+
 endmodule                                                                 
                 

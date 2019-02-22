@@ -77,12 +77,14 @@ module RAT_WRAPPER(
         if (s_load == 1'b1) begin
             if (s_port_id == LEDS_ID)
                 r_leds <= s_output_port;
+
 	    else if (s_port_id == SEG_ID)
 		      r_seg <= s_output_port;
             end
         end
     
-    
+   //MODE == 1 (prcoess the valuies as a sev segment in as decimal)
+   //MODE ==0 as hex 
 
 ////INSTANITATION of SEV Seg//////////////////////
 	SevSegDisp Sev_Seg_Disp(
