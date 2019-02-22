@@ -9,15 +9,15 @@
 ;		Finally 1s is outputed on port 0x43, 10th on port 0x42, and 100s on port 41.
 ;
 ; Register uses:
-; R0 - X main value 
-; R1 - Ones 
-; R2 - Tens
-; R3 - HUNDs
-; R4 - R
-; R5  -res
+; R0 - parmeter for DIV10 
+; R1 - result of DIV10
+; R2 - input value
+; R3 - ones place of R2
+; R4 - tens place of R2
+; R5 - hundreds place of R2
 ; R6 - for masking temp
 ;--------------------------------------------------------------------
-
+; use div 10 to find ones , ten, hundreds
 .EQU OUT_PORT_ONES =  0x43
 .EQU OUT_PORT_TENS =  0x42
 .EQU OUT_PORT_HUNDS =  0x41
@@ -28,43 +28,36 @@
 
 main:
 		IN R0, IN_PORT
-		MOV R4, COUNT_DIV ; for loop 
-		CALL subroutine
+		MOV R0, R2 ; using R0 as parameter
+		CALL DIV10 ; getting 1's place
+		OUT R0, OUT_PORT_ONES ; outputs 1's place of  
+		
+		MOV R0, R1 ;  
+		CALL DIV10
+		OUT R0, OUT_PORT_TENS ;
+		
+		MOV R0, R1 ;  
+		CALL DIV10
+		OUT R0, OUT_PORT_HUNDS ;
+
 end:		BRN end
 
+;------------------------------------------------------------------------------------
+; DIV10 subroutine
+; Divdes an 8 bit number by 10 and stores it into R1, the remainder is stored into R1
+; Parameters : R0 - value being divided by 10
+;	
+; Return : R0 - remainder
+;	   R1 - number divided by 10
+; Tweaked : R0
+DIV10:		
+		CMP R0, 10
+		;if (R0 < 0){that is if c==1 return}
+		BRCC loop_DIV10
+		RET ; if c==1 return
 
-
-subroutine:	MOV R4, R0
-		CMP R0, 0 
-		;if z== 1 R0 is zero
-		BREQ output
-compare:	CMP R4, 10
-		;c== 1 if R is less than 10
-		BRCS outputs 
-		;else loop
-		SUB R4, 10;
-		ADD R5, 1;
-		BRN compare 
-
-
-
-outputs:	MOV R6, R5;
-		AND R6, 7; ;try to mask rightmost bits
-		MOV R1, R6 
- 
-		MOV R6, R5;
-		AND R6, 56 ; ;try to mask rightmost bits
-		MOV R2, R6 
- 
-
-		MOV R6, R5;
-		AND R6, 192; ;try to mask rightmost bits
-		MOV R3, R6 
- 
-
-
-		OUT R1, OUT_PORT_ONES 
-		OUT R2, OUT_PORT_TENS
-		OUT R3, OUT_PORT_HUNDS
-		RET
-
+loop_DIV10: 	SUB R0, 10
+		ADD R1, 1
+		BRN DIV10
+		 
+;------------------------------------------------------------------------------------
