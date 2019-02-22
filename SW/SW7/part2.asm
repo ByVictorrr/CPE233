@@ -35,7 +35,7 @@ multiply:	CMP R1, 0
 		SUB R1, 1
 		BRN multiply
 
-output:		OUT R1, OUT_PORT_LOWER
+output:		OUT R0, OUT_PORT_LOWER
 		OUT R2, OUT_PORT_UPPER
 
 ;------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ output:		OUT R1, OUT_PORT_LOWER
 
 ADD16:
 	ADD R0, R1;
-	ADD R2, 0 ;
+	ADDC R2, 0 ;
 	RET 
 ;------------------------------------------------------------------------------------
 
