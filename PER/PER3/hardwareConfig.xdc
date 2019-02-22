@@ -88,19 +88,19 @@ set_property PACKAGE_PIN W4 [get_ports {an[3]}]
 
 
 ##Pmod Header JA
-##Sch name = JA1
+##Sch name = JA1 good
 set_property PACKAGE_PIN J1 [get_ports C]					
 set_property IOSTANDARD LVCMOS33 [get_ports C]
-#Sch name = JA2
+#Sch name = JA2 good
 set_property PACKAGE_PIN L2 [get_ports A]					
 set_property IOSTANDARD LVCMOS33 [get_ports A]
-#Sch name = JA3
+#Sch name = JA3 good 
 set_property PACKAGE_PIN J2 [get_ports E]					
 set_property IOSTANDARD LVCMOS33 [get_ports E]
-#Sch name = JA4
+#Sch name = JA4 good
 set_property PACKAGE_PIN G2 [get_ports B]					
 set_property IOSTANDARD LVCMOS33 [get_ports B]
-#Sch name = JA7
+#Sch name = JA7 good
 set_property PACKAGE_PIN H1 [get_ports G]					
 set_property IOSTANDARD LVCMOS33 [get_ports G]
 #Sch name = JA8
