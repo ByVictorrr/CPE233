@@ -1,6 +1,8 @@
 `include "./RAT_MCU.sv"
-`include "./SevSegDisp.sv"
 `include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
+`include "/home/victor/CPE233/Modules/univ_sseg.v"
+
+
 //////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
 // Engineer: Paul Hummel
@@ -33,6 +35,7 @@ module RAT_WRAPPER(
     // In future labs you can add more port IDs
     localparam LEDS_ID      = 8'h40;
     localparam SEG_ID       = 8'h81;
+    
     // Signals for connecting RAT_MCU to RAT_wrapper /////////////////////////
     logic [7:0] s_output_port;
     logic [7:0] s_port_id;
@@ -49,10 +52,10 @@ module RAT_WRAPPER(
     // Declare RAT_CPU ///////////////////////////////////////////////////////
     RAT_MCU MCU (.IN_PORT(s_input_port), 
 	    	.OUT_PORT(s_output_port),
-                .PORT_ID(s_port_id), 
-	   	.IO_STRB(IOSTRB), 
+            	.PORT_ID(s_port_id), 
+	   	.IO_STRB(IO_STRB), 
 	       	.RESET(s_reset),
-                .INTR(s_interrupt), 
+            	.INTR(s_interrupt), 
 	    	.CLK(s_clk_50));
    
 	
@@ -69,33 +72,9 @@ module RAT_WRAPPER(
         else
             s_input_port = 8'h00;
     end
-/*j 
- //===========LED_REG=======================================
-	reg_nb #(.n(8)) LED_REG (                                     
-          .data_in  (s_output_port), 
-          .ld       (IOSTRB), 
-          .clk      (s_clk_50), 
-          .clr      (0), //dont clear
-          .data_out (LEDS)
-          );  
-//======================================================
 
-//===========SEV_SEG REG=======================================
-	reg_nb #(.n(8)) SEV_SEG_REG (                                     
-          .data_in  (s_output_port), 
-          .ld       (IOSTRB), 
-          .clk      (s_clk_50), 
-          .clr      (0), //dont clear
-          .data_out (SEV_SEG)
-          );  
-//======================================================
-
-*/
-
-    // MUX for updating output registers /////////////////////////////////////
-    // Register updates depend on rising clock edge and asserted load signal
     always_ff @ (posedge CLK) begin
-        if (IOSTRB == 1'b1) begin
+        if (IO_STRB == 1'b1) begin
             if (s_port_id == LEDS_ID)
                 r_leds <= s_output_port;
 	    if (s_port_id == SEG_ID)
@@ -104,22 +83,19 @@ module RAT_WRAPPER(
         end
     
    //MODE == 1 (prcoess the valuies as a sev segment in as decimal)
-   //MODE ==0 as hex 
-
-////INSTANITATION of SEV Seg//////////////////////
-	SevSegDisp Sev_Seg_Disp(
-			.CLK(s_clk_50),    
-			.MODE(0), //output in hex
-   			.DATA_IN(SEV_SEG),
-			.CATHODES(CATHODES),
- 			.ANODES(ANODES)
-
-	);
-
-////////////////////////////////////////////
-
-
-
+univ_sseg Univ( 	
+	.cnt1(SEV_SEG),                                                                                    
+   	.cnt2(0),                                                                                     
+    	.valid(1), 
+    	.dp_en(0),                                                                                          
+    	.dp_sel(0),                                                                                   
+     	.mod_sel(0),                                                                                  
+     	.sign(0),                                                                                           
+     	.clk(CLK),                                                                                            
+    	.ssegs(CATHODES),                                                                               
+    	.disp_en(ANODES) 
+);
+    
     // Connect Signals ///////////////////////////////////////////////////////
     assign s_reset = BTNR;
     assign s_interrupt = 1'b0;  // no interrupt used yet
