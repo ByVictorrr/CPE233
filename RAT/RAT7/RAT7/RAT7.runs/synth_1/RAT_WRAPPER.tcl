@@ -18,8 +18,6 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -41,15 +39,12 @@ read_mem {
 }
 read_verilog -library xil_defaultlib -sv {
   /home/victor/CPE233/RAT/RAT4/ALU.sv
-  /home/victor/CPE233/RAT/RAT7/BCD.sv
   /home/victor/CPE233/RAT/RAT7/CONTROL_UNIT.sv
-  /home/victor/CPE233/RAT/RAT7/CathodeDriver.sv
   /home/victor/CPE233/RAT/RAT5/FLAGS.sv
   /home/victor/CPE233/RAT/RAT2/ProgCounter.sv
   /home/victor/CPE233/RAT/RAT1/ProgRom.sv
   /home/victor/CPE233/RAT/RAT3/REG_FILE.sv
   /home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv
-  /home/victor/CPE233/RAT/RAT7/SevSegDisp.sv
   /home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv
   /home/victor/CPE233/RAT/RAT7/RAT_MCU.sv
   /home/victor/CPE233/RAT/RAT7/RAT_WRAPPER.sv
