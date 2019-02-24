@@ -1,7 +1,7 @@
 `include "./RAT_MCU.sv"
 `include "/home/victor/CPE233/Modules/mux_2t1_nb.v"
 `include "/home/victor/CPE233/Modules/univ_sseg.v"
-
+`include "./debounce_one_shot.sv"
 
 //////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
@@ -18,6 +18,7 @@
 
 module RAT_WRAPPER(
     input CLK,
+    input BRNL,
     input BTNR,
     input [7:0] SWITCHES,
     output [7:0] LEDS,
@@ -94,6 +95,16 @@ univ_sseg Univ(
      	.clk(CLK),                                                                                            
     	.ssegs(CATHODES),                                                                               
     	.disp_en(ANODES) 
+);
+
+debounce_one_shot ONESHOT(
+		.CLK(s_clk_50),
+    		.BTN(BTNL),
+    		.DB_BTN(s_interrupt)
+    );
+ 
+
+
 );
     
     // Connect Signals ///////////////////////////////////////////////////////

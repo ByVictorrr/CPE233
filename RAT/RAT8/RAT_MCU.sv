@@ -57,7 +57,6 @@ logic [9:0] PC_COUNT;
 logic [7:0] DY_OUT, DX_OUT;
 logic [7:0] B;
 logic [7:0] DIN_RF, RESULT;
-logic  FLG_LD_SEL;
 logic [4:0] ADRX;
 logic [4:0] ADRY;
 logic [9:0] DATA_OUT;
@@ -102,7 +101,7 @@ logic I_OUT;
 		.SP_DECR(SP_DECR), //unused
 		.SCR_WE(SCR_WE), //unused
 		.SCR_ADDR_SEL(SCR_ADDR_SEL), //unused
-		.SCR_DATA_SEL(SCR_DATA_SEL)
+		.SCR_DATA_SEL(SCR_DATA_SEL),
 		.I_SET(I_SET), //unused
 		.I_CLR(I_CLR), //unused
 		.FLG_SHAD_LD(FLG_SHAD_LD), //unused
@@ -154,8 +153,11 @@ logic I_OUT;
 		.FLG_C_CLR(FLG_C_CLR),
 		.FLG_Z_LD(FLG_Z_LD),
 		.Z(Z),
+		.FLG_LD_SEL(FLG_LD_SEL),
+        .FLG_SHAD_LD(FLG_SHAD_LD),
 		.C_FLAG(C_FLAG),
 		.Z_FLAG(Z_FLAG)
+       
 	);
 
 
