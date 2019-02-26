@@ -92,7 +92,11 @@ module CONTROL_UNIT(
 		 SCR_ADDR_SEL=0;
 		 SCR_DATA_SEL=0;
 	
-
+	       
+                I_SET=0; // need to add
+                I_CLR=0;
+                FLG_SHAD_LD=0;
+                 FLG_LD_SEL=0;
 		case(PS)
 			ST_INIT: //if PS = ST_INIT
 			begin
@@ -524,18 +528,32 @@ module CONTROL_UNIT(
 						end
 						
 						2'b10: //RETID
-						begin	
+						begin	                     
+                        SCR_ADDR_SEL = 2;
+						PC_LD = 1;
 						PC_MUX_SEL = 1;
-						SP_INC = 1;
+						SP_INCR = 1;
+						
+						
 						FLG_LD_SEL =1;
+						FLG_Z_LD = 1;
+						FLG_C_LD = 1;
 						I_CLR = 1;
+						
+						
 						end	
 
 						2'b11: //RETIE
 						begin	
-						PC_MUX_SEL = 1;
-						SP_INC = 1;
-						FLG_LD_SEL =1;
+                        SCR_ADDR_SEL = 2;
+                        PC_LD = 1;
+                        PC_MUX_SEL = 1;
+                        SP_INCR = 1;
+                        
+                        FLG_Z_LD = 1;
+                        FLG_C_LD = 1;
+                        FLG_LD_SEL =1;
+                        I_SET = 1; //not really sure about come back to 
 						end
 						default: ; //dont know
 						endcase	
@@ -548,7 +566,7 @@ module CONTROL_UNIT(
 				if (INTR == 1)	
 				NS=ST_INTR;
 				else
-				NS=ST_FETCH
+				NS=ST_FETCH;
 
 
 				end
@@ -556,16 +574,17 @@ module CONTROL_UNIT(
 			ST_INTR:
 			begin
 				I_CLR = 1;
-					
 				FLG_SHAD_LD = 1; //save C and Z flag values
 				SCR_DATA_SEL = 1;
 				SCR_ADDR_SEL = 3;
-				//push next intruction onto stack
+				
+				//push next intructi on onto stack
 				SCR_WE = 1;
 				SP_DECR = 1;
+				
 				PC_MUX_SEL = 2; //interupt vector
-
-
+				PC_LD = 1;
+				
 			NS = ST_FETCH;
 			end
 				default: 
