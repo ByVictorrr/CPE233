@@ -555,8 +555,6 @@ module CONTROL_UNIT(
 			
 			ST_INTR:
 			begin
-				FLG_Z_LD = 1; //should be clear
-				FLG_C_CLR = 1;
 				I_CLR = 1;
 					
 				FLG_SHAD_LD = 1; //save C and Z flag values

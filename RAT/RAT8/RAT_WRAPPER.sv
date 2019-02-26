@@ -103,12 +103,10 @@ debounce_one_shot ONESHOT(
     		.DB_BTN(s_interrupt)
     );
  
-
-);
     
     // Connect Signals ///////////////////////////////////////////////////////
     assign s_reset = BTNR;
-    assign s_interrupt = 1'b0;  // no interrupt used yet
+    //assign s_interrupt = 1'b0;  // no interrupt used yet
      
     // Output Assignments ////////////////////////////////////////////////////
     assign LEDS = r_leds;
