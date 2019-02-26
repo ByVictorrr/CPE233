@@ -36,7 +36,7 @@ module FLAGS(
 	input FLG_Z_LD,
 	input Z,
 	input FLG_LD_SEL,
-    input FLG_SHAD_LD,
+    	input FLG_SHAD_LD,
 	output reg C_FLAG,
 	output reg Z_FLAG
 	
@@ -47,6 +47,7 @@ module FLAGS(
 
 	logic C_SHAD_OUT, Z_SHAD_OUT;
 	logic C_IN, Z_IN;	
+
 	mux_2t1_nb #(.n(1)) C_MUX(
 			.SEL(FLG_LD_SEL),
 			.D0(C),

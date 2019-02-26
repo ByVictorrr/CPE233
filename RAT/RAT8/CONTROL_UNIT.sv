@@ -52,7 +52,7 @@ module CONTROL_UNIT(
 );
 
 
-	typedef enum {ST_INIT, ST_FETCH, ST_EXEC} STATE; //creating a new data set
+	typedef enum {ST_INIT, ST_FETCH, ST_EXEC, ST_INTR} STATE; //creating a new data set
 	
 	STATE NS, PS = ST_INIT; //initalizing states
 
@@ -515,21 +515,27 @@ module CONTROL_UNIT(
 					
 						2'b00: //SEI
 						begin
-						//inser here	
+						I_SET = 1;
 						end
 						
 						2'b01: //CLI
 						begin
-						//insert here
+						I_CLR = 1;
 						end
 						
 						2'b10: //RETID
 						begin	
-						//inser herej
+						PC_MUX_SEL = 1;
+						SP_INC = 1;
+						FLG_LD_SEL =1;
+						I_CLR = 1;
 						end	
-						2'b11:
+
+						2'b11: //RETIE
 						begin	
-						//insert here
+						PC_MUX_SEL = 1;
+						SP_INC = 1;
+						FLG_LD_SEL =1;
 						end
 						default: ; //dont know
 						endcase	
@@ -538,8 +544,32 @@ module CONTROL_UNIT(
 					
 				default: RST = 1; //nvr should get herej
 				endcase //end of OPCOD_HI_5 case statment
-				NS=ST_FETCH;
+
+				if (INTR == 1)	
+				NS=ST_INTR;
+				else
+				NS=ST_FETCH
+
+
 				end
+			
+			ST_INTR:
+			begin
+				FLG_Z_LD = 1; //should be clear
+				FLG_C_CLR = 1;
+				I_CLR = 1;
+					
+				FLG_SHAD_LD = 1; //save C and Z flag values
+				SCR_DATA_SEL = 1;
+				SCR_ADDR_SEL = 3;
+				//push next intruction onto stack
+				SCR_WE = 1;
+				SP_DECR = 1;
+				PC_MUX_SEL = 2; //interupt vector
+
+
+			NS = ST_FETCH;
+			end
 				default: 
 				NS = ST_INIT; //nvr get here
 		
