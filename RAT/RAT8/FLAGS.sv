@@ -71,8 +71,8 @@ end
 //C shadow
 always_ff @(posedge CLK)
 begin
-	 if (FLG_LD_SEL == 1)
-		C_SHAD_OUT <= C_FLAG;;
+	 if (FLG_SHAD_LD == 1)
+		C_SHAD_OUT <= C_FLAG;
 	
 end	
 
@@ -97,7 +97,7 @@ end
 //Z shadow
 always_ff @(posedge CLK)
 begin
-	if (FLG_LD_SEL == 1)
+	if (FLG_SHAD_LD == 1)
 		Z_SHAD_OUT <= Z_FLAG;
 	
 end	
