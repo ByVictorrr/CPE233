@@ -27,14 +27,14 @@
 main:
 	SEI ; enabling interrupts
 output: 
-	OUT LED, OUT_PORT
+	OUT R1, OUT_PORT
 	BRN output 
 
 ISR:
-	IN R0, IN_PORT
+	IN R0, IN_PORT_SW
 	CMP R0, R2 ; Z = 1 (if SW == prev_SW)
 	MOV R2, R0 ; prev_SW = SW
-	BREQ isr_op
+	BREQ isr_branch
 	EXOR R1, R0 ;LED = LED xor SW
 	MOV R3, R1 ; prev_LED = LED
 	RETIE ; done
@@ -53,7 +53,7 @@ read_btn:
 	; if BTN[0] == 1
 	MOV R1, R3 ; LED = prev_LED
 	SEI
-	OUT R1, OUT_PORT 
+	OUT R1, OUT_PORT
 	BRN ISR
 	
 
