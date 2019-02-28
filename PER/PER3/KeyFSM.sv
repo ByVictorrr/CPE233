@@ -27,15 +27,15 @@
 
 module KeyFSM(
 	input CLK,
-	input C,
-	input A,
-	input E,
+	input B,
+	input G,
+	input F,
+	input D,
+	output logic C,
+	output logic A,
+	output logic E,
 	output logic PRESS,
-	output logic [3:0] DATA,
-	output logic B,
-	output logic G,
-	output logic F,
-	output logic D
+	output logic [3:0] DATA
 );
 
 
@@ -43,9 +43,9 @@ module KeyFSM(
 	//Mealy output : press, and data	
      
 	
-	typedef enum{ST_B,ST_G,ST_F,ST_D} STATE;
+	typedef enum{ST_C,ST_A,ST_E} STATE;
 	
-	STATE NS, PS = ST_B; //initalizing
+	STATE NS, PS = ST_C; //initalizing
 	
 
     //- model the state registers
@@ -58,155 +58,121 @@ module KeyFSM(
     begin
 	 PRESS = 0;
 	 DATA = 0;
-	 B = 0;
-	 G = 0;
-	 F = 0;
-	 D = 0;
+	 C=0;
+	 A=0;
+	 E=0;
+     	  case(PS)
 
-       case(PS)
-          ST_B:
+          ST_C:
           begin
-		B = 1;
-             	if (C == 1)
+	  C=1;	
+             	if (B == 1)
 		begin
 		DATA = 1;
 		PRESS = 1;
 		end
 
-		else
-		begin
-			if(A==1) //if C == 0
-			begin
-			DATA = 2;
-			PRESS = 1;
-			end
-
-			else //if C == 0 and A == 0
-			begin
-
-				if(E == 1)
-				begin
-				DATA = 3;
-				PRESS = 1;
-				end
-
-				else
-				begin
-				DATA = 13; //not sure about
-		  		PRESS = 0;
-				end
-			end
-		end
-	  NS = ST_G;
-	  end 
-	ST_G:
-	begin
-		G=1;
-             	if (C == 1)
+		else if (G==1)
 		begin
 		DATA = 4;
 		PRESS = 1;
 		end
 
-		else
-		begin
-			if(A==1) //if C == 0
-			begin
-			DATA = 5;
-			PRESS = 1;
-			end
-
-			else //if C == 0 and A == 0
-			begin
-
-				if(E == 1)
-				begin
-				DATA = 6;
-				PRESS = 1;
-				end
-
-				else
-				begin
-				DATA = 13;
-		  		PRESS = 0;
-				end
-			end
-		end
-	  NS = ST_F;
-	  end 
-
-	ST_F:
-	begin
-		F=1;
-             	if (C == 1)
+		else if(F == 1)			
 		begin
 		DATA = 7;
 		PRESS = 1;
 		end
-
-		else
-		begin
-			if(A==1) //if C == 0
-			begin
-			DATA = 8;
-			PRESS = 1;
-			end
-
-			else //if C == 0 and A == 0
-			begin
-
-				if(E == 1)
-				begin
-				DATA = 7;
-				PRESS = 1;
-				end
-
-				else
-				begin
-				DATA = 13;
-		  		PRESS = 0;
-				end
-			end
-		end
-	  NS = ST_D;
-	  end 
-
-	ST_D:
-	begin
-		D=1;
-             	if (C == 1)
+		
+		else if(D == 1)			
 		begin
 		DATA = 10;
 		PRESS = 1;
 		end
-
+			
 		else
 		begin
-			if(A==1) //if C == 0
-			begin
-			DATA = 0;
-			PRESS = 1;
-			end
-
-			else //if C == 0 and A == 0
-			begin
-
-				if(E == 1)
-				begin
-				DATA = 11;
-				PRESS = 1;
-				end
-
-				else
-				begin
-				DATA = 13;
-		  		PRESS = 0;
-				end
-			end
+		DATA = 13; //not sure about
+		PRESS = 0;
 		end
-	  NS = ST_B;
+
+	  NS = ST_A;
 	  end 
-	       default: NS=ST_B;
+		  
+	ST_A:
+        begin
+	A=1;	
+             	if (B == 1)
+		begin
+		DATA = 2;
+		PRESS = 1;
+		end
+
+		else if (G==1)
+		begin
+		DATA = 5;
+		PRESS = 1;
+		end
+
+		else if(F == 1)			
+		begin
+		DATA = 8;
+		PRESS = 1;
+		end
+		
+		else if(D == 1)			
+		begin
+		DATA = 0;
+		PRESS = 1;
+		end
+			
+		else
+		begin
+		DATA = 13; //not sure about
+		PRESS = 0;
+		end
+
+	  NS = ST_E;
+	  end 
+
+	ST_E:
+        begin
+	E=1;	
+             	if (B == 1)
+		begin
+		DATA = 3;
+		PRESS = 1;
+		end
+
+		else if (G==1)
+		begin
+		DATA = 6;
+		PRESS = 1;
+		end
+
+		else if(F == 1)			
+		begin
+		DATA = 9;
+		PRESS = 1;
+		end
+		
+		else if(D == 1)			
+		begin
+		DATA = 11;
+		PRESS = 1;
+		end
+			
+		else
+		begin
+		DATA = 13; //not sure about
+		PRESS = 0;
+		end
+
+	  NS = ST_C;
+	  end 
+
+
+	  default: NS=ST_C;
           endcase
       end              
 endmodule

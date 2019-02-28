@@ -529,7 +529,7 @@ module CONTROL_UNIT(
 						
 						2'b10: //RETID
 						begin	                     
-                        SCR_ADDR_SEL = 2;
+                        			SCR_ADDR_SEL = 2;
 						PC_LD = 1;
 						PC_MUX_SEL = 1;
 						SP_INCR = 1;

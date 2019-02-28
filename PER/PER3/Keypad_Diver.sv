@@ -31,16 +31,16 @@
 
 
 module Keypad_Diver(
-		input C,
-		input A,
-		input E,
-		input CLK,
+        input CLK,
+		input B,
+		input G,
+		input F,
+		input D,
+		output logic C,
+		output logic A,
+		output logic E,
 		output [6:0] seg,
 		output [3:0] an,
-		output logic B,
-		output logic G,
-		output logic F,
-		output logic D,
 		output logic INTR
 		
 		);
@@ -53,21 +53,21 @@ module Keypad_Diver(
 
 ClockDivider DIV(
       .clk(CLK),
-      .maxcount(10), //change to mine
+      .maxcount(1325000), //change to mine
       .sclk(sclk)
 );
 
 KeyFSM KEY_FSM(
-	 .CLK(sclk),
-	 .C(C),
-	 .A(A),
-	 .E(E),
-	 .PRESS(PRESS),
-	 .DATA(DATA),
-	 .B(B),
-	 .G(G),
-	 .F(F),
-	 .D(D)
+	.CLK(sclk),
+	.B(B),
+	.G(G),
+	.F(F),
+	.D(D),
+	.C(C),
+	.A(A),
+	.E(E),
+	.PRESS(PRESS),
+	.DATA(DATA)
 );
 
 reg_nb #(.n(4)) key_to_seg(
