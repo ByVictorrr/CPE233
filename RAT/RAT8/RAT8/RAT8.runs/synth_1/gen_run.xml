@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1551005619">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1551332931">
   <File Type="VDS-TIMING-PB" Name="RAT_WRAPPER_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="RAT_WRAPPER_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="RAT_WRAPPER.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="RAT_WRAPPER_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="RAT_WRAPPER_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="RAT_WRAPPER_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="RAT_WRAPPER.vds"/>
   <File Type="REPORTS-TCL" Name="RAT_WRAPPER_reports.tcl"/>
   <File Type="PA-TCL" Name="RAT_WRAPPER.tcl"/>
-  <File Type="RDS-RDS" Name="RAT_WRAPPER.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="RAT_WRAPPER_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="RAT_WRAPPER_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="RAT_WRAPPER_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../../Modules/mux_2t1_nb.v">
@@ -95,6 +95,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../debounce_one_shot.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../RAT_MCU.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -128,9 +135,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

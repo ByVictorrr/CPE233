@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun Feb 24 02:53:41 2019
-# Process ID: 2088
+# Start of session at: Wed Feb 27 21:48:53 2019
+# Process ID: 28605
 # Current directory: /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.runs/synth_1
 # Command line: vivado -log RAT_WRAPPER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RAT_WRAPPER.tcl
 # Log file: /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.runs/synth_1/RAT_WRAPPER.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2181 
+INFO: Helper process launched with PID 28617 
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_2t1_nb [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
 WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/home/victor/CPE233/RAT/RAT4/ALU.sv:10]
 WARNING: [Synth 8-2490] overwriting previous definition of module CONTROL_UNIT [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:20]
@@ -36,6 +36,7 @@ WARNING: [Synth 8-2490] overwriting previous definition of module REG_FILE [/hom
 WARNING: [Synth 8-2490] overwriting previous definition of module SCRATCH_RAM [/home/victor/CPE233/RAT/RAT3/SCRATCH_RAM.sv:1]
 WARNING: [Synth 8-2490] overwriting previous definition of module Stack_Pointer [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:28]
 WARNING: [Synth 8-2490] overwriting previous definition of module RAT_MCU [/home/victor/CPE233/RAT/RAT8/./RAT_MCU.sv:30]
+WARNING: [Synth 8-2490] overwriting previous definition of module debounce_one_shot [/home/victor/CPE233/RAT/RAT8/./debounce_one_shot.sv:24]
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_2t1_nb [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
 WARNING: [Synth 8-2490] overwriting previous definition of module mux_4t1_nb [/home/victor/CPE233/Modules/mux_4t1_nb.v:35]
 WARNING: [Synth 8-2490] overwriting previous definition of module univ_sseg [/home/victor/CPE233/Modules/univ_sseg.v:76]
@@ -43,7 +44,7 @@ WARNING: [Synth 8-2490] overwriting previous definition of module clk_divder [/h
 WARNING: [Synth 8-2490] overwriting previous definition of module cnt_convert_14b [/home/victor/CPE233/Modules/univ_sseg.v:269]
 WARNING: [Synth 8-2490] overwriting previous definition of module cnt_convert_7b [/home/victor/CPE233/Modules/univ_sseg.v:367]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.484 ; gain = 89.008 ; free physical = 1921 ; free virtual = 14126
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.484 ; gain = 89.008 ; free physical = 8979 ; free virtual = 15811
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'RAT_WRAPPER' [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:19]
 	Parameter SWITCHES_ID bound to: 8'b11111111 
@@ -51,16 +52,12 @@ INFO: [Synth 8-6157] synthesizing module 'RAT_WRAPPER' [/home/victor/CPE233/RAT/
 	Parameter SEG_ID bound to: 8'b10000001 
 INFO: [Synth 8-6157] synthesizing module 'RAT_MCU' [/home/victor/CPE233/RAT/RAT8/RAT_MCU.sv:30]
 INFO: [Synth 8-6157] synthesizing module 'CONTROL_UNIT' [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:20]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:118]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:153]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:182]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:332]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:407]
-INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:514]
-WARNING: [Synth 8-3848] Net I_SET in module/entity CONTROL_UNIT does not have driver. [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:47]
-WARNING: [Synth 8-3848] Net I_CLR in module/entity CONTROL_UNIT does not have driver. [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:48]
-WARNING: [Synth 8-3848] Net FLG_SHAD_LD in module/entity CONTROL_UNIT does not have driver. [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:49]
-WARNING: [Synth 8-3848] Net FLG_LD_SEL in module/entity CONTROL_UNIT does not have driver. [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:50]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:122]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:157]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:186]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:336]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:411]
+INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:518]
 INFO: [Synth 8-6155] done synthesizing module 'CONTROL_UNIT' (1#1) [/home/victor/CPE233/RAT/RAT8/CONTROL_UNIT.sv:20]
 INFO: [Synth 8-6157] synthesizing module 'I' [/home/victor/CPE233/RAT/RAT8/I.sv:28]
 INFO: [Synth 8-6155] done synthesizing module 'I' (2#1) [/home/victor/CPE233/RAT/RAT8/I.sv:28]
@@ -72,7 +69,7 @@ INFO: [Synth 8-6157] synthesizing module 'ProgCounter' [/home/victor/CPE233/RAT/
 INFO: [Synth 8-6155] done synthesizing module 'ProgCounter' (4#1) [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'ProgRom' [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
 INFO: [Synth 8-5534] Detected attribute (* rom_style = "{distributed | block}" *) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:28]
-INFO: [Synth 8-3876] $readmem data file '/home/victor/CPE233/RAT/RAT7/tests/TestAll.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
+INFO: [Synth 8-3876] $readmem data file '/home/victor/CPE233/RAT/RAT8/tests/Exp9_10.mem' is read successfully [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:32]
 INFO: [Synth 8-6155] done synthesizing module 'ProgRom' (5#1) [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:21]
 INFO: [Synth 8-6157] synthesizing module 'FLAGS' [/home/victor/CPE233/RAT/RAT8/FLAGS.sv:30]
 INFO: [Synth 8-6157] synthesizing module 'mux_2t1_nb' [/home/victor/CPE233/Modules/mux_2t1_nb.v:32]
@@ -116,16 +113,14 @@ INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/Modules/uni
 INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/Modules/univ_sseg.v:175]
 INFO: [Synth 8-226] default block is never used [/home/victor/CPE233/Modules/univ_sseg.v:187]
 INFO: [Synth 8-6155] done synthesizing module 'univ_sseg' (16#1) [/home/victor/CPE233/Modules/univ_sseg.v:76]
-WARNING: [Synth 8-689] width (8) of port connection 'cnt1' does not match port width (14) of module 'univ_sseg' [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:87]
-INFO: [Synth 8-6155] done synthesizing module 'RAT_WRAPPER' (17#1) [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:19]
-WARNING: [Synth 8-3331] design FLAGS has unconnected port FLG_SHAD_LD
-WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port I_SET
-WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port I_CLR
-WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port FLG_SHAD_LD
-WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port FLG_LD_SEL
-WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port INTR
+WARNING: [Synth 8-689] width (8) of port connection 'cnt1' does not match port width (14) of module 'univ_sseg' [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:88]
+INFO: [Synth 8-6157] synthesizing module 'debounce_one_shot' [/home/victor/CPE233/RAT/RAT8/debounce_one_shot.sv:24]
+INFO: [Synth 8-6155] done synthesizing module 'debounce_one_shot' (17#1) [/home/victor/CPE233/RAT/RAT8/debounce_one_shot.sv:24]
+WARNING: [Synth 8-3848] Net BTNL in module/entity RAT_WRAPPER does not have driver. [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:102]
+INFO: [Synth 8-6155] done synthesizing module 'RAT_WRAPPER' (18#1) [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:19]
+WARNING: [Synth 8-3331] design RAT_WRAPPER has unconnected port BRNL
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.609 ; gain = 123.133 ; free physical = 1938 ; free virtual = 14139
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1277.609 ; gain = 124.133 ; free physical = 8994 ; free virtual = 15824
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -134,14 +129,15 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin ONESHOT:BTN to constant 0 [/home/victor/CPE233/RAT/RAT8/RAT_WRAPPER.sv:100]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.609 ; gain = 123.133 ; free physical = 1940 ; free virtual = 14141
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1277.609 ; gain = 124.133 ; free physical = 8996 ; free virtual = 15826
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.609 ; gain = 123.133 ; free physical = 1940 ; free virtual = 14141
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1277.609 ; gain = 124.133 ; free physical = 8996 ; free virtual = 15826
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -157,41 +153,66 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1606.953 ; gain = 0.000 ; free physical = 1662 ; free virtual = 13874
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1607.953 ; gain = 0.000 ; free physical = 8740 ; free virtual = 15574
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 1743 ; free virtual = 13950
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8826 ; free virtual = 15653
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 1743 ; free virtual = 13950
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8826 ; free virtual = 15653
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 1745 ; free virtual = 13952
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8828 ; free virtual = 15655
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'CONTROL_UNIT'
+INFO: [Synth 8-5545] ROM "FLG_SHAD_LD" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "PC_INC" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "NS" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element PROG_IR_reg was removed.  [/home/victor/CPE233/RAT/RAT1/ProgRom.sv:36]
 INFO: [Synth 8-5546] ROM "Z" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/victor/CPE233/RAT/RAT7/Stack_Pointer.sv:44]
+INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'debounce_one_shot'
+INFO: [Synth 8-5546] ROM "DB_BTN" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "s_count_rst" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "s_count_rst" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "s_count_rst" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "s_count_inc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "s_count_inc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "NS" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NS" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NS" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "r_leds" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "r_seg" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                 ST_INIT |                              001 | 00000000000000000000000000000000
-                ST_FETCH |                              010 | 00000000000000000000000000000001
-                 ST_EXEC |                              100 | 00000000000000000000000000000010
+                 ST_INIT |                             0001 | 00000000000000000000000000000000
+                ST_FETCH |                             0010 | 00000000000000000000000000000001
+                 ST_EXEC |                             0100 | 00000000000000000000000000000010
+                 ST_INTR |                             1000 | 00000000000000000000000000000011
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'one-hot' in module 'CONTROL_UNIT'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_init |                              000 | 00000000000000000000000000000000
+              ST_BTN_low |                              001 | 00000000000000000000000000000001
+      ST_BTN_low_to_high |                              010 | 00000000000000000000000000000010
+             ST_BTN_high |                              011 | 00000000000000000000000000000011
+      ST_BTN_high_to_low |                              100 | 00000000000000000000000000000100
+             ST_one_shot |                              101 | 00000000000000000000000000000101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'debounce_one_shot'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:24 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 1736 ; free virtual = 13942
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8818 ; free virtual = 15645
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -209,7 +230,7 @@ Detailed RTL Component Info :
 	   2 Input      9 Bit       Adders := 3     
 	   3 Input      9 Bit       Adders := 1     
 	   4 Input      9 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
 	   2 Input      4 Bit       Adders := 14    
 	   2 Input      2 Bit       Adders := 1     
 +---XORs : 
@@ -217,7 +238,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	               18 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
-	                8 Bit    Registers := 3     
+	                8 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 6     
 +---ROMs : 
@@ -229,23 +250,26 @@ Detailed RTL Component Info :
 	   3 Input     10 Bit        Muxes := 1     
 	   5 Input      8 Bit        Muxes := 2     
 	   3 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 3     
-	   4 Input      4 Bit        Muxes := 9     
+	   2 Input      8 Bit        Muxes := 4     
+	   4 Input      4 Bit        Muxes := 11    
 	  25 Input      4 Bit        Muxes := 1     
-	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
 	   8 Input      4 Bit        Muxes := 1     
-	  25 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 3     
-	  25 Input      2 Bit        Muxes := 4     
-	   3 Input      2 Bit        Muxes := 2     
+	  25 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 7     
+	   4 Input      2 Bit        Muxes := 6     
+	   6 Input      2 Bit        Muxes := 1     
+	  25 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 13    
-	  25 Input      1 Bit        Muxes := 9     
+	  25 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 28    
+	  28 Input      1 Bit        Muxes := 1     
 	  27 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 8     
-	   3 Input      1 Bit        Muxes := 17    
+	   2 Input      1 Bit        Muxes := 13    
+	   3 Input      1 Bit        Muxes := 4     
+	   6 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -263,20 +287,19 @@ Detailed RTL Component Info :
 Module CONTROL_UNIT 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   4 Input      4 Bit        Muxes := 4     
+	   4 Input      4 Bit        Muxes := 6     
 	  25 Input      4 Bit        Muxes := 1     
-	   3 Input      4 Bit        Muxes := 1     
-	  25 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 3     
-	  25 Input      2 Bit        Muxes := 4     
-	   3 Input      2 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 13    
-	  25 Input      1 Bit        Muxes := 9     
+	   2 Input      4 Bit        Muxes := 1     
+	  25 Input      3 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 6     
+	   6 Input      2 Bit        Muxes := 1     
+	  25 Input      2 Bit        Muxes := 1     
+	  25 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 28    
+	  28 Input      1 Bit        Muxes := 1     
 	  27 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
-	   3 Input      1 Bit        Muxes := 15    
 Module I 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -365,6 +388,19 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit        Muxes := 2     
 	   8 Input      4 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 5     
+Module debounce_one_shot 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 5     
+	   3 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -382,16 +418,16 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5546] ROM "MCU/alu/Z" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ONESHOT/s_count_inc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ONESHOT/s_count_inc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ONESHOT/DB_BTN" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ONESHOT/s_count_rst" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "r_leds" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "r_seg" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-6014] Unused sequential element MCU/PC/PC_COUNT_reg_rep was removed.  [/home/victor/CPE233/RAT/RAT2/ProgCounter.sv:37]
-WARNING: [Synth 8-3332] Sequential element (MCU/INTR_REG/I_OUT_reg) is unused and will be removed from module RAT_WRAPPER.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\MCU/flag/Z_SHAD_OUT_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\MCU/flag/C_SHAD_OUT_reg )
-WARNING: [Synth 8-3332] Sequential element (MCU/flag/C_SHAD_OUT_reg) is unused and will be removed from module RAT_WRAPPER.
-WARNING: [Synth 8-3332] Sequential element (MCU/flag/Z_SHAD_OUT_reg) is unused and will be removed from module RAT_WRAPPER.
+WARNING: [Synth 8-3331] design RAT_WRAPPER has unconnected port BRNL
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:28 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2094 ; free virtual = 14319
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8787 ; free virtual = 15626
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -431,13 +467,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2003 ; free virtual = 14221
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:34 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8678 ; free virtual = 15503
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2003 ; free virtual = 14221
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:34 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8678 ; free virtual = 15503
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -469,7 +505,7 @@ INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[5]' (FD) to
 INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[4]' (FD) to 'MCU/PROM/PROG_IR_reg[4]'
 INFO: [Synth 8-3886] merging instance 'MCU/PROM/PROG_IR_reg_rep_bsel[3]' (FD) to 'MCU/PROM/PROG_IR_reg[3]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 1999 ; free virtual = 14218
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8675 ; free virtual = 15500
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -493,7 +529,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -506,7 +542,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -518,25 +554,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -554,45 +590,48 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |BUFG       |     2|
 |2     |CARRY4     |    19|
-|3     |LUT1       |    11|
+|3     |LUT1       |    13|
 |4     |LUT2       |    43|
-|5     |LUT3       |    35|
-|6     |LUT4       |    32|
-|7     |LUT5       |    64|
-|8     |LUT6       |   110|
-|9     |MUXF7      |    16|
-|10    |MUXF8      |     4|
+|5     |LUT3       |    39|
+|6     |LUT4       |    43|
+|7     |LUT5       |    71|
+|8     |LUT6       |   122|
+|9     |MUXF7      |    15|
+|10    |MUXF8      |     5|
 |11    |RAM256X1S  |    10|
 |12    |RAM32X1D   |     8|
 |13    |RAMB18E1_1 |     1|
-|14    |FDRE       |    56|
-|15    |IBUF       |    10|
-|16    |OBUF       |    20|
+|14    |FDRE       |    70|
+|15    |FDSE       |     1|
+|16    |IBUF       |    10|
+|17    |OBUF       |    20|
 +------+-----------+------+
 
 Report Instance Areas: 
-+------+------------+----------------+------+
-|      |Instance    |Module          |Cells |
-+------+------------+----------------+------+
-|1     |top         |                |   441|
-|2     |  MCU       |RAT_MCU         |   289|
-|3     |    CU      |CONTROL_UNIT    |    11|
-|4     |    PC      |ProgCounter     |   169|
-|5     |    RF      |REG_FILE        |    55|
-|6     |    SCR     |SCRATCH_RAM     |    10|
-|7     |    SP      |Stack_Pointer   |    23|
-|8     |    alu     |ALU             |    12|
-|9     |    flag    |FLAGS           |     9|
-|10    |  Univ      |univ_sseg       |    97|
-|11    |    CC_14   |cnt_convert_14b |    69|
-|12    |    CLK_DIV |clk_divder      |    19|
-+------+------------+----------------+------+
++------+-------------+------------------+------+
+|      |Instance     |Module            |Cells |
++------+-------------+------------------+------+
+|1     |top          |                  |   492|
+|2     |  MCU        |RAT_MCU           |   309|
+|3     |    CU       |CONTROL_UNIT      |    18|
+|4     |    INTR_REG |I                 |     1|
+|5     |    PC       |ProgCounter       |   199|
+|6     |    RF       |REG_FILE          |    41|
+|7     |    SCR      |SCRATCH_RAM       |    10|
+|8     |    SP       |Stack_Pointer     |    25|
+|9     |    alu      |ALU               |     4|
+|10    |    flag     |FLAGS             |    11|
+|11    |  ONESHOT    |debounce_one_shot |    31|
+|12    |  Univ       |univ_sseg         |    97|
+|13    |    CC_14    |cnt_convert_14b   |    69|
+|14    |    CLK_DIV  |clk_divder        |    19|
++------+-------------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.953 ; gain = 453.477 ; free physical = 2000 ; free virtual = 14218
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.953 ; gain = 454.477 ; free physical = 8676 ; free virtual = 15501
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1606.953 ; gain = 123.133 ; free physical = 2065 ; free virtual = 14272
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.961 ; gain = 453.477 ; free physical = 2065 ; free virtual = 14272
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1607.953 ; gain = 124.133 ; free physical = 8729 ; free virtual = 15554
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:35 . Memory (MB): peak = 1607.961 ; gain = 454.477 ; free physical = 8729 ; free virtual = 15554
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 68 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -604,11 +643,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32X1D => RAM32X1D (RAMD32, RAMD32): 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-86 Infos, 45 Warnings, 0 Critical Warnings and 0 Errors encountered.
+104 Infos, 37 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:39 . Memory (MB): peak = 1606.961 ; gain = 453.852 ; free physical = 2065 ; free virtual = 14271
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1607.961 ; gain = 454.852 ; free physical = 8730 ; free virtual = 15555
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/victor/CPE233/RAT/RAT8/RAT8/RAT8.runs/synth_1/RAT_WRAPPER.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RAT_WRAPPER_utilization_synth.rpt -pb RAT_WRAPPER_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1630.965 ; gain = 0.000 ; free physical = 2066 ; free virtual = 14273
-INFO: [Common 17-206] Exiting Vivado at Sun Feb 24 02:54:30 2019...
+report_utilization: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1631.965 ; gain = 0.000 ; free physical = 8731 ; free virtual = 15556
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 27 21:49:38 2019...

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date                      : Sun Feb 24 02:55:27 2019
+| Date                      : Wed Feb 27 21:50:30 2019
 | Host                      : TheShell running 64-bit unknown
 | Command                   : report_io -file RAT_WRAPPER_io_placed.rpt
 | Design                    : RAT_WRAPPER
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            30 |
+|            31 |
 +---------------+
 
 

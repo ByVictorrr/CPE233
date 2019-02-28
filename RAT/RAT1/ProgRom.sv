@@ -29,7 +29,7 @@ module ProgRom(
     
     // initialize the ROM with the prog_rom.mem file
     initial begin
-        $readmemh("/home/victor/CPE233/RAT/RAT7/tests/TestAll.mem", rom, 0, 1023);
+        $readmemh("/home/victor/CPE233/RAT/RAT8/tests/Exp9_10.mem", rom, 0, 1023);
     end 
     
     always_ff @(posedge PROG_CLK) begin

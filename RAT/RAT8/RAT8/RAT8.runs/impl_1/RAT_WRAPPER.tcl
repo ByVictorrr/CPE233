@@ -60,99 +60,16 @@ proc step_failed { step } {
   close $ch
 }
 
-
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  create_project -in_memory -part xc7a35tcpg236-1
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.cache/wt [current_project]
-  set_property parent.project_path /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.xpr [current_project]
-  set_property ip_output_repo /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.runs/synth_1/RAT_WRAPPER.dcp
-  read_xdc /home/victor/CPE233/RAT/RAT8/hardwareConfig.xdc
-  link_design -top RAT_WRAPPER -part xc7a35tcpg236-1
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force RAT_WRAPPER_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file RAT_WRAPPER_drc_opted.rpt -pb RAT_WRAPPER_drc_opted.pb -rpx RAT_WRAPPER_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
-    implement_debug_core 
-  } 
-  place_design 
-  write_checkpoint -force RAT_WRAPPER_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file RAT_WRAPPER_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file RAT_WRAPPER_utilization_placed.rpt -pb RAT_WRAPPER_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file RAT_WRAPPER_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force RAT_WRAPPER_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file RAT_WRAPPER_drc_routed.rpt -pb RAT_WRAPPER_drc_routed.pb -rpx RAT_WRAPPER_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file RAT_WRAPPER_methodology_drc_routed.rpt -pb RAT_WRAPPER_methodology_drc_routed.pb -rpx RAT_WRAPPER_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file RAT_WRAPPER_power_routed.rpt -pb RAT_WRAPPER_power_summary_routed.pb -rpx RAT_WRAPPER_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file RAT_WRAPPER_route_status.rpt -pb RAT_WRAPPER_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file RAT_WRAPPER_timing_summary_routed.rpt -pb RAT_WRAPPER_timing_summary_routed.pb -rpx RAT_WRAPPER_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file RAT_WRAPPER_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file RAT_WRAPPER_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file RAT_WRAPPER_bus_skew_routed.rpt -pb RAT_WRAPPER_bus_skew_routed.pb -rpx RAT_WRAPPER_bus_skew_routed.rpx"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force RAT_WRAPPER_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_param xicom.use_bs_reader 1
+  open_checkpoint RAT_WRAPPER_routed.dcp
+  set_property webtalk.parent_dir /home/victor/CPE233/RAT/RAT8/RAT8/RAT8.cache/wt [current_project]
   catch { write_mem_info -force RAT_WRAPPER.mmi }
   write_bitstream -force RAT_WRAPPER.bit 
   catch {write_debug_probes -quiet -force RAT_WRAPPER}

@@ -45,10 +45,10 @@
     <node id="n3">
       <data key="d5">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="30.0" width="98.375" x="178.88597058823527" y="-211.0"/>
+          <y:Geometry height="30.0" width="132.05632352941174" x="154.75495294117647" y="-211.0"/>
           <y:Fill color="#D2DEEE" transparent="false"/>
           <y:BorderStyle cap="0" color="#000000" dashPhase="0.0" join="0" miterLimit="10.0" type="custom" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="node_size" configuration="CroppingLabel" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.375" x="0.0" xml:space="preserve" y="0.0">enable interrupt<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.5" labelRatioY="-0.5" nodeRatioX="-0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="node_size" configuration="CroppingLabel" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.05632352941174" x="0.0" xml:space="preserve" y="0.0">enable interrupt<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.5" labelRatioY="-0.5" nodeRatioX="-0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -86,7 +86,7 @@
       <data key="d9">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="228.07347058823527" y="-171.0"/>
+            <y:Point x="220.78311470588233" y="-171.0"/>
             <y:Point x="228.07347058823524" y="-171.0"/>
           </y:Path>
           <y:LineStyle cap="0" color="#336699" dashPhase="0.0" join="0" miterLimit="10.0" type="custom" width="1.0"/>
@@ -112,7 +112,10 @@
     <edge id="e2" source="n0" target="n3">
       <data key="d9">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="228.07347058823527" y="-221.0"/>
+            <y:Point x="220.78311470588233" y="-221.0"/>
+          </y:Path>
           <y:LineStyle cap="0" color="#336699" dashPhase="0.0" join="0" miterLimit="10.0" type="custom" width="1.0"/>
           <y:Arrows source="none" target="delta"/>
           <y:BendStyle smoothed="false"/>

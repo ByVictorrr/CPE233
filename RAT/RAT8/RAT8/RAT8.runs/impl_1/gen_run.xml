@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1551005619">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1551332931">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BG-DRC" Name="RAT_WRAPPER.drc"/>
   <File Type="BG-BGN" Name="RAT_WRAPPER.bgn"/>
@@ -31,44 +31,44 @@
   <File Type="ROUTE-STATUS-PB" Name="RAT_WRAPPER_route_status.pb"/>
   <File Type="ROUTE-STATUS" Name="RAT_WRAPPER_route_status.rpt"/>
   <File Type="ROUTE-PWR-RPX" Name="RAT_WRAPPER_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="RAT_WRAPPER_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="RAT_WRAPPER_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="RAT_WRAPPER_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="RAT_WRAPPER_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="RAT_WRAPPER_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="RAT_WRAPPER_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="RAT_WRAPPER_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="RAT_WRAPPER_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="RAT_WRAPPER_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="RAT_WRAPPER_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="RAT_WRAPPER_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="RAT_WRAPPER_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="RAT_WRAPPER_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="RAT_WRAPPER_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="RAT_WRAPPER_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="RAT_WRAPPER_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="RAT_WRAPPER_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="RAT_WRAPPER_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="RAT_WRAPPER_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="RAT_WRAPPER_control_sets_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="RAT_WRAPPER_utilization_placed.pb"/>
   <File Type="PLACE-UTIL" Name="RAT_WRAPPER_utilization_placed.rpt"/>
   <File Type="PLACE-CLK" Name="RAT_WRAPPER_clock_utilization_placed.rpt"/>
   <File Type="PLACE-IO" Name="RAT_WRAPPER_io_placed.rpt"/>
   <File Type="PLACE-DCP" Name="RAT_WRAPPER_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="RAT_WRAPPER_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="RAT_WRAPPER_drc_pwropted.rpt"/>
   <File Type="PWROPT-DCP" Name="RAT_WRAPPER_pwropt.dcp"/>
   <File Type="OPT-TIMING" Name="RAT_WRAPPER_timing_summary_opted.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="RAT_WRAPPER_incremental_reuse_placed.rpt"/>
   <File Type="OPT-HWDEF" Name="RAT_WRAPPER.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="RAT_WRAPPER_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="RAT_WRAPPER_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="RAT_WRAPPER_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="RAT_WRAPPER_timing_summary_init.rpt"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="RAT_WRAPPER_bus_skew_routed.rpx"/>
   <File Type="REPORTS-TCL" Name="RAT_WRAPPER_reports.tcl"/>
-  <File Type="PWROPT-DRC" Name="RAT_WRAPPER_drc_pwropted.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="RAT_WRAPPER_bus_skew_routed.pb"/>
   <File Type="PA-TCL" Name="RAT_WRAPPER.tcl"/>
-  <File Type="INIT-TIMING" Name="RAT_WRAPPER_timing_summary_init.rpt"/>
-  <File Type="PLACE-CTRL" Name="RAT_WRAPPER_control_sets_placed.rpt"/>
-  <File Type="PWROPT-TIMING" Name="RAT_WRAPPER_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="RAT_WRAPPER_incremental_reuse_pre_placed.rpt"/>
-  <File Type="OPT-DCP" Name="RAT_WRAPPER_opt.dcp"/>
-  <File Type="OPT-DRC" Name="RAT_WRAPPER_drc_opted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="RAT_WRAPPER_methodology_drc_opted.rpt"/>
-  <File Type="PLACE-TIMING" Name="RAT_WRAPPER_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-DRC" Name="RAT_WRAPPER_drc_routed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="RAT_WRAPPER_postplace_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="RAT_WRAPPER_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="RAT_WRAPPER_drc_routed.pb"/>
-  <File Type="PHYSOPT-DCP" Name="RAT_WRAPPER_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="RAT_WRAPPER_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-TIMING" Name="RAT_WRAPPER_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-PWR" Name="RAT_WRAPPER_power_routed.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="RAT_WRAPPER_routed_error.dcp"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="RAT_WRAPPER_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-DCP" Name="RAT_WRAPPER_routed.dcp"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="RAT_WRAPPER_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="RAT_WRAPPER_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC-RPX" Name="RAT_WRAPPER_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="RAT_WRAPPER_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="RAT_WRAPPER_power_summary_routed.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../../Modules/mux_2t1_nb.v">
@@ -155,6 +155,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../debounce_one_shot.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../RAT_MCU.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -166,6 +173,12 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../tests/Exp9_10.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -188,9 +201,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
