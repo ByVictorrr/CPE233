@@ -10,8 +10,8 @@
 ; R1 - output value (LED) 
 ;--------------------------------------------------------------------
 
-.EQU IN_PORT = 0x42
-.EQU OUT_PORT = 0x9A 
+.EQU IN_PORT = 0x9A
+.EQU OUT_PORT = 0x42
 
 .CSEG
 .ORG 0x01
