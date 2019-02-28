@@ -19,12 +19,13 @@
 main:
 	SEI ; enabling interrupts
 output: 
-	OUT LED, OUT_PORT
+	OUT R1, OUT_PORT
 	BRN output 
 
 ISR:
 	IN R0, IN_PORT
 	EXOR R1, R0 ;LED = LED xor SW
+	RETIE
 
 .CSEG 
 .ORG 0x3FF
