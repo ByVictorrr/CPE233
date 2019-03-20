@@ -1,0 +1,8 @@
+.CSEG
+.ORG 0x23
+
+main: IN R2, 0x64
+		ADD R2, 0xFF
+		SUBC R2, 0x32
+		BRN main
+	
